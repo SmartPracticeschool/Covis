@@ -16,7 +16,7 @@
 
 # Step 2 Data Preprocessing phase begins from here (^_^)
 ### Despite all this hard work , our data still needs some more changes to be ready for our ultimate goal which is obviously MODEL TRAINING!!!
-### [$] We have provided a file named {model_training.ipynb} in which we fitstly cleans data , checks it's accuracy and then finally train it on our ML model 
+### [$] We have provided a file named {model_training.ipynb} in which we firstly cleans data , checks it's accuracy and then finally train it on our ML model 
 ### [$] Now we have 5 features in our data {Text_Id , Text , Date , Location , Sentiments } , and from these 5 , first 4 are our independent features and 5th one is our Dependent/Target feature
 ### [$] Firstly we modify our date variable and remove unnecessary things such as timezone from it because we have already included a separated feature location in our dataset
 ### [$] After we have changed our dependent feature 'Sentiments' date from continuous form to discrete form so that our model can easily differentiate between Positive , Negative and Neutral sentiments...
