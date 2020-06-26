@@ -98,3 +98,32 @@ class Plot():
             annotations=[dict(text=center_name, x=0.5, y=0.5, font_size=20, showarrow=False),
                             ])
         return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
+    
+    def create_table(self, locations, positive, negative, neutral, Title=None):
+
+        fig = go.Figure()
+        fig.add_trace(
+            go.Table(
+                header=dict(
+                    values=["Locations",
+                            "Positive Sentiment Percentage",
+                            "Negative Sentiment Percentage",
+                            "Neutral Sentiment Percentage"],
+                    font=dict(size=10),
+                    align='left'
+                ),
+                cells=dict(
+                    values=[locations,
+                            positive,
+                            negative,
+                            neutral],
+                )
+            ),
+        )
+        fig.update_layout(
+            height=900,
+            showlegend=False,
+            title_text=Title,
+        )
+
+        return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
