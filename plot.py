@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
+import plotly.offline as offl
+
 
 class Plot():
     '''Used to plot different graphs by passing relevant arguments;
@@ -75,7 +77,8 @@ class Plot():
             plot_bgcolor='rgb(248,248,255)'
 
         )
-        fig.show()
+        return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
+
 
     def donnut_pie(self, label, value, center_name=None, title=None):
         '''Returns pie chart according to parameters passed.
@@ -94,4 +97,4 @@ class Plot():
             title_text=title,
             annotations=[dict(text=center_name, x=0.5, y=0.5, font_size=20, showarrow=False),
                             ])
-        fig.show()
+        return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
