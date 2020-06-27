@@ -3,34 +3,133 @@
 
 <head>
     <meta charset="UTF-8">
+
+    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
+
     <script type="text/javascript" language="javascript"src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
     <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>COVID -19 Dashboard</title>
 </head>
 
-<body>
-    <h1>Hello</h1>
-
-    <div class="container">
-        {{plot1 | safe}}
+<body class="bodie">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('home')}}">COVID-19 Tweet Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Tweet Visualization</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <span class="navbar-text">
+                Elite Coders
+            </span>
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="https://github.com/SmartPracticeschool/SBSPS-Challenge-1505-Sentiment-Analysis-of-COVID-19-Tweets-Dashboard-For-Visualization"><img src="{{url_for('static',filename="git.png")}}" alt="Logo" style="width:40px;"></a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <div class="jumbotron">
+        <h1>Sentiment Analysis Of COVID-19 Tweets – Dashboard For Visualization</h1>
     </div>
-
-    <div class="container">
-        {{plot2 | safe}}
+    <br>
+    <div class="bar_graph">
+        <h2><u>Sentiment of Indians During Different Phases of Lockdown</u></h2>
+        <h3 style="text-align: center;">(In Bar Graph Formation)</h3>
     </div>
+    <br>
+    <p class="bar_theory">The Sentiments of Indian people related to lockdown and COVID-19 during the different phases of lockdown is shown with the help of bar graph below. Here four different bar graphs are shown representing the 4 different phases of lockdown which started from 25/March/2020 and upto 31/May/2020. After that one another graph is shown which represents complete sentiments of all the 4 phases together.
+        <br>
+       <u>The First Phase was from </u>:- 25/March/2020 - 14/April/2020
+        <br>
+       <u>The Second Phase was from</u> :- 15/March/2020 - 03/May/2020
+        <br>
+       <u>The third Phase was from</u> :- 04/May/2020 - 17/May/2020
+        <br>
+       <u>The Fourth Phase was from</u> :- 18/May/2020 - 31/May/2020
+       <br>
+       For more info of Lockdown in India click <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic_lockdown_in_India" target="_blank">Here</a>
 
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    </p>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col s6">{{ls[0] | safe}}</div>
+        <div class="col s6">{{ls[1] | safe}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col s6">{{ls[2] | safe}}</div>
+        <div class="col s6">{{ls[3] | safe}}</div>
+    </div>
+    <br>
+    {{ls[4] | safe}}
+    <br>
+    <br>
+    <br>
+    <div class="line_graph">
+        <h2><u>Sentiment of Indians During Complete Lockdown</u></h2>
+        <h3 style="text-align: center;">(In Line And Pie Graph Formation)</h3>
+    </div>
+    <br>
+    <p class="bar_theory">The sentiments of people of India towards Lockdown and also towards Government decisions related to lockdown were analyzed from 25/March/2020 to 31/May/2020 ,i.e, during all the four phases of lockdown. The sentiments are represented in the line graph formation and pie chart formation as shown below. Here the line graph represents the same thing that is represented by by bar graph but in line formation. And the pie chart represents the total number of sentiments of each category for all over India during complete lockdown.</p>
+    <br>
+    {{ls[5] | safe}}
+    <br>
+    <br>
+    {{ls[6] | safe}}
+    <br>
+    <br>
+    <div class="table_graph">
+        <h2><u>Sentiment of Different States During Complete Lockdown</u></h2>
+        <h3 style="text-align: center;">(In Table Formation)</h3>
+    </div>
+    <br>
+    <p class="bar_theory">Here the sentiments of Indian people towrds Lockdown and Government decisions related to lockdown were analyzed in another form ,i.e., state wise. In this we have analyzed the sentiments from 25/March/2020 to 31/May/2020 ,i.e, during all the four phases of lockdown. And after that shown them in a tabular form or table form in which sentiments are categorized according to the states in India. The table is shown below.</p>
+    <br>
+    {{ls[7] | safe}}
+    <br>
+    <br>
+    <div class="text_image">
+        <h2><u>Important Words Extracted From Sentiments of Indians During Complete Lockdown</u></h2>
+        <h3 style="text-align: center;">(In Image Form)</h3>
+    </div>
+    <br>
+    <br>
+    <p class="bar_theory">From the sentiment analysis of Indian People Tweets towards Lockdown and related information were analyzed and then the words or sentiments which effected the the data most are shown below in a form of image where bigger words affected more our sentiment data and then comes smaller words which affected less of our sentiment data.</p>
+    <img src={{url_for('static',filename="word2.jpg")}} height="800" width="800" class="center"/>
 </body>
 
 </html>

@@ -79,7 +79,6 @@ class Plot():
         )
         return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
 
-
     def donnut_pie(self, label, value, center_name=None, title=None):
         '''Returns pie chart according to parameters passed.
             label : List object for plotting labels on plot.
@@ -98,9 +97,9 @@ class Plot():
             annotations=[dict(text=center_name, x=0.5, y=0.5, font_size=20, showarrow=False),
                             ])
         return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
-    
-    def create_table(self, locations, positive, negative, neutral, Title=None):
 
+    def create_table(self, locations, positive, negative, neutral, Title=None):
+    
         fig = go.Figure()
         fig.add_trace(
             go.Table(
