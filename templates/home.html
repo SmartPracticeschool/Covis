@@ -7,9 +7,9 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
 
-    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.png') }}">
 
     <script type="text/javascript" language="javascript"src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
@@ -52,11 +52,11 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <span class="navbar-text">
+            <span class="navbar-text" style="color: rgb(22, 218, 22); font-size: 20px;">
                 Elite Coders
             </span>
             <li class="nav-item">
-                <a class="nav-link" target="_blank" href="https://github.com/SmartPracticeschool/SBSPS-Challenge-1505-Sentiment-Analysis-of-COVID-19-Tweets-Dashboard-For-Visualization"><img src="{{url_for('static',filename="git.png")}}" alt="Logo" style="width:40px;"></a>
+                <a class="nav-link" target="_blank" href="https://github.com/SmartPracticeschool/SBSPS-Challenge-1505-Sentiment-Analysis-of-COVID-19-Tweets-Dashboard-For-Visualization"><img src="{{url_for('static',filename="images/git.png")}}" alt="Logo" style="width:40px;"></a>
             </li>
         </ul>
     </nav>
@@ -129,7 +129,7 @@
     <br>
     <br>
     <p class="bar_theory">From the sentiment analysis of Indian People Tweets towards Lockdown and related information were analyzed and then the words or sentiments which effected the the data most are shown below in a form of image where bigger words affected more our sentiment data and then comes smaller words which affected less of our sentiment data.</p>
-    <img src={{url_for('static',filename="word2.jpg")}} height="800" width="800" class="center"/>
+    <img src={{url_for('static',filename="images/word2.jpg")}} height="800" width="800" class="center"/>
 </body>
 
 </html>
