@@ -32,6 +32,7 @@ fig = Plot(x_list, y_list)
 
 def plot_bar_func(phase):
     if phase == 'p1':
+        # used to plot line chart of phase 1 of lockdown in India
         fig.trace_addition(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
                             color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
@@ -43,6 +44,7 @@ def plot_bar_func(phase):
                         )
         return plotb
     elif phase == 'p2':
+        # used to plot line chart of phase 2 of lockdown in India
         fig.trace_addition(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
                             color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
@@ -54,6 +56,7 @@ def plot_bar_func(phase):
                         )
         return plotb
     elif phase == 'p3':
+        # used to plot line chart of phase 3 of lockdown in India
         fig.trace_addition(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
                             color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
@@ -65,6 +68,7 @@ def plot_bar_func(phase):
                         )
         return plotb
     elif phase == 'p4':
+        # used to plot line chart of phase 4 of lockdown in India
         fig.trace_addition(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
                             color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
@@ -77,30 +81,17 @@ def plot_bar_func(phase):
         return plotb
 
     elif phase == 'p5':
-        fig.trace_addition(go.Bar,
+        # used to plot graph of sentiments during full period of lockdown
+        plotb = fig.main_plot(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
-                            color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
-
-        plotb = fig.plotting(title='Lockdown Sentiments of India During Complete Lockdown ,i.e., from 25/March/2020 - 31/May/2020',
+                            color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'],title='Sentiments of peoples in India During Complete Lockdown',
                         x_title='Dates',
                         y_title='Sentiments',
-                        x_range=['2020-03-25', '2020-05-31']
                         )
         return plotb
-    
-    elif phase == 'l1':
-        fig.trace_addition(go.Line,
-                            name=['Positive', 'Negative', 'Neutral'],
-                            color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
 
-        plotb = fig.plotting(title='Lockdown Sentiments of India During Complete Lockdown ,i.e., from 25/March/2020 - 31/May/2020',
-                        x_title='Dates',
-                        y_title='Sentiments',
-                        x_range=['2020-03-25', '2020-05-31']
-                        )
-        return plotb
-    
     elif phase == 'pie':
+        # used to plot pie chart of total percentage of all sentiments during lockdown
         plotb = fig.donnut_pie(title='Lockdown Sentiments of India During Complete Lockdown ,i.e., from 25/March/2020 - 31/May/2020',
                         label= ['Positive Sentiments', 'Negative Sentiments', 'Neutral Sentiments'],
                         value= [total_positive, total_negative, total_neutral],
@@ -123,10 +114,9 @@ plotp2 = plot_bar_func('p2')
 plotp3 = plot_bar_func('p3')
 plotp4 = plot_bar_func('p4')
 plotp5 = plot_bar_func('p5')
-plotl1 = plot_bar_func('l1')
 pie = plot_bar_func('pie')
 
-ls = [plotp1, plotp2, plotp3, plotp4, plotp5, plotl1, pie, ptable]
+ls = [plotp1, plotp2, plotp3, plotp4, plotp5, pie, ptable]
 
 @app.route('/', methods=['POST', 'GET'])
 def home(): 
