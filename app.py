@@ -32,7 +32,7 @@ fig = Plot(x_list, y_list)
 
 def plot_bar_func(phase):
     if phase == 'p1':
-        fig.trace_addition(go.Bar,
+        fig.trace_addition(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
                             color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
 
@@ -43,7 +43,7 @@ def plot_bar_func(phase):
                         )
         return plotb
     elif phase == 'p2':
-        fig.trace_addition(go.Bar,
+        fig.trace_addition(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
                             color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
 
@@ -54,7 +54,7 @@ def plot_bar_func(phase):
                         )
         return plotb
     elif phase == 'p3':
-        fig.trace_addition(go.Bar,
+        fig.trace_addition(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
                             color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
 
@@ -65,7 +65,7 @@ def plot_bar_func(phase):
                         )
         return plotb
     elif phase == 'p4':
-        fig.trace_addition(go.Bar,
+        fig.trace_addition(go.Line,
                             name=['Positive', 'Negative', 'Neutral'],
                             color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
 
