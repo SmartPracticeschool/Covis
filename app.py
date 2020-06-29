@@ -1,12 +1,15 @@
 import pandas as pd
 import numpy as np
 from plot import Plot
+import os
 import plotly.graph_objects as go
 from data_plot_labels import data_plot
 from table_plot_labels import table_plot
 from flask import Flask, render_template,request, jsonify
 
 app = Flask(__name__)
+
+port = int(os.getenv('PORT', 8000))
 
 # Loading the dataset
 df = pd.read_csv('Model_training/Date_Sentiments.csv')
@@ -123,4 +126,4 @@ def home():
     return render_template('home.html', ls=ls)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)

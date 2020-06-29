@@ -2,4 +2,4 @@
 applications:
  - name: COVID-19_Dashboard
    random-route: true
-   memory: 128M
+   memory: 400M
