@@ -2,11 +2,24 @@
   background-color: rgba(255, 246, 246, 0.116);
 }
 
-.jumbotron {
-  font-family: Impact;
-  text-align: center;
-  font-size: 120px;
-  color: green;
+.paral h1 {
+color: rgba(255, 255, 255, 0.8);
+font-size: 60px;
+font-family: impact;
+text-align: center;
+padding-top: 60px;
+line-height: 100px;
+}
+
+.paral {
+min-height: 350px;
+background-attachment: fixed;
+background-size: cover;
+background-position: 50% 50%;
+}
+
+.paralsec {
+background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20200325/pngtree-red-gradient-creative-virus-background-image_332715.jpg);
 }
 
 .bar_graph{
