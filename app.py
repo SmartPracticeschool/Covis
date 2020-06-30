@@ -1,10 +1,11 @@
+from state_date_senti import sunburst_plot
+import plot
 import pandas as pd
 import numpy as np
 from plot import Plot
 import os
 import plotly.graph_objects as go
 from data_plot_labels import data_plot
-from table_plot_labels import table_plot
 from flask import Flask, render_template,request, jsonify
 
 app = Flask(__name__)
@@ -12,8 +13,9 @@ app = Flask(__name__)
 port = int(os.getenv('PORT', 8000))
 
 # Loading the dataset
-df = pd.read_csv('Model_training/Date_Sentiments.csv')
+df = pd.read_csv(r'Model_training/Date_Sentiments.csv')
 df1 = pd.read_csv(r'Model_training/Location_Sentiments.csv')
+df2 = pd.read_csv(r'Model_training/Location_Date_Sentiments.csv')
 
 # Creating list of data points
 data_plot_dict = data_plot(df)
@@ -23,12 +25,15 @@ total_positive = data_plot_dict['total_positive']
 total_negative = data_plot_dict['total_negative']
 total_neutral = data_plot_dict['total_neutral']
 
-# Creating lists for table points
-table_plot_dict = table_plot(df1)
-Locations = table_plot_dict['Location_list']
-Positive_sentiment = table_plot_dict['Positive_sentiments']
-Negative_sentiment = table_plot_dict['Negative_sentiments']
-Neutral_sentiment = table_plot_dict['Neutral_sentiments']
+## Sunburst plot
+# Creating data for sunburst plot
+state_date_senti_dict = sunburst_plot(df2)
+
+# Creating the plot
+sunburst_ploted = plot.sunburst_chart(state_date_senti_dict['State_date_positive'],
+                            state_date_senti_dict['State_date_negative'],
+                            state_date_senti_dict['State_date_neutral']
+                        )
 
 # Plot creation
 fig = Plot(x_list, y_list)
@@ -102,15 +107,7 @@ def plot_bar_func(phase):
                         )
         return plotb
 
-def table(figure, locations, positive, negative, neutral):
-    final_plot = figure.create_table(locations,
-                            positive,
-                            negative,
-                            neutral,
-                            'Lockdown Sentiments in different states during complete lockdown ,i.e., from 25/March/2020 - 31/May/2020')
-    return final_plot 
 
-ptable = table(fig, Locations, Positive_sentiment, Negative_sentiment, Neutral_sentiment)
 
 plotp1 = plot_bar_func('p1')
 plotp2 = plot_bar_func('p2')
@@ -119,11 +116,11 @@ plotp4 = plot_bar_func('p4')
 plotp5 = plot_bar_func('p5')
 pie = plot_bar_func('pie')
 
-ls = [plotp1, plotp2, plotp3, plotp4, plotp5, pie, ptable]
+ls = [plotp1, plotp2, plotp3, plotp4, plotp5, pie, sunburst_ploted]
 
 @app.route('/', methods=['POST', 'GET'])
 def home(): 
     return render_template('home.html', ls=ls)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(debug=True)
