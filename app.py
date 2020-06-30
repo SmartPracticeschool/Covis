@@ -71,8 +71,8 @@ def plot_bar_func(phase):
     if phase == 'p1':
         # used to plot line chart of phase 1 of lockdown in India
         fig.trace_addition(go.Line,
-                            name=['Positive', 'Negative', 'Neutral'],
-                            color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
+                            name=['Positive 🙂', 'Negative ☹️', 'Neutral 😐'],
+                            color=['rgb(42, 199, 78)', 'rgb(232, 14, 14)', 'rgb(232, 228, 12)'])
 
         plotb = fig.plotting(title='Lockdown Sentiments of India During Phase-1',
                         x_title='Dates',
@@ -83,8 +83,8 @@ def plot_bar_func(phase):
     elif phase == 'p2':
         # used to plot line chart of phase 2 of lockdown in India
         fig.trace_addition(go.Line,
-                            name=['Positive', 'Negative', 'Neutral'],
-                            color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
+                            name=['Positive 🙂', 'Negative ☹️', 'Neutral 😐'],
+                            color=['rgb(42, 199, 78)', 'rgb(232, 14, 14)', 'rgb(232, 228, 12)'])
 
         plotb = fig.plotting(title='Lockdown Sentiments of India During Phase-2',
                         x_title='Dates',
@@ -95,8 +95,8 @@ def plot_bar_func(phase):
     elif phase == 'p3':
         # used to plot line chart of phase 3 of lockdown in India
         fig.trace_addition(go.Line,
-                            name=['Positive', 'Negative', 'Neutral'],
-                            color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
+                            name=['Positive 🙂', 'Negative ☹️', 'Neutral 😐'],
+                            color=['rgb(42, 199, 78)', 'rgb(232, 14, 14)', 'rgb(232, 228, 12)'])
 
         plotb = fig.plotting(title='Lockdown Sentiments of India During Phase-3',
                         x_title='Dates',
@@ -107,8 +107,8 @@ def plot_bar_func(phase):
     elif phase == 'p4':
         # used to plot line chart of phase 4 of lockdown in India
         fig.trace_addition(go.Line,
-                            name=['Positive', 'Negative', 'Neutral'],
-                            color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'])
+                            name=['Positive 🙂', 'Negative ☹️', 'Neutral 😐'],
+                            color=['rgb(42, 199, 78)', 'rgb(232, 14, 14)', 'rgb(232, 228, 12)'])
 
         plotb = fig.plotting(title='Lockdown Sentiments of India During Phase-4',
                         x_title='Dates',
@@ -120,8 +120,8 @@ def plot_bar_func(phase):
     elif phase == 'p5':
         # used to plot graph of sentiments during full period of lockdown
         plotb = fig.main_plot(go.Line,
-                            name=['Positive', 'Negative', 'Neutral'],
-                            color=['rgb(128,0,128)', 'rgb(26,118,255)', 'rgb(178,34,34)'],title='Sentiments of peoples in India During Complete Lockdown',
+                            name=['Positive 🙂', 'Negative ☹️', 'Neutral 😐'],
+                            color=['rgb(42, 199, 78)', 'rgb(232, 14, 14)', 'rgb(232, 228, 12)'],title='Sentiments of peoples in India During Complete Lockdown',
                         x_title='Dates',
                         y_title='Sentiments',
                         )
@@ -130,7 +130,7 @@ def plot_bar_func(phase):
     elif phase == 'pie':
         # used to plot pie chart of total percentage of all sentiments during lockdown
         plotb = fig.donnut_pie(title='Lockdown Sentiments of India During Complete Lockdown ,i.e., from 25/March/2020 - 31/May/2020',
-                        label= ['Positive Sentiments', 'Negative Sentiments', 'Neutral Sentiments'],
+                        label= ['Positive Sentiments 🙂', 'Negative Sentiments ☹️', 'Neutral Sentiments 😐'],
                         value= [total_positive, total_negative, total_neutral],
                         center_name= 'Sentiments'
                         )
