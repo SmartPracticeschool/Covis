@@ -251,11 +251,11 @@ class Plot():
             center_name : Name to be shown on the center of pie chart(donut type).
             title : Title to be shown on the plot'''
         fig = go.Figure()
-
+        coolors = ['rgb(42, 199, 78)', 'rgb(232, 14, 14)', 'rgb(232, 228, 12)']
         fig.add_trace(go.Pie(labels=label, values=value),
                         )
 
-        fig.update_traces(hole=.4, hoverinfo="label+percent+value")
+        fig.update_traces(hole=.4, hoverinfo="label+percent+value", marker=dict(colors=coolors, line=dict(color='#000000', width=1)))
 
         fig.update_layout(
             title_text=title,
