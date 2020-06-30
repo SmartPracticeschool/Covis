@@ -53,6 +53,17 @@ for states in list(arg1.keys()):
     boxplot_states_dict[states] = plot.box_plot(y1, y2, y3, states)
 
 
+## States dates and sentiments plots: Area, Scatter, Line, Bar plots
+states_dates_dict = dict()
+for states in list(arg1.keys()):
+    positive_sentiment = arg1[states]
+    negative_sentiment = arg2[states]
+    neutral_sentiment = arg3[states]
+    states_dates_dict[states] = plot.state_date_plot(positive_sentiment, negative_sentiment,
+                                                neutral_sentiment, states
+                                            )
+
+
 ##  Main plot creation
 fig = Plot(x_list, y_list)
 
@@ -135,7 +146,7 @@ plotp5 = plot_bar_func('p5')
 pie = plot_bar_func('pie')
 
 ls = [plotp1, plotp2, plotp3, plotp4, plotp5, pie,
-        sunburst_ploted, boxplot_states_dict
+        sunburst_ploted, boxplot_states_dict, states_dates_dict
     ]
 
 @app.route('/', methods=['POST', 'GET'])
