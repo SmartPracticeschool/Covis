@@ -17,13 +17,14 @@ df = pd.read_csv(r'Model_training/Date_Sentiments.csv')
 df1 = pd.read_csv(r'Model_training/Location_Sentiments.csv')
 df2 = pd.read_csv(r'Model_training/Location_Date_Sentiments.csv')
 
-# Creating list of data points
+# Creating list of data points for maiin plots
 data_plot_dict = data_plot(df)
 x_list = data_plot_dict['x_list']
 y_list = data_plot_dict['y_list']
 total_positive = data_plot_dict['total_positive']
 total_negative = data_plot_dict['total_negative']
 total_neutral = data_plot_dict['total_neutral']
+
 
 ## Sunburst plot
 # Creating data for sunburst plot
@@ -35,7 +36,24 @@ sunburst_ploted = plot.sunburst_chart(state_date_senti_dict['State_date_positive
                             state_date_senti_dict['State_date_neutral']
                         )
 
-# Plot creation
+
+## Boxplot
+# Creating data for the plot
+arg1 = state_date_senti_dict['State_date_positive']
+arg2 = state_date_senti_dict['State_date_negative']
+arg3 = state_date_senti_dict['State_date_neutral']
+
+# Creating the plot
+boxplot_states_dict = dict()
+
+for states in list(arg1.keys()):
+    y1 = list(arg1[states].values())
+    y2 = list(arg2[states].values())
+    y3 = list(arg3[states].values())
+    boxplot_states_dict[states] = plot.box_plot(y1, y2, y3, states)
+
+
+##  Main plot creation
 fig = Plot(x_list, y_list)
 
 def plot_bar_func(phase):
@@ -116,7 +134,9 @@ plotp4 = plot_bar_func('p4')
 plotp5 = plot_bar_func('p5')
 pie = plot_bar_func('pie')
 
-ls = [plotp1, plotp2, plotp3, plotp4, plotp5, pie, sunburst_ploted]
+ls = [plotp1, plotp2, plotp3, plotp4, plotp5, pie,
+        sunburst_ploted, boxplot_states_dict
+    ]
 
 @app.route('/', methods=['POST', 'GET'])
 def home(): 
