@@ -264,32 +264,48 @@ class Plot():
         return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
 
 
+def sunburst_chart(state_date_1, state_date_neg_1, state_date_0):
+    '''This function plots states with its cummulative positive, negative, and neutral probabilities in form of sunburst chart'''
 
-    def create_table(self, locations, positive, negative, neutral, Title=None):
-    
-        fig = go.Figure()
-        fig.add_trace(
-            go.Table(
-                header=dict(
-                    values=["Locations",
-                            "Positive Sentiment Percentage",
-                            "Negative Sentiment Percentage",
-                            "Neutral Sentiment Percentage"],
-                    font=dict(size=10),
-                    align='left'
-                ),
-                cells=dict(
-                    values=[locations,
-                            positive,
-                            negative,
-                            neutral],
-                )
-            ),
-        )
-        fig.update_layout(
-            height=900,
-            showlegend=False,
-            title_text=Title,
-        )
+    # Creating values list for sunburst plot
+    values_list = []
+    for states in list(state_date_1.keys()):
+        positive = round(sum(list(state_date_1[states].values())), 2)
+        negative = round(sum(list(state_date_neg_1[states].values())), 2)
+        neutral = round(sum(list(state_date_0[states].values())), 2)
+        total = positive + negative + neutral
+        values_list.append(round(total, 2))
 
-        return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
+    for states in list(state_date_1.keys()):
+        positive = round(sum(list(state_date_1[states].values())), 2)
+        negative = round(sum(list(state_date_neg_1[states].values())), 2)
+        neutral = round(sum(list(state_date_0[states].values())), 2)
+        values_list.append(positive)
+        values_list.append(negative)
+        values_list.append(neutral)
+
+    # Creating labels for sunburst plot
+    labels_list = list(state_date_1.keys())
+    for states in list(state_date_1.keys()):
+        labels_list.append(f"Positive in {states}")
+        labels_list.append(f"Negative in {states}")
+        labels_list.append(f"Neutral in {states}")
+
+    # Creating parent list for sunburst plot
+    parent_list = [""]*33+sorted(list(state_date_1.keys())*3)
+
+    fig = go.Figure()
+
+    fig = go.Figure(go.Sunburst(
+        labels=labels_list,
+        parents=parent_list,
+        values=values_list,
+        maxdepth=2,
+        branchvalues='total',
+        hovertemplate='<b>%{label} </b> <br> probability: %{value}',
+        name=''
+    ))
+
+    fig.update_layout(margin=dict(t=10, l=10, r=10, b=10))
+
+    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
