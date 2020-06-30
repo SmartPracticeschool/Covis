@@ -309,3 +309,39 @@ def sunburst_chart(state_date_1, state_date_neg_1, state_date_0):
     fig.update_layout(margin=dict(t=10, l=10, r=10, b=10))
 
     return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
+
+
+def box_plot(y_positive, y_negative, y_neutral, name):
+    '''plot box plot takes in list of y variables that we want to plot'''
+    fig = go.Figure()
+    fig.add_trace(go.Box(y=y_positive,
+                        name='positive'
+                            ))
+    fig.add_trace(go.Box(y=y_negative,
+                        name='Negative'
+                            ))
+    fig.add_trace(go.Box(y=y_neutral,
+                        name='Neutral'
+                            ))
+
+    fig.update_layout(
+        title={
+            'text': f"BoxPlot of sentiments of {name}",
+            'y': 0.99,
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': dict(
+                    family='Rockwell',
+                    color='dim gray',
+                    size=30),
+        },
+        template='plotly_dark',
+        xaxis=dict(
+            showgrid=False
+        ),
+        yaxis=dict(
+            showgrid=False
+        ))
+
+    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
