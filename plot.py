@@ -474,3 +474,94 @@ def state_date_plot(state_date_positive, state_date_negative, state_date_neutral
         ])
 
     return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
+
+def stacked_barplot(x_list, y_list):
+    '''Plot stacked barplot'''
+    
+    for x_labels, y_labels in zip(x_list, y_list):
+        fig = go.Figure(data=[
+        go.Bar(name='Positive', x=x_labels, y=y_labels,
+                marker_color='green',
+                marker_line_color='darkgreen'
+                ),
+        go.Bar(name='Negative', x=xlabels, y=y_labels,
+                marker_color='red',
+                marker_line_color='darkred'
+                ),
+        go.Bar(name='Neutral', x=x_labels, y=y_labels,
+                marker_color='yellow',
+                marker_line_color='gold'
+                )
+                ])
+    
+    fig.update_traces(marker_line_width=1, opacity=0.7)
+    
+    # Change the layout
+    fig.update_layout(
+            barmode='stack',
+            template='plotly_dark',
+            xaxis=dict(
+                title='Dates',
+                tickfont_size=14,
+                tickangle=90,
+                tickfont=dict(
+                    family='Rockwell',
+                    color='dim gray',
+                    size=9),
+                tickmode='linear',
+                showgrid=False
+                ),
+            yaxis=dict(
+                title='Sentiments',
+                titlefont_size=16,
+                tickfont_size=14,
+                showgrid=False
+                ),
+            bargap=0.3,
+            title={
+                'text': "stacked barplot",
+                'y':0.99,
+                'x':0.5,
+                'xanchor': 'center',
+                'yanchor': 'top',
+                'font': dict(
+                        family='Rockwell',
+                        color='dim gray',
+                        size=30),
+                },
+            updatemenus=[
+                    dict(
+                        buttons=list([
+                            dict(
+                                label="Cummulative",
+                                method="update",
+                                args=[{"visible": [True, True, True]},
+                                        ]),
+                            dict(
+                                label="Positive",
+                                method="update",
+                                args=[{"visible": [True, False, False]},
+                                        ]),
+                            dict(
+                                label="Negative",
+                                method="update",
+                                args=[{"visible": [False, True, False]},
+                                        ]),
+                            dict(
+                                label="Neutral",
+                                method="update",
+                                args=[{"visible": [False, False, True]},
+                                        ]),
+                        ]),
+                        direction="down",
+                        pad={"r": 10, "t": 10},
+                        showactive=True,
+                        x=0.01,
+                        xanchor="left",
+                        y=1.2,
+                        yanchor="top",
+                        font=dict(color="rgb(220,20,60)")
+                    ),
+                ])
+
+    fig.show()
