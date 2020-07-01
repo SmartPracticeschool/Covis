@@ -961,3 +961,89 @@ def line_plot(x_list, y_list):
         ])
 
     fig.show()
+
+def violin_plot(y_list):
+    '''plots violin plot'''
+    
+    fig = go.Figure()
+    for y_labels in y_list:
+        fig.add_trace(go.Violin(y=y_labels,
+                        box_visible=True, line_color='green',
+                        meanline_visible=True,
+                        fillcolor='lightgreen', opacity=0.6,
+                        x0='Positive', name='Positive')
+            )
+        fig.add_trace(go.Violin(y=y_labels,
+                        box_visible=True, line_color='red',
+                        meanline_visible=True,
+                        fillcolor='orange', opacity=0.6,
+                        x0='Negative', name='Negative')
+            )
+        fig.add_trace(go.Violin(y=y_labels,
+                        box_visible=True, line_color='yellow',
+                        meanline_visible=True,
+                        fillcolor='lightyellow', opacity=0.6,
+                        x0='Neutral', name='Neutral')
+            )
+
+    fig.update_traces(box_visible=True, meanline_visible=True)
+    
+    # Change the plot layout
+    fig.update_layout(
+        violinmode='group',
+        yaxis_zeroline=False,
+            template='plotly_dark',
+            yaxis=dict(
+                title='Sentiments',
+                titlefont_size=16,
+                tickfont_size=14,
+                showgrid=False
+                ),
+            bargap=0.3,
+            title={
+                'text': "violin plot",
+                'y':0.99,
+                'x':0.5,
+                'xanchor': 'center',
+                'yanchor': 'top',
+                'font': dict(
+                        family='Rockwell',
+                        color='dim gray',
+                        size=30),
+                },
+            updatemenus=[
+                    dict(
+                        buttons=list([
+                            dict(
+                                label="Cummulative",
+                                method="update",
+                                args=[{"visible": [True, True, True]},
+                                        ]),
+                            dict(
+                                label="Positive",
+                                method="update",
+                                args=[{"visible": [True, False, False]},
+                                        ]),
+                            dict(
+                                label="Negative",
+                                method="update",
+                                args=[{"visible": [False, True, False]},
+                                        ]),
+                            dict(
+                                label="Neutral",
+                                method="update",
+                                args=[{"visible": [False, False, True]},
+                                        ]),
+                        ]),
+                        direction="down",
+                        pad={"r": 10, "t": 10},
+                        showactive=True,
+                        x=0.01,
+                        xanchor="left",
+                        y=1.2,
+                        yanchor="top",
+                        font=dict(color="rgb(220,20,60)")
+                    ),
+                ]
+    )
+    fig.show()
