@@ -587,7 +587,7 @@ def barplot(x_list, y_list):
 
 
     fig.update_traces(marker_line_width=0.5, opacity=1)
-    # Change the bar mode
+    # Change the layout of out
     fig.update_layout(
         template='plotly_dark',
         xaxis=dict(
@@ -690,7 +690,7 @@ def area_plot(x_list, y_list):
 
     fig.update_traces(marker_line_width=1.5, opacity=0.7)
 
-    # Change the bar mode
+    # Change the layout of the plot
     fig.update_layout(
             barmode='stack',
             template='plotly_dark',
@@ -713,7 +713,7 @@ def area_plot(x_list, y_list):
                 ),
             bargap=0.3,
             title={
-                'text': f"Area plot",
+                'text': "Area plot",
                 'y':0.99,
                 'x':0.5,
                 'xanchor': 'center',
@@ -793,7 +793,7 @@ def scatter_plot(x_list, y_list):
 
     fig.update_traces(marker_line_width=1.5, opacity=1)
 
-    # Change the bar mode
+    # Change the layout of the plot
     fig.update_layout(
             template='plotly_dark',
             xaxis=dict(
@@ -815,7 +815,7 @@ def scatter_plot(x_list, y_list):
                 ),
             bargap=0.3,
             title={
-                'text': f"markers plot",
+                'text': "markers plot",
                 'y':0.99,
                 'x':0.5,
                 'xanchor': 'center',
@@ -859,5 +859,105 @@ def scatter_plot(x_list, y_list):
                         font=dict(color="rgb(220,20,60)")
                     ),
                 ])
+
+    fig.show()
+
+def line_plot(x_list, y_list):
+    '''plots the line plot'''
+    
+    fig = go.Figure()
+
+    for x_labels, y_labels in zip(x_list, y_list):
+        fig.add_trace(go.Scatter(x=x_labels,
+                                y=y_labels,
+                                mode='lines+markers',
+                                name='positive',
+                                marker_color='lightgreen',
+                                marker_line_color='green'
+                                ))
+        fig.add_trace(go.Scatter(x=x_labels,
+                                y=y_labels,
+                                mode='lines+markers',
+                                name='Negative',
+                                marker_color='orange',
+                                marker_line_color='red'
+                                ))
+        fig.add_trace(go.Scatter(x=x_labels,
+                                y=y_labels,
+                                mode='lines+markers',
+                                name='Neutral',
+                                marker_color='yellow',
+                                marker_line_color='gold'
+                                ))
+
+    fig.update_traces(marker_line_width=1.5, opacity=1)
+
+    # Change the plot layout
+    fig.update_layout(
+        barmode='stack',
+        template='plotly_dark',
+        xaxis=dict(
+            title='Dates',
+            tickfont_size=14,
+            tickangle=90,
+            tickfont=dict(
+                family='Rockwell',
+                color='dim gray',
+                size=9),
+            tickmode='linear',
+            showgrid=False
+        ),
+        yaxis=dict(
+            title='Sentiments',
+            titlefont_size=16,
+            tickfont_size=14,
+            showgrid=False
+        ),
+        bargap=0.3,
+        title={
+            'text': "lines+markers plot",
+            'y': 0.99,
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': dict(
+                family='Rockwell',
+                color='dim gray',
+                size=30),
+        },
+        updatemenus=[
+            dict(
+                buttons=list([
+                    dict(
+                        label="Cummulative",
+                        method="update",
+                        args=[{"visible": [True, True, True]},
+                            ]),
+                    dict(
+                        label="Positive",
+                        method="update",
+                        args=[{"visible": [True, False, False]},
+                            ]),
+                    dict(
+                        label="Negative",
+                        method="update",
+                        args=[{"visible": [False, True, False]},
+                            ]),
+                    dict(
+                        label="Neutral",
+                        method="update",
+                        args=[{"visible": [False, False, True]},
+                            ]),
+                ]),
+                direction="down",
+                pad={"r": 10, "t": 10},
+                showactive=True,
+                x=0.01,
+                xanchor="left",
+                y=1.2,
+                yanchor="top",
+                font=dict(color="rgb(220,20,60)")
+            ),
+        ])
 
     fig.show()
