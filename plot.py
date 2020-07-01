@@ -269,20 +269,18 @@ def sunburst_chart(state_date_1, state_date_neg_1, state_date_0):
 
     # Creating values list for sunburst plot
     values_list = []
+    
     for states in list(state_date_1.keys()):
-        positive = round(sum(list(state_date_1[states].values())), 2)
-        negative = round(sum(list(state_date_neg_1[states].values())), 2)
-        neutral = round(sum(list(state_date_0[states].values())), 2)
+        positive = state_date_1[states]
+        negative = state_date_neg_1[states]
+        neutral = state_date_0[states]
         total = positive + negative + neutral
-        values_list.append(round(total, 2))
+        values_list.append(total)
 
     for states in list(state_date_1.keys()):
-        positive = round(sum(list(state_date_1[states].values())), 2)
-        negative = round(sum(list(state_date_neg_1[states].values())), 2)
-        neutral = round(sum(list(state_date_0[states].values())), 2)
-        values_list.append(positive)
-        values_list.append(negative)
-        values_list.append(neutral)
+        values_list.append(state_date_1[states])
+        values_list.append(state_date_neg_1[states])
+        values_list.append(state_date_0[states])
 
     # Creating labels for sunburst plot
     labels_list = list(state_date_1.keys())
@@ -302,7 +300,7 @@ def sunburst_chart(state_date_1, state_date_neg_1, state_date_0):
         values=values_list,
         maxdepth=2,
         branchvalues='total',
-        hovertemplate='<b>%{label} </b> <br> probability: %{value}',
+        hovertemplate='<b>%{label} </b> <br> sentiment percentage: %{value}',
         name=''
     ))
 

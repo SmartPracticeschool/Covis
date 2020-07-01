@@ -1,4 +1,4 @@
-from state_date_senti import sunburst_plot
+from state_date_senti import state_date_senti_plot
 import plot
 import pandas as pd
 import numpy as np
@@ -25,19 +25,18 @@ y_list = data_plot_dict['y_list']
 total_positive = data_plot_dict['total_positive']
 total_negative = data_plot_dict['total_negative']
 total_neutral = data_plot_dict['total_neutral']
+state_date_senti_dict = state_date_senti_plot(df2)
 
 # Data for tables
 table_dict = table_plot(df1)
 
 
 ## Sunburst plot
-# Creating data for sunburst plot
-state_date_senti_dict = sunburst_plot(df2)
 
 # Creating the plot
-sunburst_ploted = plot.sunburst_chart(state_date_senti_dict['State_date_positive'],
-                            state_date_senti_dict['State_date_negative'],
-                            state_date_senti_dict['State_date_neutral']
+sunburst_ploted = plot.sunburst_chart(table_dict['Positive_sentiments'],
+                                    table_dict['Negative_sentiments'],
+                                    table_dict['Neutral_sentiments']
                         )
 
 
