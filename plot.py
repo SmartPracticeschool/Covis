@@ -564,7 +564,7 @@ def stacked_barplot(x_list, y_list):
                     ),
                 ])
 
-    fig.show()
+    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
     
 def barplot(x_list, y_list):
     '''plots the barplot'''
@@ -655,7 +655,7 @@ def barplot(x_list, y_list):
             ),
         ])
 
-    fig.show()
+    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
 
 def area_plot(x_list, y_list):
     '''plots the area plot'''
@@ -758,7 +758,7 @@ def area_plot(x_list, y_list):
                     ),
                 ])
 
-    fig.show()
+    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
 
 def scatter_plot(x_list, y_list):
     '''plots the scatter plot'''
@@ -860,7 +860,7 @@ def scatter_plot(x_list, y_list):
                     ),
                 ])
 
-    fig.show()
+    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
 
 def line_plot(x_list, y_list):
     '''plots the line plot'''
@@ -960,7 +960,7 @@ def line_plot(x_list, y_list):
             ),
         ])
 
-    fig.show()
+    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
 
 def violin_plot(y_list):
     '''plots violin plot'''
@@ -1046,4 +1046,4 @@ def violin_plot(y_list):
                     ),
                 ]
     )
-    fig.show()
+    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
