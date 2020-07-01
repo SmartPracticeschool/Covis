@@ -656,3 +656,106 @@ def barplot(x_list, y_list):
         ])
 
     fig.show()
+
+def area_plot(x_list, y_list):
+    '''plots the area plot'''
+    
+    fig = go.Figure()
+
+    for x_labels, y_labels in zip(x_list, y_list):
+        fig.add_trace(go.Scatter(x=x_labels,
+                        y=y_labels,
+                        mode='lines+markers',
+                        name='positive',
+                        marker_color='green',
+                        marker_line_color='darkgreen',
+                        fill='tozeroy'
+                        ))
+        fig.add_trace(go.Scatter(x=x_labels,
+                        y=y_labels,
+                        mode='lines+markers',
+                        name='Negative',
+                        marker_color='red',
+                        marker_line_color='red',
+                        fill='tozeroy'
+                        ))
+        fig.add_trace(go.Scatter(x=x_labels,
+                        y=y_labels,
+                        mode='lines+markers',
+                        name='Neutral',
+                        marker_color='gold',
+                        marker_line_color='gold',
+                        fill='tozeroy'
+                        ))
+
+    fig.update_traces(marker_line_width=1.5, opacity=0.7)
+
+    # Change the bar mode
+    fig.update_layout(
+            barmode='stack',
+            template='plotly_dark',
+            xaxis=dict(
+                title='Dates',
+                tickfont_size=14,
+                tickangle=90,
+                tickfont=dict(
+                    family='Rockwell',
+                    color='dim gray',
+                    size=9),
+                tickmode='linear',
+                showgrid=False
+                ),
+            yaxis=dict(
+                title='Sentiments',
+                titlefont_size=16,
+                tickfont_size=14,
+                showgrid=False
+                ),
+            bargap=0.3,
+            title={
+                'text': f"Area plot",
+                'y':0.99,
+                'x':0.5,
+                'xanchor': 'center',
+                'yanchor': 'top',
+                'font': dict(
+                        family='Rockwell',
+                        color='dim gray',
+                        size=30),
+                },
+            updatemenus=[
+                    dict(
+                        buttons=list([
+                            dict(
+                                label="Cummulative",
+                                method="update",
+                                args=[{"visible": [True, True, True]},
+                                        ]),
+                            dict(
+                                label="Positive",
+                                method="update",
+                                args=[{"visible": [True, False, False]},
+                                        ]),
+                            dict(
+                                label="Negative",
+                                method="update",
+                                args=[{"visible": [False, True, False]},
+                                        ]),
+                            dict(
+                                label="Neutral",
+                                method="update",
+                                args=[{"visible": [False, False, True]},
+                                        ]),
+                        ]),
+                        direction="down",
+                        pad={"r": 10, "t": 10},
+                        showactive=True,
+                        x=0.01,
+                        xanchor="left",
+                        y=1.2,
+                        yanchor="top",
+                        font=dict(color="rgb(220,20,60)")
+                    ),
+                ])
+
+    fig.show()
