@@ -336,7 +336,7 @@ def box_plot(y_positive, y_negative, y_neutral, name):
                     color='dim gray',
                     size=30),
         },
-        template='plotly_dark',
+        #template='plotly_dark',
         xaxis=dict(
             showgrid=False
         ),
@@ -404,7 +404,7 @@ def state_date_plot(state_date_positive, state_date_negative, state_date_neutral
         barmode='group',
         bargap=0.2,
         bargroupgap=0.1,
-        template='plotly_dark',
+        #template='plotly_dark',
         updatemenus=[
             dict(
                 buttons=list([
@@ -499,7 +499,7 @@ def stacked_barplot(x_list, y_list):
     # Change the layout
     fig.update_layout(
             barmode='stack',
-            template='plotly_dark',
+            #template='plotly_dark',
             xaxis=dict(
                 title='Dates',
                 tickfont_size=14,
@@ -589,7 +589,7 @@ def barplot(x_list, y_list):
     fig.update_traces(marker_line_width=0.5, opacity=1)
     # Change the layout of out
     fig.update_layout(
-        template='plotly_dark',
+        #template='plotly_dark',
         xaxis=dict(
             title='Dates',
             tickfont_size=14,
@@ -693,7 +693,7 @@ def area_plot(x_list, y_list):
     # Change the layout of the plot
     fig.update_layout(
             barmode='stack',
-            template='plotly_dark',
+            #template='plotly_dark',
             xaxis=dict(
                 title='Dates',
                 tickfont_size=14,
@@ -795,7 +795,7 @@ def scatter_plot(x_list, y_list):
 
     # Change the layout of the plot
     fig.update_layout(
-            template='plotly_dark',
+            #template='plotly_dark',
             xaxis=dict(
                 title='Dates',
                 tickfont_size=14,
@@ -895,7 +895,7 @@ def line_plot(x_list, y_list):
     # Change the plot layout
     fig.update_layout(
         barmode='stack',
-        template='plotly_dark',
+        #template='plotly_dark',
         xaxis=dict(
             title='Dates',
             tickfont_size=14,
@@ -992,7 +992,7 @@ def violin_plot(y_list):
     fig.update_layout(
         violinmode='group',
         yaxis_zeroline=False,
-            template='plotly_dark',
+            #template='plotly_dark',
             yaxis=dict(
                 title='Sentiments',
                 titlefont_size=16,
