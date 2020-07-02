@@ -48,7 +48,6 @@ background-image: url(https://png.pngtree.com/thumb_back/fw800/background/202003
   display: table;
 }
 
-
 .line_graph{
   text-align: center;
   color: rgba(219, 41, 9, 0.829);
@@ -59,6 +58,25 @@ background-image: url(https://png.pngtree.com/thumb_back/fw800/background/202003
   text-align: center;
   color: rgba(86, 11, 156, 0.829);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tr:not(.no-hover):hover {
+    background-color: #c5a5d1;
+    cursor: pointer;
+}
+
+tr.hide-table-padding td {
+  padding: 0;
+  background-color:white;
 }
 
 .center {
