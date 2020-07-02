@@ -116,7 +116,479 @@
     <br>
     <p class="bar_theory">Here the sentiments of Indian people towrds Lockdown and Government decisions related to lockdown were analyzed in another form ,i.e., state wise. In this we have analyzed the sentiments from 25/March/2020 to 31/May/2020 ,i.e, during all the four phases of lockdown. And after that shown them in a tabular form or table form in which sentiments are categorized according to the states in India. The table is shown below.</p>
     <br>
-    {{ls[6] | safe}}
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>State Name</th>
+                <th>Positive Sentiment Percentage 🙂</th>
+                <th>Negative Sentiment Percentage ☹️</th>
+                <th>Neutral Sentiment Percentage 😐</th>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#collapse1">
+                
+                <td>Andhra Pradesh</td>
+                <td>{{ls[9]['Positive_sentiments']['andhra pradesh']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['andhra pradesh']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['andhra pradesh']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                <div id="collapse1" class="collapse in p-4">
+                    {{ls[7]['andhra pradesh'] | safe}} 
+                    {{ls[8]['andhra pradesh'] | safe}}
+                </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion2" data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
+                <td>Arunachal Pradesh</td>
+                <td>{{ls[9]['Positive_sentiments']['arunachal pradesh']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['arunachal pradesh']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['arunachal pradesh']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse2" class="collapse in p-4">
+                        {{ls[7]['arunachal pradesh'] | safe}}
+                        {{ls[8]['arunachal pradesh'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion3" data-toggle="collapse" data-parent="#accordion3" href="#collapse3">
+                <td>Assam</td>
+                <td>{{ls[9]['Positive_sentiments']['assam']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['assam']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['assam']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse3" class="collapse in p-4">
+                        {{ls[7]['assam'] | safe}}
+                        {{ls[8]['assam'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion4" data-toggle="collapse" data-parent="#accordion4" href="#collapse4">
+                <td>Bihar</td>
+                <td>{{ls[9]['Positive_sentiments']['bihar']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['bihar']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['bihar']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse4" class="collapse in p-4">
+                        {{ls[7]['bihar'] | safe}}
+                        {{ls[8]['bihar'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion5" data-toggle="collapse" data-parent="#accordion5" href="#collapse5">
+                <td>Chandigarh</td>
+                <td>{{ls[9]['Positive_sentiments']['chandigarh']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['chandigarh']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['chandigarh']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse5" class="collapse in p-4">
+                        {{ls[7]['chandigarh'] | safe}}
+                        {{ls[8]['chandigarh'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion6" data-toggle="collapse" data-parent="#accordion6" href="#collapse6">
+                <td>Chhattisgarh</td>
+                <td>{{ls[9]['Positive_sentiments']['chhattisgarh']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['chhattisgarh']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['chhattisgarh']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse6" class="collapse in p-4">
+                        {{ls[7]['chhattisgarh'] | safe}}
+                        {{ls[8]['chhattisgarh'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion7" data-toggle="collapse" data-parent="#accordion7" href="#collapse7">
+                <td>Dadra and Nagar Haveli</td>
+                <td>{{ls[9]['Positive_sentiments']['dadra and nagar haveli']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['dadra and nagar haveli']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['dadra and nagar haveli']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse7" class="collapse in p-4">
+                        {{ls[7]['dadra and nagar haveli'] | safe}}
+                        {{ls[8]['dadra and nagar haveli'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion8" data-toggle="collapse" data-parent="#accordion8" href="#collapse8">
+                <td>Daman And Diu</td>
+                <td>{{ls[9]['Positive_sentiments']['daman and diu']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['daman and diu']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['daman and diu']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse8" class="collapse in p-4">
+                        {{ls[7]['daman and diu'] | safe}}
+                        {{ls[8]['daman and diu'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion9" data-toggle="collapse" data-parent="#accordion9" href="#collapse9">
+                <td>Delhi</td>
+                <td>{{ls[9]['Positive_sentiments']['delhi']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['delhi']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['delhi']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse9" class="collapse in p-4">
+                        {{ls[7]['delhi'] | safe}}
+                        {{ls[8]['delhi'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion10" data-toggle="collapse" data-parent="#accordion10" href="#collapse10">
+                <td>Goa</td>
+                <td>{{ls[9]['Positive_sentiments']['goa']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['goa']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['goa']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse10" class="collapse in p-4">
+                        {{ls[7]['goa'] | safe}}
+                        {{ls[8]['goa'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion11" data-toggle="collapse" data-parent="#accordion11" href="#collapse11">
+                <td>Gujarat</td>
+                <td>{{ls[9]['Positive_sentiments']['gujarat']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['gujarat']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['gujarat']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse11" class="collapse in p-4">
+                        {{ls[7]['gujarat'] | safe}}
+                        {{ls[8]['gujarat'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion12" data-toggle="collapse" data-parent="#accordion12" href="#collapse12">
+                <td>Haryana</td>
+                <td>{{ls[9]['Positive_sentiments']['haryana']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['haryana']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['haryana']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse12" class="collapse in p-4">
+                        {{ls[7]['haryana'] | safe}}
+                        {{ls[8]['haryana'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion13" data-toggle="collapse" data-parent="#accordion13" href="#collapse13">
+                <td>Himachal Pradesh</td>
+                <td>{{ls[9]['Positive_sentiments']['himachal pradesh']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['himachal pradesh']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['himachal pradesh']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse13" class="collapse in p-4">
+                        {{ls[7]['himachal pradesh'] | safe}}
+                        {{ls[8]['himachal pradesh'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion14" data-toggle="collapse" data-parent="#accordion14" href="#collapse14">
+                <td>Jammu and Kashmir</td>
+                <td>{{ls[9]['Positive_sentiments']['jammu and kashmir']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['jammu and kashmir']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['jammu and kashmir']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse14" class="collapse in p-4">
+                        {{ls[7]['jammu and kashmir'] | safe}}
+                        {{ls[8]['jammu and kashmir'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion15" data-toggle="collapse" data-parent="#accordion15" href="#collapse15">
+                <td>Jharkhand</td>
+                <td>{{ls[9]['Positive_sentiments']['jharkhand']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['jharkhand']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['jharkhand']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse15" class="collapse in p-4">
+                        {{ls[7]['jharkhand'] | safe}}
+                        {{ls[8]['jharkhand'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion16" data-toggle="collapse" data-parent="#accordion16" href="#collapse16">
+                <td>Karnataka</td>
+                <td>{{ls[9]['Positive_sentiments']['karnataka']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['karnataka']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['karnataka']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse16" class="collapse in p-4">
+                        {{ls[7]['karnataka'] | safe}}
+                        {{ls[8]['karnataka'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion17" data-toggle="collapse" data-parent="#accordion17" href="#collapse17">
+                <td>Kerala</td>
+                <td>{{ls[9]['Positive_sentiments']['kerala']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['kerala']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['kerala']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse17" class="collapse in p-4">
+                        {{ls[7]['kerala'] | safe}}
+                        {{ls[8]['kerala'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion18" data-toggle="collapse" data-parent="#accordion18" href="#collapse18">
+                <td>Madhya Pradesh</td>
+                <td>{{ls[9]['Positive_sentiments']['madhya pradesh']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['madhya pradesh']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['madhya pradesh']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse18" class="collapse in p-4">
+                        {{ls[7]['madhya pradesh'] | safe}}
+                        {{ls[8]['madhya pradesh'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion19" data-toggle="collapse" data-parent="#accordion19" href="#collapse19">
+                <td>Maharashtra</td>
+                <td>{{ls[9]['Positive_sentiments']['maharashtra']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['maharashtra']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['maharashtra']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse19" class="collapse in p-4">
+                        {{ls[7]['maharashtra'] | safe}}
+                        {{ls[8]['maharashtra'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion20" data-toggle="collapse" data-parent="#accordion20" href="#collapse20">
+                <td>Manipur</td>
+                <td>{{ls[9]['Positive_sentiments']['manipur']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['manipur']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['manipur']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse20" class="collapse in p-4">
+                        {{ls[7]['manipur'] | safe}}
+                        {{ls[8]['manipur'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion21" data-toggle="collapse" data-parent="#accordion21" href="#collapse21">
+                <td>Meghalaya</td>
+                <td>{{ls[9]['Positive_sentiments']['meghalaya']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['meghalaya']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['meghalaya']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse21" class="collapse in p-4">
+                        {{ls[7]['meghalaya'] | safe}}
+                        {{ls[8]['meghalaya'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion22" data-toggle="collapse" data-parent="#accordion22" href="#collapse22">
+                <td>Mizoram</td>
+                <td>{{ls[9]['Positive_sentiments']['mizoram']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['mizoram']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['mizoram']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse22" class="collapse in p-4">
+                        {{ls[7]['mizoram'] | safe}}
+                        {{ls[8]['mizoram'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion23" data-toggle="collapse" data-parent="#accordion23" href="#collapse23">
+                <td>Nagaland</td>
+                <td>{{ls[9]['Positive_sentiments']['nagaland']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['nagaland']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['nagaland']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse23" class="collapse in p-4">
+                        {{ls[7]['nagaland'] | safe}}
+                        {{ls[8]['nagaland'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion24" data-toggle="collapse" data-parent="#accordion24" href="#collapse24">
+                <td>Odisha</td>
+                <td>{{ls[9]['Positive_sentiments']['odisha']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['odisha']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['odisha']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse24" class="collapse in p-4">
+                        {{ls[7]['odisha'] | safe}}
+                        {{ls[8]['odisha'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion25" data-toggle="collapse" data-parent="#accordion25" href="#collapse25">
+                <td>Puducherry</td>
+                <td>{{ls[9]['Positive_sentiments']['puducherry']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['puducherry']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['puducherry']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse25" class="collapse in p-4">
+                        {{ls[7]['puducherry'] | safe}}
+                        {{ls[8]['puducherry'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion26" data-toggle="collapse" data-parent="#accordion26" href="#collapse26">
+                <td>Punjab</td>
+                <td>{{ls[9]['Positive_sentiments']['punjab']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['punjab']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['punjab']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse26" class="collapse in p-4">
+                        {{ls[7]['punjab'] | safe}}
+                        {{ls[8]['punjab'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion27" data-toggle="collapse" data-parent="#accordion27" href="#collapse27">
+                <td>Rajasthan</td>
+                <td>{{ls[9]['Positive_sentiments']['rajasthan']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['rajasthan']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['rajasthan']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse27" class="collapse in p-4">
+                        {{ls[7]['rajasthan'] | safe}}
+                        {{ls[8]['rajasthan'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion28" data-toggle="collapse" data-parent="#accordion28" href="#collapse28">
+                <td>Sikkim</td>
+                <td>{{ls[9]['Positive_sentiments']['sikkim']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['sikkim']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['sikkim']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse28" class="collapse in p-4">
+                        {{ls[7]['sikkim'] | safe}}
+                        {{ls[8]['sikkim'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion29" data-toggle="collapse" data-parent="#accordion29" href="#collapse29">
+                <td>Tamil Nadu</td>
+                <td>{{ls[9]['Positive_sentiments']['tamil nadu']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['tamil nadu']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['tamil nadu']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse29" class="collapse in p-4">
+                        {{ls[7]['tamil nadu'] | safe}}
+                        {{ls[8]['tamil nadu'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion30" data-toggle="collapse" data-parent="#accordion30" href="#collapse30">
+                <td>Tripura</td>
+                <td>{{ls[9]['Positive_sentiments']['tripura']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['tripura']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['tripura']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse30" class="collapse in p-4">
+                        {{ls[7]['tripura'] | safe}}
+                        {{ls[8]['tripura'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion31" data-toggle="collapse" data-parent="#accordion31" href="#collapse31">
+                <td>Uttar Pradesh</td>
+                <td>{{ls[9]['Positive_sentiments']['uttar pradesh']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['uttar pradesh']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['uttar pradesh']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse31" class="collapse in p-4">
+                        {{ls[7]['uttar pradesh'] | safe}}
+                        {{ls[8]['uttar pradesh'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion32" data-toggle="collapse" data-parent="#accordion32" href="#collapse32">
+                <td>Uttarakhand</td>
+                <td>{{ls[9]['Positive_sentiments']['uttarakhand']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['uttarakhand']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['uttarakhand']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse32" class="collapse in p-4">
+                        {{ls[7]['uttarakhand'] | safe}}
+                        {{ls[8]['uttarakhand'] | safe}}
+                    </div>
+                </td>
+            </tr>
+            <tr class="accordion-toggle collapsed" id="accordion33" data-toggle="collapse" data-parent="#accordion33" href="#collapse33">
+                <td>West Bengal</td>
+                <td>{{ls[9]['Positive_sentiments']['west bengal']}}</td>
+                <td>{{ls[9]['Negative_sentiments']['west bengal']}}</td>
+                <td>{{ls[9]['Neutral_sentiments']['west bengal']}}</td>
+            </tr>
+            <tr class="hide-table-padding">
+                <td colspan="4">
+                    <div id="collapse33" class="collapse in p-4">
+                        {{ls[7]['west bengal'] | safe}}
+                        {{ls[8]['west bengal'] | safe}}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
     <br>
     <br>
     <div class="text_image">
@@ -127,25 +599,7 @@
     <br>
     <p class="bar_theory">From the sentiment analysis of Indian People Tweets towards Lockdown and related information were analyzed and then the words or sentiments which effected the the data most are shown below in a form of image where bigger words affected more our sentiment data and then comes smaller words which affected less of our sentiment data.</p>
     <img src={{url_for('static',filename="images/word2.jpg")}} height="800" width="800" class="center"/>
-
-    {{ls[7]['andhra pradesh'] | safe}}
     <br>
-    <br>
-    {{ls[7]['assam'] | safe}}
-    <br> <br> <br> <br>
-    {{ls[8]['andhra pradesh'] | safe}}
-    <br>
-    <br>
-    {{ls[8]['assam'] | safe}}
-    <br>
-    <br>
-    <br>
-    {{ls[9]['Positive_sentiments']['andhra pradesh'] | safe}}
-    <br>
-    {{ls[9]['Negative_sentiments']['andhra pradesh'] | safe}}
-    <br>
-    {{ls[9]['Neutral_sentiments']['andhra pradesh'] | safe}}
-    <br> <br> <br>
 </body>
 
 </html>
