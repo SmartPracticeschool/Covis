@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-def sunburst_plot(df):
+def state_date_senti_plot(df):
     # Creating new columns for each sentiments; Positive, Negative, and Neutral
     df['Sentiment_1'] = df['Sentiments'].apply(lambda x: 1 if x == 1 else 0)
     df['Sentiment_neg_1'] = df['Sentiments'].apply(lambda x: 1 if x == -1 else 0)
