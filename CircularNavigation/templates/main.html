@@ -12,7 +12,7 @@
     <script src="../static/js/modernizr-2.6.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script type="text/javascript">
         google.charts.load('current', {
             'packages': ['geochart'],
@@ -82,30 +82,37 @@
 </head>
 <body>
     <div class="container">
-    <header>
-        <h1>Sentiment Analysis Of COVID-19 Tweets – Dashboard For Visualization</h1>
-	</header>
-    <section>
-        <p style="padding-left: 1%;">
-            The Sentiments of Indian people related to lockdown and COVID-19 during the different phases of lockdown is shown with the help of Map of india and Table.different phases of lockdown which started from 25/March/2020 and upto 31/May/2020.
-            <br>
-            <u>The First Phase was from </u>:- 25/March/2020 - 14/April/2020
-            <br>
-            <u>The Second Phase was from</u> :- 15/March/2020 - 03/May/2020
-            <br>
-            <u>The third Phase was from</u> :- 04/May/2020 - 17/May/2020
-            <br>
-            <u>The Fourth Phase was from</u> :- 18/May/2020 - 31/May/2020
-            <br>
-            For more info of Lockdown in India click <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic_lockdown_in_India"
-                target="_blank">Here</a>
-        </p>
-    </section>
+  <header>
+                <h1>Covid-19 Sentiment Analysis </h1>   
+            </header>
+           <div class="card-columns">
+  <div class="card text-white bg-success mb-3" style="max-width: 18rem; margin-left: 80px">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Success card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
 
-    <div id="geochart-colors" style="width: 800px; height: 800px; margin-left: 20px; 
+ </div>
+  <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Danger card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Warning card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+</div>
+    <div id="geochart-colors" style="width: 1000px; height: 1000px; margin-left: 20px; 
     			margin-top: -1px;"></div>
     
-    <table style="margin-left: 850px; margin-top: -680px;">
+    <!-- <table style="margin-left: 850px; margin-top: -680px;">
         <tr>
             <th class="th1">State/UT</th>
             <th>Positive</th>
@@ -315,7 +322,7 @@
     <br>
     <br>
     <br>
-    <br>
+    <br> -->
     
     <div class="component">
         <!-- Start Nav Structure -->
