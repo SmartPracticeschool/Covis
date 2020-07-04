@@ -15,6 +15,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <script type="text/javascript">
         google.charts.load('current', {
             'packages': ['geochart'],
@@ -46,6 +47,7 @@
                 resolution: 'provinces'
                 };
             var chart = new google.visualization.GeoChart(document.getElementById   ('geochart-colors'));
+
             chart.draw(data, options);
         };
     </script>
@@ -85,9 +87,9 @@
 <body>
     <div class="container">
         <header>
-            <h1>Covid-19 Sentiment Analysis </h1>
+            <h1 style="font-family: 'Abril Fatface', cursive; font-size:70px;">Covid-19 Sentiment Analysis </h1>
         </header>
-        <div class="card-columns">
+        <div class="card-columns" style="padding-top: 110px;">
             <div class="card border-success mb-3" style="max-width: 18rem;">
                 <div class="card-header bg-transparent border-success">Header</div>
                 <div class="card-body text-success">
@@ -116,8 +118,7 @@
                 <div class="card-footer bg-transparent border-danger">Footer</div>
             </div>
         </div>
-        <div id="geochart-colors" style="width: 1000px; height: 1000px; margin-left: 20px; 
-    			margin-top: -1px;"></div>
+        <div id="geochart-colors" style="width: 1100px; height: 1000px; margin-left: 20px; margin-top: -1px;"></div>
 
         <!-- <table style="margin-left: 850px; margin-top: -680px;">
         <tr>
