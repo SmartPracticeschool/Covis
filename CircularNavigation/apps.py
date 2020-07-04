@@ -36,5 +36,9 @@ ls = [table_dict, total_positive, total_negative, total_neutral]
 def home(): 
     return render_template('main.html', ls=ls)
 
+@app.route('/four', methods=['POST', 'GET'])
+def four(): 
+    return render_template('fphase.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
