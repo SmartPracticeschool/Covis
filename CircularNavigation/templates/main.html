@@ -1,3 +1,4 @@
+{% block head %}
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -51,7 +52,7 @@
             chart.draw(data, options);
         };
     </script>
-    
+
     <style>
         table,
         th,
@@ -85,7 +86,9 @@
 </head>
 
 <body>
+    {% endblock %}
     <div class="container">
+    {% block all %}
         <header>
             <h1 style="font-family: 'Abril Fatface', cursive; font-size:70px;">Covid-19 Sentiment Analysis </h1>
         </header>
@@ -331,6 +334,7 @@
     <br>
     <br>
     <br> -->
+    {% endblock %}
 
         <div class="component">
             <!-- Start Nav Structure -->
@@ -338,8 +342,8 @@
             <div class="cn-wrapper" id="cn-wrapper">
                 <ul>
                     <li><a href="#"><span class="icon-picture"></span></a></li>
-                    <li><a href="#"><span class="icon-headphones"></span></a></li>
-                    <li><a href="#"><span class="icon-home"></span></a></li>
+                    <li><a href="{{url_for('four')}}"><span>four</span></a></li>
+                    <li><a href="{{url_for('home')}}"><span class="icon-home"></span></a></li>
                     <li><a href="#"><span class="icon-facetime-video"></span></a></li>
                     <li><a href="#"><span class="icon-envelope-alt"></span></a></li>
                 </ul>
