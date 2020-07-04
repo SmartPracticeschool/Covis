@@ -10,9 +10,11 @@
     <link rel="stylesheet" type="text/css" href="../static/css/demo.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/component1.css" />
     <script src="../static/js/modernizr-2.6.2.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script type="text/javascript">
         google.charts.load('current', {
             'packages': ['geochart'],
@@ -42,8 +44,8 @@
                 datalessRegionColor: '#ffffff',
                 defaultColor: '	#FFFFFF',
                 resolution: 'provinces'
-            };
-            var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+                };
+            var chart = new google.visualization.GeoChart(document.getElementById   ('geochart-colors'));
             chart.draw(data, options);
         };
     </script>
@@ -56,9 +58,9 @@
             border-bottom-right-radius: 0;
             border-radius: 3px;
             color: #888888;
-    
+
         }
-    
+
         th {
             width: 17%;
             background-color: #F6F6F7;
@@ -66,7 +68,7 @@
             box-sizing: border-box;
             text-align: right;
         }
-    
+
         td {
             padding: 1% 2% 1% 1%;
             box-sizing: border-box;
@@ -77,44 +79,47 @@
             background-color: #dbd3dd;
             cursor: pointer;
         }
-
     </style>
 </head>
+
 <body>
     <div class="container">
-  <header>
-                <h1>Covid-19 Sentiment Analysis </h1>   
-            </header>
-           <div class="card-columns">
-  <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-footer bg-transparent border-warning">Footer</div>
-</div>
- <div class="card border-warning mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-warning">Header</div>
-  <div class="card-body text-warning">
-    <h5 class="card-title">warning card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-footer bg-transparent border-warning">Footer</div>
-</div>
-<div class="card border-danger mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-danger">Header</div>
-  <div class="card-body text-danger">
-    <h5 class="card-title">danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-footer bg-transparent border-danger">Footer</div>
-</div>
-</div>
-    <div id="geochart-colors" style="width: 1000px; height: 1000px; margin-left: 20px; 
+        <header>
+            <h1>Covid-19 Sentiment Analysis </h1>
+        </header>
+        <div class="card-columns">
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-success">Header</div>
+                <div class="card-body text-success">
+                    <h5 class="card-title">Success card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+                <div class="card-footer bg-transparent border-warning">Footer</div>
+            </div>
+            <div class="card border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-warning">Header</div>
+                <div class="card-body text-warning">
+                    <h5 class="card-title">warning card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+                <div class="card-footer bg-transparent border-warning">Footer</div>
+            </div>
+            <div class="card border-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-danger">Header</div>
+                <div class="card-body text-danger">
+                    <h5 class="card-title">danger card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+                <div class="card-footer bg-transparent border-danger">Footer</div>
+            </div>
+        </div>
+        <div id="geochart-colors" style="width: 1000px; height: 1000px; margin-left: 20px; 
     			margin-top: -1px;"></div>
-    
-    <!-- <table style="margin-left: 850px; margin-top: -680px;">
+
+        <!-- <table style="margin-left: 850px; margin-top: -680px;">
         <tr>
             <th class="th1">State/UT</th>
             <th>Positive</th>
@@ -325,24 +330,25 @@
     <br>
     <br>
     <br> -->
-    
-    <div class="component">
-        <!-- Start Nav Structure -->
-        <button class="cn-button" id="cn-button">+</button>
-        <div class="cn-wrapper" id="cn-wrapper">
-            <ul>
-                <li><a href="#"><span class="icon-picture"></span></a></li>
-                <li><a href="#"><span class="icon-headphones"></span></a></li>
-                <li><a href="#"><span class="icon-home"></span></a></li>
-                <li><a href="#"><span class="icon-facetime-video"></span></a></li>
-                <li><a href="#"><span class="icon-envelope-alt"></span></a></li>
-            </ul>
+
+        <div class="component">
+            <!-- Start Nav Structure -->
+            <button class="cn-button" id="cn-button">+</button>
+            <div class="cn-wrapper" id="cn-wrapper">
+                <ul>
+                    <li><a href="#"><span class="icon-picture"></span></a></li>
+                    <li><a href="#"><span class="icon-headphones"></span></a></li>
+                    <li><a href="#"><span class="icon-home"></span></a></li>
+                    <li><a href="#"><span class="icon-facetime-video"></span></a></li>
+                    <li><a href="#"><span class="icon-envelope-alt"></span></a></li>
+                </ul>
+            </div>
+            <div id="cn-overlay" class="cn-overlay"></div>
+            <!-- End Nav Structure -->
         </div>
-        <div id="cn-overlay" class="cn-overlay"></div>
-        <!-- End Nav Structure -->
-    </div>
     </div><!-- /container -->
     <script src="../static/js/polyfills.js"></script>
     <script src="../static/js/demo1.js"></script>
 </body>
+
 </html>

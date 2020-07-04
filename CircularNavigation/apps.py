@@ -30,7 +30,7 @@ state_date_senti_dict = state_date_senti_plot(df2)
 # Data for tables
 table_dict = table_plot(df1)
 
-ls = [table_dict]
+ls = [table_dict, total_positive, total_negative, total_neutral]
 
 @app.route('/', methods=['POST', 'GET'])
 def home(): 
