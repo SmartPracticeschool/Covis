@@ -22,6 +22,7 @@
             'packages': ['geochart'],
             'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
         });
+
         google.charts.setOnLoadCallback(drawRegionsMap);
         function drawRegionsMap() {
             var data = google.visualization.arrayToDataTable([
@@ -48,10 +49,10 @@
                 resolution: 'provinces'
                 };
             var chart = new google.visualization.GeoChart(document.getElementById   ('geochart-colors'));
-
             chart.draw(data, options);
         };
     </script>
+
 
     <style>
         table,
