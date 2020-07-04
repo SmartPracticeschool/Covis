@@ -1,11 +1,21 @@
+{% extends 'main.html' %}
+{% block head %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>4 Phases of Lockdown</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/component1.css" />
+    <script src="../static/js/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-   
+{% endblock %}
+{% block all %}
     <div class="nav">
         <nav>
             <a href="#section1">Phase 1</a>
@@ -47,5 +57,4 @@
 		changeHash: true    
 	    });
     </script> -->
-</body>
-</html>
+{% endblock %}
