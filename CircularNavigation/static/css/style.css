@@ -11,60 +11,24 @@ body, html {
 	margin: 0;
 }
 
-h1, p {
-	margin: 0;
-	font-family: sans-serif, arial;
-	font-weight: bold;
-}
-
-.text-wr {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-
 #section1 {
-	background: #ebf5ee;
+	background: #ffffff;
 	color: #8d86c3;
 }
 
 #section2 {
-	background: #ebf5ee;
+	background: white;
 	color: #81d2d5;
 }
 
 #section3 {
-	background: #ebf5ee;
+	background: white;
 	color: #686e7c;
 }
 
 #section4 {
-	background: #ebf5ee;
+	background: white;
 	color: #aeb9b9;
-}
-
-h1 {
-	font-size: 50px;
-	margin-bottom: 25px;
-}
-
-.title-top {
-	font-size: 60px;
-	padding-bottom: 30px;
-}
-
-.title-bottom {
-	font-size: 30px;
-}
-
-.title-tx {
-	font-size: 20px;
-	opacity: 0.8;
 }
 
 .nav {
@@ -79,7 +43,7 @@ h1 {
 	padding: 7px 20px;
 	border-radius: 7px;
 	margin-right: 10px;
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(133, 129, 129, 0.5);
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
 	-ms-transition: all 0.2s ease-out;
@@ -97,7 +61,7 @@ h1 {
 }
 
 .nav a:hover {
-	background: rgba(255, 255, 255, 0.7);
+	background: rgba(219, 215, 215, 0.7);
 }
 
 .fork-wr img {
