@@ -1,0 +1,44 @@
+
+
+/* Float four columns side by side */
+
+/* Remove extra left and right margins, due to padding */
+
+
+/* Clear floats after the columns */
+/* .row:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+.column{
+  opacity: 1;
+  padding-right: 30px;
+  border-radius: 5px;
+/*   background-color:	rgba(255, 7, 58, 0.125);  */
+  transform: translateX(0px);
+  height: 8rem;
+  cursor: pointer;
+  transition: background .15s ease-in-out;
+  display: block;
+  text-align: center;
+  float: right;
+  width: 15%;
+ 
+}
+
+/* Style the counter cards */
+
+
+.red:hover{
+    background-color:rgba(255, 7, 58, 0.125);  
+}
+
+.green:hover{
+    background-color:rgba(0, 255, 0, 0.125);  
+}
+
+.yellow:hover{
+    background-color: rgba(255,222,20,0.125);  
+}
