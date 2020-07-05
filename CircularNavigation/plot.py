@@ -3,6 +3,7 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
 import plotly.offline as offl
+from plotly.subplots import make_subplots
 
 
 class Plot():
@@ -1045,3 +1046,133 @@ def violin_plot(y_list):
                 ]
     )
     return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
+
+
+def phases_plot(x_list, y_list, name):
+    '''name takes one of these values: ["phase 1", "phase 2", "phase 3", "phase 4"].
+        x_list is the list of x_labels.
+        y_list is the list of y_labels'''
+    x_layout_list = []
+    x_labels_list = []
+    y_labels_list = []
+
+    for x_labels, y_labels in zip(x_list, y_list):
+        if name == 'phase 1':
+            x_layout_list.append(x_labels[4:25])
+            x_labels_list.append(x_labels[5:24])
+            y_labels_list.append(y_labels[5:24])
+        elif name == 'phase 2':
+            x_layout_list.append(x_labels[23:44])
+            x_labels_list.append(x_labels[24:43])
+            y_labels_list.append(y_labels[24:43])
+        elif name == 'phase 3':
+            x_layout_list.append(x_labels[42:57])
+            x_labels_list.append(x_labels[43:56])
+            y_labels_list.append(y_labels[43:56])
+        elif name == 'phase 4':
+            x_layout_list.append(x_labels[55:71])
+            x_labels_list.append(x_labels[56:70])
+            y_labels_list.append(y_labels[56:70])
+
+    names_list = ['Positive😊', 'Negative🙁', 'Neutral😐']
+    color_list = ['green', 'red', 'gold']
+    x_refer_list = ['x', 'x2', 'x3']
+    col_list = [1, 2, 3]
+
+    fig = make_subplots(rows=1,
+                        cols=3,
+                        shared_yaxes=True,
+                        )
+
+    for names, cols, colors, x_labels, y_labels in zip(names_list, col_list, color_list,
+                                                        x_labels_list, y_labels_list):
+        fig.add_trace(go.Scatter(x=x_labels,
+                                y=y_labels,
+                                mode="lines+markers",
+                                name=names,
+                                marker_color=colors), row=1, col=cols)
+
+    for cols in col_list:
+        # Update xaxis properties
+        fig.update_xaxes(showgrid=False, row=1, col=cols)
+
+        # Update yaxis properties
+        if cols == 1:
+            fig.update_yaxes(title='Sentiments',
+                            titlefont_size=16,
+                            zeroline=False,
+                            row=1, col=cols)
+        else:
+            fig.update_yaxes(titlefont_size=16,
+                            zeroline=False,
+                            row=1, col=cols)
+
+    fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
+
+    shapes_list = []
+    # Update plot color
+    for colors, x_labels, x_refers in zip(color_list, x_layout_list, x_refer_list):
+        shape_dict = dict(
+            type="rect",
+            xref=x_refers,
+            yref="paper",
+            x0=x_labels[0],
+            y0=0,
+            x1=x_labels[-1],
+            y1=1,
+            fillcolor=colors,
+            opacity=0.4,
+            layer="below",
+            line_width=0,
+        )
+        shapes_list.append(shape_dict)
+
+    # Updating dropdown and theme
+    fig.update_layout(
+        shapes=shapes_list,
+        height=400,
+        bargap=0.2,
+        bargroupgap=0.1,
+
+        # adding dropdown
+        updatemenus=[
+            dict(
+                buttons=list([
+                    dict(
+                        args=[{"type": "line"}],
+                        label="Cummulative",
+                        method="restyle"
+                    ),
+                    dict(
+                        args=[{"type": "bar"}],
+                        label="Daily",
+                        method="restyle"
+                    ),
+                ]),
+                type='buttons',
+                direction="right",
+                pad={"r": 10, "t": 10},
+                showactive=True,
+                x=0.01,
+                xanchor="left",
+                y=1.4,
+                yanchor="top",
+                font=dict(color="black")
+            ),
+        ]
+
+    )
+
+    config = {'displayModeBar': True,
+                'scrollZoom': True,
+                'responsive': False,
+                'modeBarButtonsToRemove': ['toggleSpikelines',
+                                        'hoverCompareCartesian',
+                                        'zoom2d',
+                                        'pan2d',
+                                        'select2d',
+                                        'lasso2d'],
+                'displaylogo': False
+            }
+    return(offl.plot(fig, show_link=False, output_type="div",
+                    include_plotlyjs=False, config=config))
