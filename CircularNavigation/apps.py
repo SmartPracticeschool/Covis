@@ -32,8 +32,12 @@ table_dict = table_plot(df1)
 
 # Plots of different phases
 phase_1 = plot.phases_plot(x_list, y_list, 'phase 1')
+phase_2 = plot.phases_plot(x_list, y_list, 'phase 2')
+phase_3 = plot.phases_plot(x_list, y_list, 'phase 3')
+phase_4 = plot.phases_plot(x_list, y_list, 'phase 4')
 
-ls = [table_dict, total_positive, total_negative, total_neutral, phase_1]
+ls = [table_dict]
+ls1 = [phase_1, phase_2, phase_3, phase_4]
 
 @app.route('/', methods=['POST', 'GET'])
 def home(): 
@@ -41,7 +45,7 @@ def home():
 
 @app.route('/four', methods=['POST', 'GET'])
 def four(): 
-    return render_template('fphase.html')
+    return render_template('fphase.html', ls1=ls1)
 
 if __name__ == "__main__":
     app.run(debug=True)
