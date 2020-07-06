@@ -348,131 +348,168 @@ def box_plot(y_positive, y_negative, y_neutral, name):
 
 def state_date_plot(state_date_positive, state_date_negative, state_date_neutral, state_name):
     '''For plotting different graphs of states with different dates and sentiments'''
-    fig = go.Figure()
+    fig = make_subplots(rows=3,
+                        cols=1,
+                        shared_xaxes=True,
+                        )
 
-    fig.add_trace(go.Bar(x=list(state_date_positive.keys()),
-                            y=list(state_date_positive.values()),
-                            name='positive',
-                            marker_color='rgb(0,128,0)'
-                        ))
-    fig.add_trace(go.Bar(x=list(state_date_negative.keys()),
-                            y=list(state_date_negative.values()),
-                            name='Negative',
-                            marker_color='rgb(255,0,0)'
-                        ))
-    fig.add_trace(go.Bar(x=list(state_date_neutral.keys()),
-                            y=list(state_date_neutral.values()),
-                            name='Neutral',
-                            marker_color='rgb(218,165,32)'
-                        ))
+    fig.add_trace(go.Scatter(x=list(state_date_positive.keys()),
+                             y=list(state_date_positive.values()),
+                             name='positive😊',
+                             mode='lines+markers',
+                             marker_color='rgb(0,128,0)',
+                             fillcolor='yellow'
+                             ), row=1, col=1)
+    fig.add_trace(go.Scatter(x=list(state_date_negative.keys()),
+                             y=list(state_date_negative.values()),
+                             name='Negative🙁',
+                             mode='lines+markers',
+                             marker_color='rgb(255,0,0)'
+                             ), row=2, col=1)
+    fig.add_trace(go.Scatter(x=list(state_date_neutral.keys()),
+                             y=list(state_date_neutral.values()),
+                             name='Neutral😑',
+                             mode='lines+markers',
+                             marker_color='rgb(218,165,32)'
+                             ), row=3, col=1)
+
+    fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
+
+    # Updating x_axis properties
+    fig.update_xaxes(
+        showline=True,
+        linewidth=2,
+        linecolor='darkgreen',
+        row=1, col=1)
+
+    fig.update_xaxes(
+        showline=True,
+        linewidth=2,
+        linecolor='darkred',
+        row=2, col=1)
+
+    fig.update_xaxes(
+        showline=True,
+        linewidth=2,
+        linecolor='goldenrod',
+        row=3, col=1)
+
+    # Updating y_axis properties
+    fig.update_yaxes(title='Sentiments',
+                     titlefont_size=16,
+                     showline=True,
+                     linewidth=2,
+                     linecolor='darkgreen',
+                     row=1, col=1)
+
+    fig.update_yaxes(title='Sentiments',
+                     titlefont_size=16,
+                     showline=True,
+                     linewidth=2,
+                     linecolor='darkred',
+                     row=2, col=1)
+
+    fig.update_yaxes(title='Sentiments',
+                     titlefont_size=16,
+                     showline=True,
+                     linewidth=2,
+                     linecolor='goldenrod',
+                     row=3, col=1)
+
+    # Updating shapes
+    fig.update_layout(
+        shapes=[
+            dict(
+                type='rect',
+                xref='paper',
+                yref="y",
+                x0=0,
+                y0=-0.1,
+                x1=1,
+                y1=1.1,
+                fillcolor='green',
+                opacity=0.4,
+                layer="below",
+                line_width=0,
+            ),
+            dict(
+                type='rect',
+                xref='paper',
+                yref="y2",
+                x0=0,
+                y0=-0.1,
+                x1=1,
+                y1=1.1,
+                fillcolor='red',
+                opacity=0.4,
+                layer="below",
+                line_width=0,
+            ),
+            dict(
+                type='rect',
+                xref='paper',
+                yref="y3",
+                x0=0,
+                y0=-0.1,
+                x1=1,
+                y1=1.1,
+                fillcolor='gold',
+                opacity=0.4,
+                layer="below",
+                line_width=0,
+            )
+        ]
+    )
 
     fig.update_layout(
-        title={
-            'text': f"Sentiment during lockdown of {state_name}",
-            'y': 0.99,
-            'x': 0.5,
-            'xanchor': 'center',
-            'yanchor': 'top',
-            'font': dict(
-                    family='Rockwell',
-                    color='dim gray',
-                    size=30),
-        },
-        xaxis=dict(
-            title='Dates',
-            tickfont_size=14,
-            tickangle=90,
-            tickfont=dict(
-                family='Rockwell',
-                color='dim gray',
-                size=9),
-            tickmode='linear',
-            showgrid=False
-        ),
-        yaxis=dict(
-            title='Sentiments',
-            titlefont_size=16,
-            tickfont_size=14,
-            showgrid=False
-        ),
-        legend=dict(
-            x=0.8,
-            y=1.0,
-            bordercolor='rgba(255, 255, 255, 0)'
-        ),
-        barmode='group',
+        width=700,
+        height=800,
         bargap=0.2,
         bargroupgap=0.1,
-        #template='plotly_dark',
+
+        # adding dropdown
         updatemenus=[
             dict(
                 buttons=list([
                     dict(
-                        args=["type", "bar"],
-                        label="Bar Graph",
-                        method="restyle",
-                    ),
-                    dict(
-                        args=[{"type": "scatter", "mode": 'lines+markers', "fill": None}],
-                        label="Line Graph",
+                        args=[{"type": "line"}],
+                        label="Cummulative",
                         method="restyle"
                     ),
                     dict(
-                        args=[
-                            {"type": "scatter", "mode": 'markers+lines', "fill": 'tozeroy'}],
-                        label="Area Plot",
+                        args=[{"type": "bar"}],
+                        label="Daily",
                         method="restyle"
-                    ),
-                    dict(
-                        args=[{"type": "scatter", "mode": 'markers', "fill": None}],
-                        label="Scatter Plot",
-                        method="update"
                     ),
                 ]),
-                direction="down",
+                type='buttons',
+                direction="right",
                 pad={"r": 10, "t": 10},
                 showactive=True,
                 x=0.01,
                 xanchor="left",
-                y=1.2,
+                y=1.1,
                 yanchor="top",
-                font = dict(color="rgb(220,20,60)")
+                font=dict(color="black")
             ),
-            dict(
-                buttons=list([
-                    dict(
-                        label="Cummulative",
-                        method="update",
-                        args=[{"visible": [True, True, True]},
-                                ]),
-                    dict(
-                        label="Positive",
-                        method="update",
-                        args=[{"visible": [True, False, False]},
-                                ]),
-                    dict(
-                        label="Negative",
-                        method="update",
-                        args=[{"visible": [False, True, False]},
-                                ]),
-                    dict(
-                        label="Neutral",
-                        method="update",
-                        args=[{"visible": [False, False, True]},
-                                ]),
-                ]),
-                direction="down",
-                pad={"r": 10, "t": 10},
-                showactive=True,
-                x=0.15,
-                xanchor="left",
-                y=1.2,
-                yanchor="top",
-                font=dict(color="rgb(220,20,60)")
-            ),
-        ])
+        ]
+    )
 
-    return(offl.plot(fig, show_link=False, output_type="div", include_plotlyjs=False))
+    config = {'displayModeBar': True,
+              'scrollZoom': True,
+              'responsive': False,
+              'modeBarButtonsToRemove': ['toggleSpikelines',
+                                         'hoverCompareCartesian',
+                                         'zoom2d',
+                                         'pan2d',
+                                         'select2d',
+                                         'lasso2d'],
+              'displaylogo': False
+              }
+
+    return(offl.plot(fig, show_link=False, output_type="div",
+                        include_plotlyjs=False, config=config))
+
 
 def stacked_barplot(x_list, y_list):
     '''Plot stacked barplot'''
