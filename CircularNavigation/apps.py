@@ -36,7 +36,21 @@ phase_2 = plot.phases_plot(x_list, y_list, 'phase 2')
 phase_3 = plot.phases_plot(x_list, y_list, 'phase 3')
 phase_4 = plot.phases_plot(x_list, y_list, 'phase 4')
 
-ls = [table_dict]
+# Plots for different states
+arg1 = state_date_senti_dict['State_date_positive']
+arg2 = state_date_senti_dict['State_date_negative']
+arg3 = state_date_senti_dict['State_date_neutral']
+
+states_dates_dict = dict()
+for states in list(arg1.keys()):
+    positive_sentiment = arg1[states]
+    negative_sentiment = arg2[states]
+    neutral_sentiment = arg3[states]
+    states_dates_dict[states] = plot.state_date_plot(positive_sentiment, negative_sentiment,
+                                                     neutral_sentiment, states
+                                                     )
+
+ls = [table_dict, states_dates_dict]
 ls1 = [phase_1, phase_2, phase_3, phase_4]
 
 @app.route('/', methods=['POST', 'GET'])
