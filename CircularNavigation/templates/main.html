@@ -56,7 +56,38 @@
         };
     </script>
 
+    <script>
 
+        function getPos(e) {
+            x = e.clientX;
+            y = e.clientY;
+            cursor = "Your Mouse Position Is : " + x + " and " + y;
+            if((x>=512 && x<=595) && (y >= 397 && y <= 449)){
+                values = "Jammu and Kashmir " + x +" " + y 
+                document.getElementById("displayvalues").innerHTML = values
+            }
+            document.getElementById("displayArea").innerHTML = cursor
+        }
+
+        function stopTracking() {
+            document.getElementById("displayArea").innerHTML = "nan";
+            document.getElementById("displayvalues").innerHTML = "nan";
+        }
+
+    </script>
+
+    <script>
+
+        function getPosi(e) {
+            x = e.clientX;
+            y = e.clientY;
+            if ((x >= 512 && x <= 595) && (y >= 397 && y <= 449)) {
+                location.href = "https://www.w3schools.com"
+            }
+        }
+
+    </script>
+    
     <style>
         table,
         th,
@@ -125,7 +156,11 @@
                 <div class="card-footer bg-transparent border-danger">Footer</div>
             </div>
         </div>
-        <div id="geochart-colors" style="width: 1100px; height: 1000px; margin-left: 20px; margin-top: -1px;"></div>
+        <br>
+        <br>
+        <p id="displayArea"></p>
+        <p id="displayvalues"></p>
+        <div id="geochart-colors" onclick="getPosi(event)" onmousemove="getPos(event)" onmouseout="stopTracking()" style="width: 1100px; height: 1000px; margin-left: 20px; margin-top: -1px;"></div>
 
         <!-- <table style="margin-left: 850px; margin-top: -680px;">
         <tr>
