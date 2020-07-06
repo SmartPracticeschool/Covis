@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/demo.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/component1.css" />
-    <link rel="stylesheet" type="text/css" href="../static/css/fphase.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="../static/css/fphase.css" /> -->
     <script src="../static/js/modernizr-2.6.2.min.js"></script>
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
@@ -22,20 +22,58 @@
     
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
+<style type="text/css">
+
+.card{
+    padding-right: 100px ;
+
+    }
+    .column{
+  opacity: 1;
+  padding: 0px 30px 70px 30px;
+  border-radius: 5px;
+/*   background-color:  rgba(255, 7, 58, 0.125);  */
+  transform: translateX(0px);
+  height: 8rem;
+  cursor: pointer;
+  transition: background .15s ease-in-out;
+  display: block;
+  text-align: center;
+  float: right;
+ 
+ 
+}
+
+/* Style the counter cards */
+
+
+.red:hover{
+    background-color:rgba(255, 7, 58, 0.125);  
+}
+
+.green:hover{
+    background-color:rgba(0, 255, 0, 0.125);  
+}
+
+.yellow{
+    background-color: rgb(0,0,0);  
+}
+</style>
 <body>
 {% endblock %}
 {% block all %}
     <div class="nav">
         <nav>
-            <a href="#section1">Phase 1</a>
-            <a href="#section2">Phase 2</a>
-            <a href="#section3">Phase 3</a>
-            <a href="#section4">Phase 4</a>
+            <a href="#section1"><span data-hover="Phase 1">Stage 1</span></a>
+            <a href="#section2"><span data-hover="Phase 2">Stage 2</span></a>
+            <a href="#section3"><span data-hover="Phase 3">Stage 3</span></a>
+            <a href="#section4"><span data-hover="Phase 4">Stage 4</span></a>
         </nav>
     </div>
     <div id="section1" class="section">
         <div class="row">
             <br>
+            <div class="card">
             <div class="column red">
                 <h3 style="color: red; text-align: center; font-family: 'Walter Turncoat', cursive;font-size: small;">Negative</h3>
                 <br>
@@ -66,6 +104,7 @@
                 <strong>19,341</strong></p>
             </div>
         </div>
+        </div>
         <br>
         <br>
         <br>
@@ -75,11 +114,16 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
+        
         {{ls1[0] | safe}}
     </div>
     <div id="section2" class="section">
         <div class="row">
             <br>
+            <div class="card">
             <div class="column red">
                 <h3 style="color: red; text-align: center; font-family: 'Walter Turncoat', cursive;font-size: small;">Negative
                 </h3>
@@ -122,11 +166,15 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
         {{ls1[1] | safe}}
     </div>
     <div id="section3" class="section">
         <div class="row">
             <br>
+            <div class="card">
             <div class="column red">
                 <h3 style="color: red; text-align: center; font-family: 'Walter Turncoat', cursive;font-size: small;">Negative
                 </h3>
@@ -169,11 +217,15 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
         {{ls1[2] | safe}}
     </div>
     <div id="section4" class="section">
         <div class="row">
             <br>
+            <div class = "card">
             <div class="column red">
                 <h3 style="color: red; text-align: center; font-family: 'Walter Turncoat', cursive;font-size: small;">Negative
                 </h3>
@@ -207,6 +259,9 @@
                     <strong>20,561</strong></p>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
         <br>
         <br>
         <br>
