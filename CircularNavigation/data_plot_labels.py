@@ -37,9 +37,9 @@ def data_plot(df1):
     y2 = list(sentiment_neg_1_dict.values())
     y3 = list(sentiment_0_dict.values())
 
-    total_positive = sum(list(sentiment_1_dict.values()))
-    total_negative = sum(list(sentiment_neg_1_dict.values()))
-    total_neutral = sum(list(sentiment_0_dict.values()))
+    total_positive = round((sum(list(df1.Sentiment_1)) /len(list(df1.Sentiment_1)))*100, 2)
+    total_negative = round((sum(list(df1.Sentiment_neg_1)) /len(list(df1.Sentiment_1)))*100, 2)
+    total_neutral = round((sum(list(df1.Sentiment_0)) /len(list(df1.Sentiment_1)))*100, 2)
 
     return dict(x_list = [x1, x2, x3],
         y_list = [y1, y2, y3], total_positive=total_positive, total_negative=total_negative, total_neutral=total_neutral)

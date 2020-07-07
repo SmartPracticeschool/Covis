@@ -131,27 +131,27 @@
             <div class="card border-success mb-3" style="max-width: 18rem;">
                 <div class="card-header bg-transparent border-success">Header</div>
                 <div class="card-body text-success">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title">Positive Sentiments</h5>
+                    <p class="card-text">Cummulative percentage during complete lockdown is {{ls[2] | safe}}
+                    </p>
                 </div>
                 <div class="card-footer bg-transparent border-warning">Footer</div>
             </div>
             <div class="card border-warning mb-3" style="max-width: 18rem;">
                 <div class="card-header bg-transparent border-warning">Header</div>
                 <div class="card-body text-warning">
-                    <h5 class="card-title">warning card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title">Neutral Sentiments</h5>
+                    <p class="card-text">Cummulative percentage during complete lockdown is {{ls[4] | safe}}
+                    </p>
                 </div>
                 <div class="card-footer bg-transparent border-warning">Footer</div>
             </div>
             <div class="card border-danger mb-3" style="max-width: 18rem;">
                 <div class="card-header bg-transparent border-danger">Header</div>
                 <div class="card-body text-danger">
-                    <h5 class="card-title">danger card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title">Negative Sentiments</h5>
+                    <p class="card-text">Cummulative percentage during complete lockdown is {{ls[3] | safe}}
+                    </p>
                 </div>
                 <div class="card-footer bg-transparent border-danger">Footer</div>
             </div>
@@ -161,6 +161,7 @@
         <p id="displayArea"></p>
         <p id="displayvalues"></p>
         <div id="geochart-colors" onclick="getPosi(event)" onmousemove="getPos(event)" onmouseout="stopTracking()" style="width: 1100px; height: 1000px; margin-left: 20px; margin-top: -1px;"></div>
+        {{ls[1]['andhra pradesh'] | safe}}
 
         <!-- <table style="margin-left: 850px; margin-top: -680px;">
         <tr>
@@ -374,7 +375,6 @@
     <br>
     <br> -->
     {% endblock %}
-    {{ls[1]['andhra pradesh'] | safe}}
 
         <div class="component">
             <!-- Start Nav Structure -->

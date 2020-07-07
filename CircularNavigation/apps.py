@@ -50,7 +50,8 @@ for states in list(arg1.keys()):
                                                      neutral_sentiment, states
                                                      )
 
-ls = [table_dict, states_dates_dict]
+ls = [table_dict, states_dates_dict,
+        total_positive, total_negative, total_neutral]
 ls1 = [phase_1, phase_2, phase_3, phase_4]
 
 @app.route('/', methods=['POST', 'GET'])
