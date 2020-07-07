@@ -55,7 +55,18 @@
             chart.draw(data, options);
         };
     </script>
+    <!--
+    <script>
+        function redi(state){
+            if (state == 'andhra'){
+                var queryString = "?andhra";
+                location.href = "{{url_for('states')}}"+queryString
+            }
+        }
+    </script>
+-->
 
+    <!--
     <script>
 
         function getPos(e) {
@@ -86,37 +97,77 @@
             }
         }
 
-    </script>
-    
+    </script>-->
     <style>
         table,
         th,
         td {
-            border: 1px solid white;
+            border: 1px solid rgb(228, 217, 217);
             border-bottom-right-radius: 0;
-            border-radius: 3px;
-            color: #888888;
-
+            border-radius: 4px;
+            color: #1d1b1b;
         }
 
         th {
-            width: 17%;
-            background-color: #F6F6F7;
-            padding: 1% 2% 1% 1%;
+            width: 22%;
+            background-color: #4CAF50;
+            padding: 3% 2% 1% 1%;
             box-sizing: border-box;
             text-align: right;
         }
 
         td {
-            padding: 1% 2% 1% 1%;
+            width:22%;
+            padding: 3% 2% 1% 1%;
             box-sizing: border-box;
             text-align: right;
         }
 
+        tr:nth-child(odd) {
+            background-color: #e1eee0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9faf9;
+        }
+
+        table th {
+             position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
         tr:not(.no-hover):hover {
-            background-color: #dbd3dd;
+            background-color: #e7e7f8;
             cursor: pointer;
         }
+          
+        /* To display the block as level element */ 
+        table.scrolldown tbody, table.scrolldown thead { 
+            display: block; 
+        }  
+
+        table.scrolldown tbody { 
+              
+            /* Set the height of table body */ 
+            height: 580px;  
+              
+            /* Set vertical scroll */ 
+            overflow-y: auto; 
+              
+            /* Hide the horizontal scroll */ 
+            overflow-x: hidden;  
+        } 
+
+        .atext {
+            background:none;
+            border:none;
+            margin:0;
+            padding:0;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -127,253 +178,243 @@
         <header>
             <h1 style="font-family: 'Abril Fatface', cursive; font-size:70px;">Covid-19 Sentiment Analysis </h1>
         </header>
-        <div class="card-columns" style="padding-top: 110px;">
+        <div class="card-columns" style="padding-top: 150px;">
             <div class="card border-success mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent border-success">Header</div>
+                <div class="card-header bg-transparent border-success"><h5 class="card-title text-success" style="text-align: center;">Positive Sentiments</h5></div>
                 <div class="card-body text-success">
-                    <h5 class="card-title">Positive Sentiments</h5>
                     <p class="card-text">Cummulative percentage during complete lockdown is {{ls[2] | safe}}
                     </p>
                 </div>
-                <div class="card-footer bg-transparent border-warning">Footer</div>
             </div>
             <div class="card border-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent border-warning">Header</div>
+                <div class="card-header bg-transparent border-warning"><h5 class="card-title text-warning" style="text-align: center;">Neutral Sentiments</h5></div>
                 <div class="card-body text-warning">
-                    <h5 class="card-title">Neutral Sentiments</h5>
                     <p class="card-text">Cummulative percentage during complete lockdown is {{ls[4] | safe}}
                     </p>
                 </div>
-                <div class="card-footer bg-transparent border-warning">Footer</div>
             </div>
             <div class="card border-danger mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent border-danger">Header</div>
+                <div class="card-header bg-transparent border-danger"><h5 class="card-title text-danger" style="text-align: center;">Negative Sentiments</h5></div>
                 <div class="card-body text-danger">
-                    <h5 class="card-title">Negative Sentiments</h5>
                     <p class="card-text">Cummulative percentage during complete lockdown is {{ls[3] | safe}}
                     </p>
                 </div>
-                <div class="card-footer bg-transparent border-danger">Footer</div>
             </div>
         </div>
-        <br>
-        <br>
-        <p id="displayArea"></p>
-        <p id="displayvalues"></p>
-        <div id="geochart-colors" onclick="getPosi(event)" onmousemove="getPos(event)" onmouseout="stopTracking()" style="width: 1100px; height: 1000px; margin-left: 20px; margin-top: -1px;"></div>
-        {{ls[1]['andhra pradesh'] | safe}}
-
-        <!-- <table style="margin-left: 850px; margin-top: -680px;">
+        <div id="geochart-colors" style="width: 800px; height: 800px; margin-left:3px;"></div>
+        <table class="scrolldown" style="margin-left: 840px; margin-top: -625px;">
         <tr>
             <th class="th1">State/UT</th>
-            <th>Positive</th>
-            <th>Negative</th>
-            <th>Negative</th>
+            <th>Pos</th>
+            <th>Neg</th>
+            <th>Neu</th>
     
         </tr>
+        <form action="{{ url_for('states') }}" method="POST">
         <tr>
-            <td>Andhra Pradesh</td>
+            <td><input name="button" class="atext" type="submit" value="Andhra Pradesh"></td>
             <td>{{ls[0]['Positive_sentiments']['andhra pradesh']}}</td>
             <td>{{ls[0]['Negative_sentiments']['andhra pradesh']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['andhra pradesh']}}</td>
         </tr>
         <tr>
-            <td>Arunachal Pradesh</td>
+            <td><input name="button" class="atext" type="submit" value="Arunachal Pradesh"></td>
             <td>{{ls[0]['Positive_sentiments']['arunachal pradesh']}}</td>
             <td>{{ls[0]['Negative_sentiments']['arunachal pradesh']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['arunachal pradesh']}}</td>
         </tr>
         <tr>
-            <td>Assam</td>
+            <td><input name="button" class="atext" type="submit" value="Assam"></td>
             <td>{{ls[0]['Positive_sentiments']['assam']}}</td>
             <td>{{ls[0]['Negative_sentiments']['assam']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['assam']}}</td>
         </tr>
         <tr>
-            <td>Bihar</td>
+            <td><input name="button" class="atext" type="submit" value="Bihar"></td>
             <td>{{ls[0]['Positive_sentiments']['bihar']}}</td>
             <td>{{ls[0]['Negative_sentiments']['bihar']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['bihar']}}</td>
         </tr>
         <tr>
-            <td>Chandigarh</td>
+            <td><input name="button" class="atext" type="submit" value="Chandigarh"></td>
             <td>{{ls[0]['Positive_sentiments']['chandigarh']}}</td>
             <td>{{ls[0]['Negative_sentiments']['chandigarh']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['chandigarh']}}</td>
         </tr>
         <tr>
-            <td>Chhattisgarh</td>
+            <td><input name="button" class="atext" type="submit" value="Chhattisgarh"></td>
             <td>{{ls[0]['Positive_sentiments']['chhattisgarh']}}</td>
             <td>{{ls[0]['Negative_sentiments']['chhattisgarh']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['chhattisgarh']}}</td>
         </tr>
         <tr>
-            <td>Dadra and Nagar Haveli</td>
+            <td><input name="button" class="atext" type="submit" value="Dadra and Nagar Haveli"></td>
             <td>{{ls[0]['Positive_sentiments']['dadra and nagar haveli']}}</td>
             <td>{{ls[0]['Negative_sentiments']['dadra and nagar haveli']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['dadra and nagar haveli']}}</td>
         </tr>
         <tr>
-            <td>Daman And Diu</td>
+            <td><input name="button" class="atext" type="submit" value="Daman And Diu"></td>
             <td>{{ls[0]['Positive_sentiments']['daman and diu']}}</td>
             <td>{{ls[0]['Negative_sentiments']['daman and diu']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['daman and diu']}}</td>
         </tr>
         <tr>
-            <td>Delhi</td>
+            <td><input name="button" class="atext" type="submit" value="Delhi"></td>
             <td>{{ls[0]['Positive_sentiments']['delhi']}}</td>
             <td>{{ls[0]['Negative_sentiments']['delhi']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['delhi']}}</td>
         </tr>
         <tr>
-            <td>Goa</td>
+            <td><input name="button" class="atext" type="submit" value="Goa"></td>
             <td>{{ls[0]['Positive_sentiments']['goa']}}</td>
             <td>{{ls[0]['Negative_sentiments']['goa']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['goa']}}</td>
         </tr>
         <tr>
-            <td>Gujarat</td>
+            <td><input name="button" class="atext" type="submit" value="Gujarat"></td>
             <td>{{ls[0]['Positive_sentiments']['gujarat']}}</td>
             <td>{{ls[0]['Negative_sentiments']['gujarat']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['gujarat']}}</td>
         </tr>
         <tr>
-            <td>Haryana</td>
+            <td><input name="button" class="atext" type="submit" value="Haryana"></td>
             <td>{{ls[0]['Positive_sentiments']['haryana']}}</td>
             <td>{{ls[0]['Negative_sentiments']['haryana']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['haryana']}}</td>
         </tr>
         <tr>
-            <td>Himachal Pradesh</td>
+            <td><input name="button" class="atext" type="submit" value="Himachal Pradesh"></td>
             <td>{{ls[0]['Positive_sentiments']['himachal pradesh']}}</td>
             <td>{{ls[0]['Negative_sentiments']['himachal pradesh']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['himachal pradesh']}}</td>
         </tr>
         <tr>
-            <td>Jammu and Kashmir</td>
+            <td><input name="button" class="atext" type="submit" value="Jammu and Kashmir"></td>
             <td>{{ls[0]['Positive_sentiments']['jammu and kashmir']}}</td>
             <td>{{ls[0]['Negative_sentiments']['jammu and kashmir']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['jammu and kashmir']}}</td>
         </tr>
         <tr>
-            <td>Jharkhand</td>
+            <td><input name="button" class="atext" type="submit" value="Jharkhand"></td>
             <td>{{ls[0]['Positive_sentiments']['jharkhand']}}</td>
             <td>{{ls[0]['Negative_sentiments']['jharkhand']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['jharkhand']}}</td>
         </tr>
         <tr>
-            <td>Karnataka</td>
+            <td><input name="button" class="atext" type="submit" value="Karnataka"></td>
             <td>{{ls[0]['Positive_sentiments']['karnataka']}}</td>
             <td>{{ls[0]['Negative_sentiments']['karnataka']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['karnataka']}}</td>
         </tr>
         <tr>
-            <td>Kerala</td>
+            <td><input name="button" class="atext" type="submit" value="Kerala"></td>
             <td>{{ls[0]['Positive_sentiments']['kerala']}}</td>
             <td>{{ls[0]['Negative_sentiments']['kerala']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['kerala']}}</td>
         </tr>
         <tr>
-            <td>Madhya Pradesh</td>
+            <td><input name="button" class="atext" type="submit" value="Madhya Pradesh"></td>
             <td>{{ls[0]['Positive_sentiments']['madhya pradesh']}}</td>
             <td>{{ls[0]['Negative_sentiments']['madhya pradesh']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['madhya pradesh']}}</td>
         </tr>
         <tr>
-            <td>Maharashtra</td>
+            <td><input name="button" class="atext" type="submit" value="Maharashtra"></td>
             <td>{{ls[0]['Positive_sentiments']['maharashtra']}}</td>
             <td>{{ls[0]['Negative_sentiments']['maharashtra']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['maharashtra']}}</td>
         </tr>
         <tr>
-            <td>Manipur</td>
+            <td><input name="button" class="atext" type="submit" value="Manipur"></td>
             <td>{{ls[0]['Positive_sentiments']['manipur']}}</td>
             <td>{{ls[0]['Negative_sentiments']['manipur']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['manipur']}}</td>
         </tr>
         <tr>
-            <td>Meghalaya</td>
+            <td><input name="button" class="atext" type="submit" value="Meghalaya"></td>
             <td>{{ls[0]['Positive_sentiments']['meghalaya']}}</td>
             <td>{{ls[0]['Negative_sentiments']['meghalaya']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['meghalaya']}}</td>
         </tr>
         <tr>
-            <td>Mizoram</td>
+            <td><input name="button" class="atext" type="submit" value="Mizoram"></td>
             <td>{{ls[0]['Positive_sentiments']['mizoram']}}</td>
             <td>{{ls[0]['Negative_sentiments']['mizoram']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['mizoram']}}</td>
         </tr>
         <tr>
-            <td>Nagaland</td>
+            <td><input name="button" class="atext" type="submit" value="Nagaland"></td>
             <td>{{ls[0]['Positive_sentiments']['nagaland']}}</td>
             <td>{{ls[0]['Negative_sentiments']['nagaland']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['nagaland']}}</td>
         </tr>
         <tr>
-            <td>Odisha</td>
+            <td><input name="button" class="atext" type="submit" value="Odisha"></td>
             <td>{{ls[0]['Positive_sentiments']['odisha']}}</td>
             <td>{{ls[0]['Negative_sentiments']['odisha']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['odisha']}}</td>
         </tr>
         <tr>
-            <td>Puducherry</td>
+            <td><input name="button" class="atext" type="submit" value="Puducherry"></td>
             <td>{{ls[0]['Positive_sentiments']['puducherry']}}</td>
             <td>{{ls[0]['Negative_sentiments']['puducherry']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['puducherry']}}</td>
         </tr>
         <tr>
-            <td>Punjab</td>
+            <td><input name="button" class="atext" type="submit" value="Punjab"></td>
             <td>{{ls[0]['Positive_sentiments']['punjab']}}</td>
             <td>{{ls[0]['Negative_sentiments']['punjab']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['punjab']}}</td>
         </tr>
         <tr>
-            <td>Rajasthan</td>
+            <td><input name="button" class="atext" type="submit" value="Rajasthan"></td>
             <td>{{ls[0]['Positive_sentiments']['rajasthan']}}</td>
             <td>{{ls[0]['Negative_sentiments']['rajasthan']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['rajasthan']}}</td>
         </tr>
         <tr>
-            <td>Sikkim</td>
+            <td><input name="button" class="atext" type="submit" value="Sikkim"></td>
             <td>{{ls[0]['Positive_sentiments']['sikkim']}}</td>
             <td>{{ls[0]['Negative_sentiments']['sikkim']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['sikkim']}}</td>
         </tr>
         <tr>
-            <td>Tamil Nadu</td>
+            <td><input name="button" class="atext" type="submit" value="Tamil Nadu"></td>
             <td>{{ls[0]['Positive_sentiments']['tamil nadu']}}</td>
             <td>{{ls[0]['Negative_sentiments']['tamil nadu']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['tamil nadu']}}</td>
         </tr>
         <tr>
-            <td>Tripura</td>
+            <td><input name="button" class="atext" type="submit" value="Tripura"></td>
             <td>{{ls[0]['Positive_sentiments']['tripura']}}</td>
             <td>{{ls[0]['Negative_sentiments']['tripura']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['tripura']}}</td>
         </tr>
         <tr>
-            <td>Uttar Pradesh</td>
+            <td><input name="button" class="atext" type="submit" value="Uttar Pradesh"></td>
             <td>{{ls[0]['Positive_sentiments']['uttar pradesh']}}</td>
             <td>{{ls[0]['Negative_sentiments']['uttar pradesh']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['uttar pradesh']}}</td>
         </tr>
         <tr>
-            <td>Uttarakhand</td>
+            <td><input name="button" class="atext" type="submit" value="Uttarakhand"></td>
             <td>{{ls[0]['Positive_sentiments']['uttarakhand']}}</td>
             <td>{{ls[0]['Negative_sentiments']['uttarakhand']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['uttarakhand']}}</td>
         </tr>
         <tr>
-            <td>West Bengal</td>
+            <td><input name="button" class="atext" type="submit" value="West Bengal"></td>
             <td>{{ls[0]['Positive_sentiments']['west bengal']}}</td>
             <td>{{ls[0]['Negative_sentiments']['west bengal']}}</td>
             <td>{{ls[0]['Neutral_sentiments']['west bengal']}}</td>
         </tr>
+        </form>
     </table>
     <br>
     <br>
     <br>
-    <br> -->
+    <br>
     {% endblock %}
 
         <div class="component">
