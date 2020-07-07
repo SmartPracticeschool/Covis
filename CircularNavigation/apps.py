@@ -62,5 +62,13 @@ def home():
 def four(): 
     return render_template('fphase.html', ls1=ls1)
 
+@app.route('/states', methods=['POST', 'GET'])
+def states(): 
+    if request.method == 'POST':
+        if request.form['button'] == 'Andhra Pradesh':
+            return render_template('states.html', args=states_dates_dict)
+        elif request.form['button'] == 'arunachal':
+            print("bye")
+
 if __name__ == "__main__":
     app.run(debug=True)
