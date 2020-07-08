@@ -50,8 +50,7 @@ for states in list(arg1.keys()):
                                                      neutral_sentiment, states
                                                      )
 
-ls = [table_dict, states_dates_dict,
-        total_positive, total_negative, total_neutral]
+ls = [table_dict, total_positive, total_neutral, total_negative]
 ls1 = [phase_1, phase_2, phase_3, phase_4]
 
 @app.route('/', methods=['POST', 'GET'])
@@ -62,13 +61,82 @@ def home():
 def four(): 
     return render_template('fphase.html', ls1=ls1)
 
+def check_state(state):
+    if state == 'Andhra Pradesh':
+        args = [states_dates_dict['andhra pradesh']]
+    elif state == 'Arunachal Pradesh':
+        args = [states_dates_dict['arunachal pradesh']]
+    elif state == 'Assam':
+        args = [states_dates_dict['assam']]
+    elif state == 'Bihar':
+        args = [states_dates_dict['bihar']]
+    elif state == 'Chandigarh':
+        args = [states_dates_dict['chandigarh']]
+    elif state == 'Chhattisgarh':
+        args = [states_dates_dict['chhattisgarh']]
+    elif state == 'Dadra and Nagar Haveli':
+        args = [states_dates_dict['dadra and nagar haveli']]
+    elif state == 'Daman And Diu':
+        args = [states_dates_dict['daman and diu']]
+    elif state == 'Delhi':
+        args = [states_dates_dict['delhi']]
+    elif state == 'Goa':
+        args = [states_dates_dict['goa']]
+    elif state == 'Gujarat':
+        args = [states_dates_dict['gujarat']]
+    elif state == 'Haryana':
+        args = [states_dates_dict['haryana']]
+    elif state == 'Himachal Pradesh':
+        args = [states_dates_dict['himachal pradesh']]
+    elif state == 'Jammu and Kashmir':
+        args = [states_dates_dict['jammu and kashmir']]
+    elif state == 'Jharkhand':
+        args = [states_dates_dict['jharkhand']]
+    elif state == 'Karnataka':
+        args = [states_dates_dict['karnataka']]
+    elif state == 'Kerala':
+        args = [states_dates_dict['kerala']]
+    elif state == 'Madhya Pradesh':
+        args = [states_dates_dict['madhya pradesh']]
+    elif state == 'Maharashtra':
+        args = [states_dates_dict['maharashtra']]
+    elif state == 'Manipur':
+        args = [states_dates_dict['manipur']]
+    elif state == 'Meghalaya':
+        args = [states_dates_dict['meghalaya']]
+    elif state == 'Mizoram':
+        args = [states_dates_dict['mizoram']]
+    elif state == 'Nagaland':
+        args = [states_dates_dict['nagaland']]
+    elif state == 'Odisha':
+        args = [states_dates_dict['odisha']]
+    elif state == 'Puducherry':
+        args = [states_dates_dict['puducherry']]
+    elif state == 'Punjab':
+        args = [states_dates_dict['punjab']]
+    elif state == 'Rajasthan':
+        args = [states_dates_dict['rajasthan']]
+    elif state == 'Sikkim':
+        args = [states_dates_dict['sikkim']]
+    elif state == 'Tamil Nadu':
+        args = [states_dates_dict['tamil nadu']]
+    elif state == 'Tripura':
+        args = [states_dates_dict['tripura']]
+    elif state == 'Uttar Pradesh':
+        args = [states_dates_dict['uttar pradesh']]
+    elif state == 'Uttarakhand':
+        args = [states_dates_dict['uttarakhand']]
+    elif state == 'West Bengal':
+        args = [states_dates_dict['west bengal']]
+    
+    return args
+
 @app.route('/states', methods=['POST', 'GET'])
 def states(): 
     if request.method == 'POST':
-        if request.form['button'] == 'Andhra Pradesh':
-            return render_template('states.html', args=states_dates_dict)
-        elif request.form['button'] == 'arunachal':
-            print("bye")
+        state = request.form['button']
+        args = check_state(state)
+        return render_template('states.html', args=args)
 
 if __name__ == "__main__":
     app.run(debug=True)
