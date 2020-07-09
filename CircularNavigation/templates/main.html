@@ -142,7 +142,7 @@
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                 maxZoom: 18,
                 id: 'mapbox/light-v9',
-                tileSize: 530,
+                tileSize: 512,
                 zoomOffset: -1
             }).addTo(map);
 
@@ -172,12 +172,18 @@
 
             // get color depending on population density value
             function getColor(d) {
-                return d > 31 ? '#800026' :
-                d > 29.60 ? '#BD0026' :
-                d > 28.50 ? '#E31A1C' :
-                d > 27.30 ? '#FC4E2A' :
-                d > 26.20 ? '#FD8D3C' :
-                '#FFEDA0';
+                return d > 85.35 ? '#800026' :
+                d > 80.00 ? '#006837' :
+                d > 78.50 ? '#1a9850' :
+                d > 76.50 ? '#66bd63' :
+                d > 74.50 ? '#a6d96a' :
+                d > 72.50 ? '#d9ef8b' :
+                d > 70.10 ? '#ffffbf' :
+                d > 69.00 ? '#fee08b' :
+                d > 67.50 ? '#fdae61' :
+                d > 66.50 ? '#f46d43' :
+                d > 63.50 ? '#d73027' :
+                '#a50026';
             }
 
             function style(feature) {
@@ -234,27 +240,7 @@
                 onEachFeature: onEachFeature
             }).addTo(map);
 
-            var legend = L.control({ position: 'bottomright' });
-
-            legend.onAdd = function (map) {
-
-                var div = L.DomUtil.create('div', 'info legend'),
-                    grades = [31, 29.50, 28.30, 27.20, 26, 0],
-                    labels = [],
-                    from, to;
-
-                for (var i = 0; i < grades.length; i++) {
-                    from = grades[i];
-                    to = grades[i + 1];
-
-                    labels.push(
-                        '<i style="background:' + getColor(from + 1) + '"></i> ' +
-                        from + (to ? '&ndash;' + to : '+'));
-                }
-
-                div.innerHTML = labels.join('<br>');
-                return div;
-            };
+            
 
             legend.addTo(map);
 
