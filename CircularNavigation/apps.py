@@ -82,7 +82,7 @@ def check_state(state):
         args = [states_dates_dict['delhi']]
     elif state == 'Goa':
         args = [states_dates_dict['goa']]
-    elif state == 'Gujarat':
+    elif state == 'Gujrat':
         args = [states_dates_dict['gujarat']]
     elif state == 'Haryana':
         args = [states_dates_dict['haryana']]
