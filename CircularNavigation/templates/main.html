@@ -32,36 +32,43 @@
 
 
     <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-        }
-    
         #map {
-            width: 600px;
-            height: 400px;
+            margin-top: 280px;
+            height: 680px;
         }
-    </style>
-    
-    <style>
-        #map {
-            width: 800px;
-            height: 500px;
+
+        .paral h1 {
+            color: rgba(255, 255, 255, 0.726);
+            font-size: 60px;
+            font-family: impact;
+            text-align: center;
+            padding-top: 60px;
+            line-height: 100px;
+            }
+
+        .paral {
+            min-height: 350px;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: 50% 50%;
         }
-    
-        .info {
+
+        .paralsec {
+            background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20200325/pngtree-red-gradient-creative-virus-background-image_332715.jpg);
+        }
+
+        .info { 
             padding: 6px 8px;
+            text-align: center;
             font: 14px/16px Arial, Helvetica, sans-serif;
-            background: white;
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
+            background: white; 
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+            border-radius: 5px; }
     
-        .info h4 {
-            margin: 0 0 5px;
+        .info h3 {
             color: #777;
+            font-weight: bold;
+            font-size: medium;
         }
     
         .legend {
@@ -77,18 +84,27 @@
             margin-right: 8px;
             opacity: 0.7;
         }
+
+        .atext {
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            min-width: 30px;
+        }
     </style>
     
 </head>
 
 <body>
+    <div class="jumbotron paral paralsec">
+                <h1>Sentiment Analysis Of COVID-19 Tweets – Dashboard For Visualization</h1>
+            </div>
     {% endblock %}
     <div class="container">
     {% block all %}
-        <header>
-            <h1 style="font-family: 'Abril Fatface', cursive; font-size:70px;">Covid-19 Sentiment Analysis </h1>
-        </header>
-        <div class="card-columns" style="padding-top: 150px;">
+        <div class="card-columns" style="padding-top: 220px;">
             <div class="card border-success mb-3" style="max-width: 18rem;">
                 <div class="card-header bg-transparent border-success"><h5 class="card-title text-success" style="text-align: center;">Positive Sentiments</h5></div>
                 <div class="card-body text-success">
@@ -114,20 +130,27 @@
         <br>
         <br>
         <br>
+        <form action="{{ url_for('states') }}" method="POST">
         <div id='map'></div>
+        </form>
         <script type="text/javascript" src="../static/js/statesData.js"></script>
         
         <script type="text/javascript">
 
-            var map = L.map('map').setView([21.1458, 79.0882], 4);
+            var map = L.map('map').setView([21.1458, 78.0882], 5);
 
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                 maxZoom: 18,
                 id: 'mapbox/light-v9',
-                tileSize: 512,
+                tileSize: 530,
                 zoomOffset: -1
             }).addTo(map);
 
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
+            map.boxZoom.disable();
+            map.keyboard.disable();
 
             // control that shows state info on hover
             var info = L.control();
@@ -139,7 +162,7 @@
             };
 
             info.update = function (props) {
-                this._div.innerHTML = '<h4>Sentiments of People-</h4>' + (props ?
+                this._div.innerHTML = '<h3>Sentiments of People</h3>' + (props ?
                     '<b>' + props.name + '</b><br />' + props.density + '%'
                     : 'Hover over a state');
             };
@@ -191,16 +214,18 @@
                 geojson.resetStyle(e.target);
                 info.update();
             }
-
-            function zoomToFeature(e) {
-                map.fitBounds(e.target.getBounds());
+            function mapclick(e) {
+                var layer = e.target;
+                var props = layer.feature.properties;
+                layer.bindPopup('<input name="button" class="atext" type="submit" value=' + props.name +  '>').addTo(map);
+                layer.openPopup();
             }
 
             function onEachFeature(feature, layer) {
                 layer.on({
                     mouseover: highlightFeature,
                     mouseout: resetHighlight,
-                    click: zoomToFeature
+                    click: mapclick
                 });
             }
 
@@ -214,7 +239,7 @@
             legend.onAdd = function (map) {
 
                 var div = L.DomUtil.create('div', 'info legend'),
-                    grades = [29.60, 28.50, 27.30, 26.20],
+                    grades = [31, 29.50, 28.30, 27.20, 26, 0],
                     labels = [],
                     from, to;
 
