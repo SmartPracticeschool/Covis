@@ -12,6 +12,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Indie+Flower&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+<script type="text/javascript" language="javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
 </head>
 <style type="text/css">
 	.state{
@@ -115,10 +124,15 @@ background:rgba(226,48,40,.0627451);
 	font-family: 'Indie Flower', cursive;
 		
 }
+
+#map {
+  width: 40%;
+  height: 600px;
+}
 </style>
 <body>
-<h1 class="state">Madhya Pradesh<h2 style="padding:0px 0px 0px 330px; color: #007BFF; display: inline;font-family: 'Fondamento', cursive;">Trending Hashtags</h2></h1>
-<h5 class = "detail"> - As per 7 JULY , 2020 </h5>
+<h1 id="statn" class="state">punjab</h1><h2 style="padding:0px 0px 0px 330px; color: #007BFF; display: inline;font-family: 'Fondamento', cursive;">Trending Hashtags</h2>
+<h5 class = "detail"> - As per 31 May , 2020 </h5>
 
 <div class="row">
             <br>
@@ -168,7 +182,10 @@ background:rgba(226,48,40,.0627451);
     	</div>
    	<div class = "population">
   		<h3 style = "color: #6C757D; font: 14px archia "><strong>Population</strong></h3>
-  		<h1 style = "color: #6C757D; font: 24px archia; margin-top: -5px;"><strong>8,22,32,000</strong></h1>
+      <h1 style = "color: #6C757D; font: 24px archia; margin-top: -5px;"><strong>8,22,32,000</strong></h1>
+      <br>
+      <div id='map'></div>
+      <br>
   		<h2 style="padding:0px 0px 0px 830px; color: #6C757D; display: inline;font-family: 'Special Elite', cursive;">Sentiment Analysis</h2>
   	</div>
   
@@ -203,9 +220,62 @@ background:rgba(226,48,40,.0627451);
   <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>21 of them were,<br>
    negative</p>
 </div>
+<br>
+<br>
+
+<script type="text/javascript" src="../static/js/haryana.js"></script>
+<script type="text/javascript" src="../static/js/punjab.js"></script>
+
+<script type="text/javascript">
+var names = document.getElementById('statn').innerHTML;
+  if (names == 'haryana') {
+    loc = [29.0588, 76.0856]
+  }else
+   {
+    loc = [31.1471, 75.3412]
+  } 
+  var map = L.map('map').setView(loc, 8);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    id: 'mapbox/light-v9',
+    tileSize: 512,
+    zoomOffset: -1
+  }).addTo(map);
+
+  map.touchZoom.disable();
+  map.doubleClickZoom.disable();
+  map.scrollWheelZoom.disable();
+  map.boxZoom.disable();
+  map.keyboard.disable();
 
 
+  function style(feature) {
+    return {
+      weight: 2,
+      opacity: 1,
+      color: '#f46d43',
+      dashArray: '3',
+      fillOpacity: 0.7,
+    };
+  }
 
+var geojson;
+if (names == 'haryana'){
+geojson = L.geoJson(haryana, {
+    style: style,
+  }).addTo(map);
+
+loc = [29.0588, 76.0856]
+
+} else {
+    geojson = L.geoJson(punjab, {
+    style: style,
+  }).addTo(map);
+
+  loc=[31.1471, 75.3412]
+} 
+</script>
 
 </body>
 </html>
