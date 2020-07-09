@@ -128,6 +128,8 @@ def check_state(state):
         args = [states_dates_dict['uttarakhand']]
     elif state == 'West':
         args = [states_dates_dict['west bengal']]
+    elif state == 'Telangana':
+        args = [states_dates_dict['andhra pradesh']]
     
     return args
 
@@ -136,7 +138,7 @@ def states():
     if request.method == 'POST':
         state = request.form['button']
         args = check_state(state)
-        return render_template('states.html', args=args)
+        return render_template('test.html', args=args)
 
 if __name__ == "__main__":
     app.run(debug=True)
