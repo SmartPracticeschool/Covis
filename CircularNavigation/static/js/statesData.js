@@ -4,7 +4,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Jammu and Kashmir","density":31.03
+                    "name": "Jammu and Kashmir","density":70.37
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -329,7 +329,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Punjab", "density": 32.1
+                    "name": "Punjab", "density": 77.25
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -550,7 +550,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Delhi","density":29.48
+                    "name": "Delhi","density":66.55
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -635,7 +635,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Haryana", "density": 30.27
+                    "name": "Haryana", "density": 66.93
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -1136,7 +1136,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Rajasthan", "density": 27.21
+                    "name": "Rajasthan", "density": 68.32
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -1673,7 +1673,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Gujrat","density":28.36
+                    "name": "Gujrat","density":69.13
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -1954,7 +1954,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Madhya Pradesh", "density": 28.01
+                    "name": "Madhya Pradesh", "density": 66.51
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -2527,7 +2527,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Maharashtra","density":29.75
+                    "name": "Maharashtra","density":66.28
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -2900,7 +2900,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Goa","density":28.35
+                    "name": "Goa","density":64.40
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -2957,7 +2957,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Karnataka","density":30.44
+                    "name": "Karnataka","density":66.29
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -3278,7 +3278,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Kerala","density":27.12
+                    "name": "Kerala","density":68.33
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -3451,7 +3451,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Tamil Nadu","density":26.90
+                    "name": "Tamil Nadu","density":69.68
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -3728,7 +3728,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Telangana","density":24.88
+                    "name": "Telangana","density":59.99
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -3945,7 +3945,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Himachal Pradesh","density":28.70
+                    "name": "Himachal Pradesh","density":68.62
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -4142,7 +4142,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Uttarakhand","density":30.82
+                    "name": "Uttarakhand","density":66.66
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -4335,7 +4335,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Uttar Pradesh","density":28.26
+                    "name": "Uttar Pradesh","density":69.37
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -4828,7 +4828,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Bihar","density":28.06
+                    "name": "Bihar","density":67.39
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -5141,7 +5141,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "West Bengal","density":27.97
+                    "name": "West Bengal","density":64.05
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -5438,7 +5438,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Jharkhand","density":29.21
+                    "name": "Jharkhand","density":75.50
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -5727,7 +5727,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Chhattisgarh","density":33.56
+                    "name": "Chhattisgarh","density":67.41
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -6096,7 +6096,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Odisha","density":29.38
+                    "name": "Odisha","density":72.65
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -6469,7 +6469,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Andhra Pradesh","density":24.88
+                    "name": "Andhra Pradesh","density":59.99
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -6874,7 +6874,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Sikkim","density":35.71
+                    "name": "Sikkim","density":60.00
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -6951,7 +6951,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Meghalya","density":35.00
+                    "name": "Meghalya","density":78.57
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -7116,7 +7116,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Tripura","density":30.60
+                    "name": "Tripura","density":85.35
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -7221,7 +7221,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Assam","density":29.92
+                    "name": "Assam","density":72.31
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -7546,7 +7546,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Nagaland","density":29.19
+                    "name": "Nagaland","density":62.06
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -7711,7 +7711,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Manipur","density":29.73
+                    "name": "Manipur","density":84.09
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -7832,7 +7832,7 @@ var statesData = {
             {
                 "type": "Feature",
                 "properties": {
-                    "name": "Mizoram","density":29.31
+                    "name": "Mizoram","density":67.64
                 },
                 "geometry": {
                     "type": "Polygon",
@@ -7964,7 +7964,7 @@ var statesData = {
             },
             {
                 "type": "Feature",
-                "properties": { "name": "Arunachal Pradesh","density":24.51 },
+                "properties": { "name": "Arunachal Pradesh","density":77.61 },
                 "geometry": {
                     "type": "Polygon",
                     "coordinates": [
