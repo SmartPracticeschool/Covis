@@ -62,9 +62,9 @@ def four():
     return render_template('fphase.html', ls1=ls1)
 
 def check_state(state):
-    if state == 'Andhra Pradesh':
+    if state == 'Andhra':
         args = [states_dates_dict['andhra pradesh']]
-    elif state == 'Arunachal Pradesh':
+    elif state == 'Arunachal':
         args = [states_dates_dict['arunachal pradesh']]
     elif state == 'Assam':
         args = [states_dates_dict['assam']]
@@ -86,9 +86,9 @@ def check_state(state):
         args = [states_dates_dict['gujarat']]
     elif state == 'Haryana':
         args = [states_dates_dict['haryana']]
-    elif state == 'Himachal Pradesh':
+    elif state == 'Himachal':
         args = [states_dates_dict['himachal pradesh']]
-    elif state == 'Jammu and Kashmir':
+    elif state == 'Jammu':
         args = [states_dates_dict['jammu and kashmir']]
     elif state == 'Jharkhand':
         args = [states_dates_dict['jharkhand']]
@@ -96,7 +96,7 @@ def check_state(state):
         args = [states_dates_dict['karnataka']]
     elif state == 'Kerala':
         args = [states_dates_dict['kerala']]
-    elif state == 'Madhya Pradesh':
+    elif state == 'Madhya':
         args = [states_dates_dict['madhya pradesh']]
     elif state == 'Maharashtra':
         args = [states_dates_dict['maharashtra']]
@@ -118,15 +118,15 @@ def check_state(state):
         args = [states_dates_dict['rajasthan']]
     elif state == 'Sikkim':
         args = [states_dates_dict['sikkim']]
-    elif state == 'Tamil Nadu':
+    elif state == 'Tamil':
         args = [states_dates_dict['tamil nadu']]
     elif state == 'Tripura':
         args = [states_dates_dict['tripura']]
-    elif state == 'Uttar Pradesh':
+    elif state == 'Uttar':
         args = [states_dates_dict['uttar pradesh']]
     elif state == 'Uttarakhand':
         args = [states_dates_dict['uttarakhand']]
-    elif state == 'West Bengal':
+    elif state == 'West':
         args = [states_dates_dict['west bengal']]
     
     return args
