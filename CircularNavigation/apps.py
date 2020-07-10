@@ -1,4 +1,5 @@
 from state_date_senti import state_date_senti_plot
+from states_tags import States_tags
 import plot
 import pandas as pd
 import numpy as np
@@ -17,6 +18,7 @@ port = int(os.getenv('PORT', 8000))
 df = pd.read_csv(r'Model_training/Date_Sentiments.csv')
 df1 = pd.read_csv(r'Model_training/Location_Sentiments.csv')
 df2 = pd.read_csv(r'Model_training/Location_Date_Sentiments.csv')
+df3 = pd.read_csv(r'Data_collection/data/COVID-19_Sentiments.csv')
 
 # Creating list of data points for main plots
 data_plot_dict = data_plot(df)
@@ -47,10 +49,15 @@ for states in list(arg1.keys()):
     negative_sentiment = arg2[states]
     neutral_sentiment = arg3[states]
     states_dates_dict[states] = plot.state_date_plot(positive_sentiment, negative_sentiment,
-                                                     neutral_sentiment, states
-                                                     )
+                                                        neutral_sentiment, states
+                                                    )
 
-ls = [table_dict, total_positive, total_neutral, total_negative]
+# plot for statewise hashtags
+state_tags_dict = States_tags(df3)
+haryana_tags_plot = plot.tags_barplot(state_tags_dict, 'haryana')
+
+ls = [table_dict, total_positive, total_neutral,
+        total_negative, haryana_tags_plot]
 ls1 = [phase_1, phase_2, phase_3, phase_4]
 
 @app.route('/', methods=['POST', 'GET'])
