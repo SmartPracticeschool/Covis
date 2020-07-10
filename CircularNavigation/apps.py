@@ -57,7 +57,7 @@ state_tags_dict = States_tags(df3)
 haryana_tags_plot = plot.tags_barplot(state_tags_dict, 'haryana')
 
 ls = [table_dict, total_positive, total_neutral,
-        total_negative, haryana_tags_plot]
+        total_negative]
 ls1 = [phase_1, phase_2, phase_3, phase_4]
 
 @app.route('/', methods=['POST', 'GET'])
