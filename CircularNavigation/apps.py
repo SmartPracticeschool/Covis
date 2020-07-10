@@ -77,14 +77,8 @@ def check_state(state):
         args = [states_dates_dict['assam']]
     elif state == 'Bihar':
         args = [states_dates_dict['bihar']]
-    elif state == 'Chandigarh':
-        args = [states_dates_dict['chandigarh']]
     elif state == 'Chhattisgarh':
         args = [states_dates_dict['chhattisgarh']]
-    elif state == 'Dadra and Nagar Haveli':
-        args = [states_dates_dict['dadra and nagar haveli']]
-    elif state == 'Daman And Diu':
-        args = [states_dates_dict['daman and diu']]
     elif state == 'Delhi':
         args = [states_dates_dict['delhi']]
     elif state == 'Goa':
@@ -92,7 +86,7 @@ def check_state(state):
     elif state == 'Gujrat':
         args = [states_dates_dict['gujarat']]
     elif state == 'Haryana':
-        args = [states_dates_dict['haryana']]
+        args = [states_dates_dict['haryana'], haryana_tags_plot]
     elif state == 'Himachal':
         args = [states_dates_dict['himachal pradesh']]
     elif state == 'Jammu':
@@ -117,8 +111,6 @@ def check_state(state):
         args = [states_dates_dict['nagaland']]
     elif state == 'Odisha':
         args = [states_dates_dict['odisha']]
-    elif state == 'Puducherry':
-        args = [states_dates_dict['puducherry']]
     elif state == 'Punjab':
         args = [states_dates_dict['punjab']]
     elif state == 'Rajasthan':
