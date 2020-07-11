@@ -99,12 +99,8 @@ def four():
 
 def check_state(state):
     if state == 'Andhra':
-        args = [states_dates_dict['andhra pradesh'], andhra_tags_plot,
-                    list(state_tags_dict['andhra pradesh'].keys()),
-                    list(state_tags_dict['andhra pradesh'].values()),
-                    'Andhra Pradesh',
-                    "4,97,00,000"
-                ]
+        args = [states_dates_dict['andhra pradesh'], andhra_tags_plot,'Andhra Pradesh',"4,97,00,000",list(state_tags_dict['andhra pradesh'].keys()),
+                    list(state_tags_dict['andhra pradesh'].values())]
     elif state == 'Arunachal':
         args = [states_dates_dict['arunachal pradesh'], arunachal_tags_plot, 'Arunachal Pradesh', "12,60,000"]
     elif state == 'Assam':
