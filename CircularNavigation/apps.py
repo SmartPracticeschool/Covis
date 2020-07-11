@@ -99,9 +99,9 @@ def four():
 
 def check_state(state):
     if state == 'More About Andhra Pradesh':
-        args = [states_dates_dict['andhra pradesh'], andhra_tags_plot,'Andhra Pradesh',"4,97,00,000",list(state_tags_dict['andhra pradesh'].keys()),list(state_tags_dict['andhra pradesh'].values()), table_dict['Positive_sentiments']['andhra pradesh'], table_dict['Negative_sentiments']['andhra pradesh'], table_dict['Neutral_sentiments']['andhra pradesh']]
+        args = [states_dates_dict['andhra pradesh'], andhra_tags_plot,'Andhra Pradesh',"4,97,00,000",list(state_tags_dict['andhra pradesh'].keys()),list(state_tags_dict['andhra pradesh'].values()), table_dict['Positive_sentiments']['andhra pradesh'], table_dict['Negative_sentiments']['andhra pradesh'], table_dict['Neutral_sentiments']['andhra pradesh'], table_dict['Positive_number']['andhra pradesh'], table_dict['Negative_number']['andhra pradesh'], table_dict['Neutral_number']['andhra pradesh']]
     elif state == 'More About Arunachal Pradesh':
-        args = [states_dates_dict['arunachal pradesh'], arunachal_tags_plot, 'Arunachal Pradesh', "12,60,000",list(state_tags_dict['arunachal pradesh'].keys()),list(state_tags_dict['arunachal pradesh'].values()), table_dict['Positive_sentiments']['arunachal pradesh'], table_dict['Negative_sentiments']['arunachal pradesh'], table_dict['Neutral_sentiments']['arunachal pradesh']]
+        args = [states_dates_dict['arunachal pradesh'], arunachal_tags_plot, 'Arunachal Pradesh', "12,60,000",list(state_tags_dict['arunachal pradesh'].keys()),list(state_tags_dict['arunachal pradesh'].values()), table_dict['Positive_sentiments']['arunachal pradesh'], table_dict['Negative_sentiments']['arunachal pradesh'], table_dict['Neutral_sentiments']['arunachal pradesh'], table_dict['Positive_sentiments']['arunachal pradesh'], table_dict['Negative_sentiments']['arunachal pradesh'], table_dict['Neutral_sentiments']['arunachal pradesh']]
     elif state == 'More About Assam':
         args = [states_dates_dict['assam'], assam_tags_plot, 'Assam', "3,90,00,000",list(state_tags_dict['assam'].keys()),list(state_tags_dict['assam'].values()), table_dict['Positive_sentiments']['assam'], table_dict['Negative_sentiments']['assam'], table_dict['Neutral_sentiments']['assam']]
     elif state == 'More About Bihar':
