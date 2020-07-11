@@ -206,15 +206,15 @@ background:rgba(226,48,40,.0627451);
                 </p>
             </div>
               <div  class="column hashtags">
-                <h4 style=" margin: -50px 0px 0px 0px;">#Quarantine</h4>
+                <h4 style=" margin: -50px 0px 0px 0px;">#{{args[4][0]}} - {{args[5][0]}}</h4>
                 	
-                <h4>#Lockdown</h4>
+                <h4>#{{args[4][1]}} - {{args[5][1]}}</h4>
                 
-                <h4>#AatmNirbhar</h4>
+                <h4>#{{args[4][2]}} - {{args[5][2]}}</h4>
                 
-                <h4>#Chinesegoods</h4>
+                <h4>#{{args[4][3]}} - {{args[5][3]}}</h4>
                 
-                <h4>#ModiJi</h4>
+                <h4>#{{args[4][4]}} - {{args[5][4]}}</h4>
             </div>
         </div>
       </div>
@@ -241,8 +241,8 @@ background:rgba(226,48,40,.0627451);
 <div class= "Positive">
   <h3 style="font-family: 'Varela Round', sans-serif; padding: 0px;">Positive sentiment</h3>
  
-  <h1 style = "color: #28A745; text-align: center">52.1%</h1>
-  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>52 of them were,<br>
+  <h1 style = "color: #28A745; text-align: center">{{args[6]}}</h1>
+  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>{{args[6]}} of them were,<br>
    negative</p>
 </div>
 </div>
@@ -250,22 +250,20 @@ background:rgba(226,48,40,.0627451);
 <div class= "Neutral">
   <h3 style="font-family: 'Varela Round', sans-serif; padding: 0px;">Neutral sentiment</h3>
  
-  <h1 style = "color: #6C757D; text-align: center">34.8%</h1>
-  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>35 of them were,<br>
+  <h1 style = "color: #6C757D; text-align: center">{{args[8]}}</h1>
+  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>{{args[8]}} of them were,<br>
    neutral</p>
 </div>
 <div class= "Negative">
   <h3 style="font-family: 'Varela Round', sans-serif; padding: 0px;">Negative sentiment</h3>
  
-  <h1 style = "color: #FF073A; text-align: center">20.35%</h1>
-  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>21 of them were,<br>
+  <h1 style = "color: #FF073A; text-align: center">{{args[7]}}</h1>
+  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>{{args[7]}} of them were,<br>
    negative</p>
 </div>
 <br>
 <br>
-{{args[4]}}
-<br>
-{{args[5]}}
+
 <script type="text/javascript">
 var names = document.getElementById('statn').innerHTML;
 var  loc = "hellp"
