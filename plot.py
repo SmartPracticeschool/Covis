@@ -1214,25 +1214,16 @@ def phases_plot(x_list, y_list, name):
     return(offl.plot(fig, show_link=False, output_type="div",
                      include_plotlyjs=False, config=config))
 
+
 def tags_barplot(state_tags_dict, state_name):
-    
-    ## Text to be displayed on y axis
-    y_ticktext_list = []
-    for keys, values in state_tags_dict[state_name].items():
-        text_displayed = f'{keys} {values}'
-        y_ticktext_list.append(text_displayed)
-    
-    # Managing spacing in between text
-    num = list(state_tags_dict['haryana'].values())[0]//5
-    num2 = list(state_tags_dict['haryana'].values())[0]
-    
+
     ## Color list to filled in bars
-    colors = ['red', 'darkorange', 'gold', 'greenyellow', 'lime']
-    
+    colors = ['#bcbddc', '#9e9ac8', '#807dba', '#6a51a3', '#54278f']
+
     ## Main plot
     # create figure
     fig = go.Figure()
-    
+
     # Use textposition='auto' for direct text
     fig = go.Figure(data=[go.Bar(
         x=list(state_tags_dict[state_name].keys()),
@@ -1240,27 +1231,22 @@ def tags_barplot(state_tags_dict, state_name):
         text=list(state_tags_dict[state_name].values()),
         textposition='outside',
     )])
-    
+
     # Customize aspect
-    fig.update_traces(marker_color=colors, marker_line_color='black',
-                    marker_line_width=1.5, opacity=0.6, hoverinfo="none")
+    fig.update_traces(marker_color=colors[::-1], marker_line_color='black',
+                      marker_line_width=1.5, opacity=0.6, hoverinfo="none")
 
     # Updating x-axis properties
     fig.update_xaxes(showgrid=False, showticklabels=False)
 
     # Updating y-axis properties
-    fig.update_yaxes(showgrid=False, automargin=True)
+    fig.update_yaxes(showgrid=False, showticklabels=False, automargin=True)
 
     # Updating layout
     fig.update_layout(template='plotly_white',
-                    width=600,
-                    yaxis=dict(
-                        tickmode='array',
-                        tickvals=[i for i in range(5, num2, num)],
-                        ticktext=y_ticktext_list[::-1]
-                    )
-                    )
+                      width=600
+                      )
 
     config = {'displayModeBar': False}
     return(offl.plot(fig, show_link=False, output_type="div",
-                        include_plotlyjs=False, config=config))
+                     include_plotlyjs=False, config=config))
