@@ -1249,16 +1249,11 @@ def tags_barplot(state_tags_dict, state_name):
     fig.update_xaxes(showgrid=False, showticklabels=False)
 
     # Updating y-axis properties
-    fig.update_yaxes(showgrid=False, automargin=True)
+    fig.update_yaxes(showgrid=False, showticklabels=False, automargin=True)
 
     # Updating layout
     fig.update_layout(template='plotly_white',
                     width=600,
-                    yaxis=dict(
-                        tickmode='array',
-                        tickvals=[i for i in range(5, num2, num)],
-                        ticktext=y_ticktext_list[::-1]
-                    )
                     )
 
     config = {'displayModeBar': False}
