@@ -132,7 +132,7 @@ def check_state(state):
         args = [states_dates_dict['maharashtra'], maharashtra_tags_plot, 'Maharashtra',"11,42,00,000"]
     elif state == 'Manipur':
         args = [states_dates_dict['manipur'], manipur_tags_plot, 'Manipur',"27,20,000"]
-    elif state == 'Meghalaya':
+    elif state == 'Meghalya':
         args = [states_dates_dict['meghalaya'], meghalaya_tags_plot, 'Meghalaya',"26,50,000"]
     elif state == 'Mizoram':
         args = [states_dates_dict['mizoram'], mizoram_tags_plot, 'Mizoram',"11,20,000"]
