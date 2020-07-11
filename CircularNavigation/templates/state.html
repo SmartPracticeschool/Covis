@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>State</title>
+  <title>{{args[2]}}</title>
    <link
         href="https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap|family=Architects+Daughter&display=swap"
         rel="stylesheet">
@@ -323,24 +323,30 @@ var zoom = 6.6
   } 
   else if (names == 'Manipur') {
     loc = [24.6637, 93.9063]
+    zoom = 8
   } 
   else if (names == 'Meghalaya') {
     loc = [25.4670, 91.3662]
+    zoom = 8
   } 
   else if (names == 'Mizoram') {
     loc = [23.1645, 92.9376]
+    zoom = 8
   } 
   else if (names == 'Nagaland') {
     loc = [26.4509, 94.6032]
+    zoom = 7
   } 
   else if (names == 'Odisha') {
     loc = [20.9517, 85.0985]
   } 
   else if (names == 'Rajasthan') {
     loc = [27.0238, 74.2179]
+    zoom = 6
   } 
   else if (names == 'Sikkim') {
     loc = [27.5330, 88.5122]
+    zoom = 9
   } 
   else if (names == 'Tamil Nadu') {
     loc = [11.1271, 78.6569]
@@ -350,6 +356,7 @@ var zoom = 6.6
   } 
   else if (names == 'Tripura') {
     loc = [23.9408, 91.9882]
+    zoom = 8
   } 
   else if (names == 'Uttar Pradesh') {
     loc = [26.8467, 80.9462]
@@ -527,153 +534,153 @@ geojson = L.geoJson(haryana, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([16.699340234594537, 76.4208984375], { icon: twitter }).addTo(map)
+  m2 = L.marker([14.583583455156525, 75.0146484375], { icon: retweet }).addTo(map)
+  m3 = L.marker([12.768946439455956, 76.61865234374999], { icon: love }).addTo(map)
   }
   else if (names == 'Kerala') {
     geojson = L.geoJson(kerala, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([10.88725377263463, 76.26708984375], { icon: twitter }).addTo(map)
+  m2 = L.marker([9.990490803070292, 76.83837890625], { icon: retweet }).addTo(map)
+  m3 = L.marker([9.253936156814463, 76.53076171875], { icon: love }).addTo(map)
   }
   else if (names == 'Madhya Pradesh') {
     geojson = L.geoJson(madhya, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([23.52370005882413, 76.5087890625], { icon: twitter }).addTo(map)
+  m2 = L.marker([21.983801417384697, 78.55224609374999], { icon: retweet }).addTo(map)
+  m3 = L.marker([23.905926927314724, 80.9912109375], { icon: love }).addTo(map)
   }
   else if (names == 'Maharashtra') {
     geojson = L.geoJson(maharashtra, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([20.427012814257385, 75.08056640625], { icon: twitter }).addTo(map)
+  m2 = L.marker([20.34462694382967, 77.71728515624999], { icon: retweet }).addTo(map)
+  m3 = L.marker([17.895114303749143, 74.619140625], { icon: love }).addTo(map)
   }
   else if (names == 'Manipur') {
     geojson = L.geoJson(manipur, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([24.996015742094006, 93.44970703125], { icon: twitter }).addTo(map)
+  m2 = L.marker([25.005972656239187, 94.15283203125], { icon: retweet }).addTo(map)
+  m3 = L.marker([24.43714786161562, 93.6474609375], { icon: love }).addTo(map)
   }
   else if (names == 'Meghalaya') {
     geojson = L.geoJson(meghalaya, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([25.750424835909385, 90.362548828125], { icon: twitter }).addTo(map)
+  m2 = L.marker([25.443274612305746, 92.186279296875], { icon: retweet }).addTo(map)
+  m3 = L.marker([25.334096684794456, 91.12060546875], { icon: love }).addTo(map)
   }
   else if (names == 'Mizoram') {
     geojson = L.geoJson(mizoram, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([23.926013033021192, 92.669677734375], { icon: twitter }).addTo(map)
+  m2 = L.marker([22.40087159030595, 92.845458984375], { icon: retweet }).addTo(map)
+  m3 = L.marker([23.271627053918277, 93.109130859375], { icon: love }).addTo(map)
   }
   else if (names == 'Nagaland') {
     geojson = L.geoJson(nagaland, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([26.509904531413927, 94.52636718749999], { icon: twitter }).addTo(map)
+  m2 = L.marker([25.799891182088334, 94.41650390625], { icon: retweet }).addTo(map)
+  m3 = L.marker([26.990618722964737, 95.55908203125], { icon: love }).addTo(map)
   }
   else if (names == 'Odisha') {
     geojson = L.geoJson(odisha, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([20.3034175184893, 83.73779296875], { icon: twitter }).addTo(map)
+  m2 = L.marker([18.771115062337024, 82.46337890625], { icon: retweet }).addTo(map)
+  m3 = L.marker([19.425153718960143, 84.1552734375], { icon: love }).addTo(map)
   }
   else if (names == 'Rajasthan') {
     geojson = L.geoJson(rajasthan, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([26.92206991673282, 70.77392578125], { icon: twitter }).addTo(map)
+  m2 = L.marker([25.819671943904044, 74.72900390625], { icon: retweet }).addTo(map)
+  m3 = L.marker([28.14950321154457, 74.1357421875], { icon: love }).addTo(map)
   }
   else if (names == 'Sikkim') {
     geojson = L.geoJson(sikkim, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([27.727298422724655, 88.406982421875], { icon: twitter }).addTo(map)
+  m2 = L.marker([27.48390806852859, 88.2861328125], { icon: retweet }).addTo(map)
+  m3 = L.marker([27.415662034561, 88.6761474609375], { icon: love }).addTo(map)
   }
   else if (names == 'Tamil Nadu') {
     geojson = L.geoJson(tamil, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([12.490213662533307, 78.75], { icon: twitter }).addTo(map)
+  m2 = L.marker([9.925565912405506, 78.0029296875], { icon: retweet }).addTo(map)
+  m3 = L.marker([11.329253026617318, 79.12353515625], { icon: love }).addTo(map)
   }
   else if (names == 'Telangana') {
     geojson = L.geoJson(telangana, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([18.8335153964335, 78.75], { icon: twitter }).addTo(map)
+  m2 = L.marker([16.951724234434437, 78.134765625], { icon: retweet }).addTo(map)
+  m3 = L.marker([17.434510551522894, 80.17822265625], { icon: love }).addTo(map)
   }
   else if (names == 'Tripura') {
     geojson = L.geoJson(tripura, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([23.29181053244191, 91.62597656249999], { icon: twitter }).addTo(map)
+  m2 = L.marker([23.905926927314724, 91.571044921875], { icon: retweet }).addTo(map)
+  m3 = L.marker([24.016361823963027, 92.186279296875], { icon: love }).addTo(map)
   }
   else if (names == 'Uttar Pradesh') {
     geojson = L.geoJson(uttar, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([27.839076094777816, 78.92578124999999], { icon: twitter }).addTo(map)
+  m2 = L.marker([27.137368359795584, 81.6943359375], { icon: retweet }).addTo(map)
+  m3 = L.marker([25.819671943904044, 82.3974609375], { icon: love }).addTo(map)
   }
   else if (names == 'Uttarakhand') {
     geojson = L.geoJson(uttarakhand, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([30.315987718557867, 80.068359375], { icon: twitter }).addTo(map)
+  m2 = L.marker([29.69759650228319, 78.85986328125], { icon: retweet }).addTo(map)
+  m3 = L.marker([30.619004797647808, 78.59619140625], { icon: love }).addTo(map)
   }
   else if (names == 'West Bengal') {
     geojson = L.geoJson(west, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([23.795397597978745, 88.04443359375], { icon: twitter }).addTo(map)
+  m2 = L.marker([23.200960808078566, 86.912841796875], { icon: retweet }).addTo(map)
+  m3 = L.marker([22.482106236077673, 87.615966796875], { icon: love }).addTo(map)
   } 
 </script>
 
