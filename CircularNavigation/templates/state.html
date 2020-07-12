@@ -12,7 +12,7 @@
  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&family=Varela+Round&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Indie+Flower&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 <script type="text/javascript" language="javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../static/css/component1.css" />
@@ -81,10 +81,10 @@ background:rgba(226,48,40,.0627451);
 
 .column{
   opacity: 1;
-  padding: 0px 30px 50px 30px;
+  padding: 20px 30px 50px 30px;
   border-radius: 5px;
   transform: translateX(0px);
-  height: 8rem;
+  height: 10rem;
   cursor: pointer;
   transition: background .15s ease-in-out;
   display: block;
@@ -96,7 +96,7 @@ background:rgba(226,48,40,.0627451);
 /* Style the counter cards */
 
 
-.red:hover{
+.red{
     background-color: rgba(255,7,58,0.13); 
 }
 
@@ -104,14 +104,16 @@ background:rgba(226,48,40,.0627451);
     background-color: rgba(40,167,69,.12549) 
 }
 
-.yellow:hover{
+.yellow{
     background-color: rgba(0,0,0,0.13); 
  
     
 }
 
 .population{
-	margin: 280px 0px 0px 115px;
+	margin: 290px 0px 0px 75px;
+  display: inline-block;
+  width: 50%;
 } 
 
 
@@ -119,7 +121,7 @@ background:rgba(226,48,40,.0627451);
   color: rgba(255,7,58,0.6);
   background: rgba(255,7,58,0.13);
   display: inline-block;
-  padding: 2px 15px 2px 15px;
+  padding: 22px 62px 22px 18px;
   border-radius: 5px;
   margin: 20px ;
   }
@@ -128,7 +130,7 @@ background:rgba(226,48,40,.0627451);
   color: rgba(40,167,69,0.6);
   background: rgba(40,167,69,0.13);
   display: inline-block;
-  padding: 2px 20px 2px 18px;
+  padding: 22px 65px 22px 18px; 
   border-radius: 5px;
   margin-left: 20px;
 }
@@ -137,18 +139,18 @@ background:rgba(226,48,40,.0627451);
   color: rgba(108,117,125,.6);
   background: rgba(108,117,125,.0627451);
   display: inline-block;
-  padding: 2px 40px 2px 18px;
+  padding: 22px 82px 22px 18px;
   border-radius: 5px;
-  margin-left: 140px;
+  margin: 20px 0px 0px 70px;
 }
 
 .total{
 	color: rgba(0,123,255,.6);;
 	background: rgba(0,123,255,.0627451);
 	display: inline-block;
-    padding: 2px 15px 2px 18px;
+    padding: 22px 65px 22px 18px;
     border-radius: 5px;
-    margin-left: 120px;
+    margin-left: 70px;
 
 }
 
@@ -156,20 +158,41 @@ background:rgba(226,48,40,.0627451);
 	margin-left: 140px;
 	color: #6C757D; 
 	text-align: center; 
-	font-family: 'Indie Flower', cursive;
-		
+font-family: 'Rajdhani', sans-serif;		
 }
 
 #map {
-  margin-left: 20px;
-  width: 50%;
+  
+  width: 80%;
   height: 550px;
+}
+
+.hash-graph
+{
+  float: right; 
+  display: inline-block;
+  width: 480px;
+  margin: -250px 0px 0px 0px;
+}
+
+.sentiment
+{
+  float: right;
+  margin: -585px 0px 0px 0px; 
+  width: 50%; 
+  /*padding-left: 750px;*/
+  /*padding-top: -190px;*/
+}
+.sentiment-graph
+{
+  /*padding-left: 50px;*/
+  /*float:right;*/ 
 }
 </style>
 <body>
 {% endblock %}
 {% block all %}
-<h1 id="statn" class="state">{{args[2]}}</h1><h2 style="padding:0px 0px 0px 330px; color: #007BFF; display: inline;font-family: 'Fondamento', cursive;">Trending Hashtags</h2>
+<h1 id="statn" class="state">{{args[2]}}</h1><h2 style="padding:0px 0px 0px 600px; color: #007BFF; display: inline;font-family: 'Fondamento', cursive;">Trending Hashtags</h2>
 <h5 class = "detail"> - As per 31 May , 2020 </h5>
 
 <div class="row">
@@ -206,62 +229,74 @@ background:rgba(226,48,40,.0627451);
                 </p>
             </div>
               <div  class="column hashtags">
-                <h4 style=" margin: -50px 0px 0px 0px;">#{{args[4][0]}} - {{args[5][0]}}</h4>
-                	
-                <h4>#{{args[4][1]}} - {{args[5][1]}}</h4>
-                
-                <h4>#{{args[4][2]}} - {{args[5][2]}}</h4>
-                
-                <h4>#{{args[4][3]}} - {{args[5][3]}}</h4>
-                
-                <h4>#{{args[4][4]}} - {{args[5][4]}}</h4>
+                <h3 style=" margin: -30px 0px 0px 0px;">#{{args[4][0]}} - {{args[5][0]}}</h3>
+                	<br>
+                <h3>#{{args[4][1]}} - {{args[5][1]}}</h3>
+                <br>
+                <h3>#{{args[4][2]}} - {{args[5][2]}}</h3>
+                  <br>
+                <h3>#{{args[4][3]}} - {{args[5][3]}}</h3>
+                  <br>                
+                <h3>#{{args[4][4]}} - {{args[5][4]}}</h3>
             </div>
         </div>
       </div>
-      <div style="float: right;">
+      <div class="hash-graph">
         {{args[1]|safe}}
       </div>
    	<div class = "population">
-  		<h3 style = "color: #6C757D; font: 14px archia "><strong>Population</strong></h3>
+      <div id="map"></div>
+      <br>
+      <br>
+      <h3 style = "color: #6C757D; font: 14px archia "><strong>Population</strong></h3>
+      <br>
       <h1 style = "color: #6C757D; font: 24px archia; margin-top: -5px;"><strong>{{args[3]}}</strong></h1>
-  		<h2 style="padding:0px 0px 0px 830px; color: #6C757D; display: inline;font-family: 'Special Elite', cursive;">Sentiment Analysis</h2>
     </div>
+    <div class = "sentiment">
+    <h2 style="padding:0px 0px 0px 200px; color: #6C757D; /*display: inline*/;font-family: 'Special Elite', cursive; ;">SentimentAnalysis</h2>
     {{args[0]|safe}}
-    <br>
-    <div id='map'></div>
-    <br>
-  <div style="padding: 20px;"class = "State-Meta">
+    </div>
+   <br>
+   <br>
+   <br>
+   <br>
+
 <div class= "total">
   <h3 style="font-family: 'Varela Round', sans-serif; padding: 0px;">Tweets Per thousand</h3>
+  <br>
 <h1 style = "color: #007bff;margin: -13px 0px 0px 0px;">169</h1>
   <p style="font-family: 'Varela Round', sans-serif">169 out of every <br> 1 thousand tweets in <br>Madhya Pradesh were<br>
    about covid-19.</p>
 </div>
 
 <div class= "Positive">
-  <h3 style="font-family: 'Varela Round', sans-serif; padding: 0px;">Positive sentiment</h3>
- 
-  <h1 style = "color: #28A745; text-align: center">{{args[6]}}</h1>
-  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>{{args[6]}} of them were,<br>
-   negative</p>
+  <h3 style="font-family: 'Varela Round', sans-serif; ">Positive sentiment</h3>
+    <br>
+  <h1 style = "color: #28A745; margin: -13px 0px 0px 0px;">{{args[6]}}</h1>
+  <p style="font-family: 'Varela Round', sans-serif">{{args[6]}} out of every  <br> hundred tweets in <br>
+   Madhya Pradesh were <br>  
+    positive</p>
 </div>
-</div>
-
 <div class= "Neutral">
   <h3 style="font-family: 'Varela Round', sans-serif; padding: 0px;">Neutral sentiment</h3>
- 
-  <h1 style = "color: #6C757D; text-align: center">{{args[8]}}</h1>
-  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>{{args[8]}} of them were,<br>
-   neutral</p>
+ <br>
+  <h1 style = "color: #6C757D;  margin: -13px 0px 0px 0px;">{{args[8]}}</h1>
+  <p style="font-family: 'Varela Round', sans-serif">{{args[8]}} out of every  <br> hundred tweets in <br>
+   Madhya Pradesh were <br>  
+    neutral.</p>
 </div>
 <div class= "Negative">
   <h3 style="font-family: 'Varela Round', sans-serif; padding: 0px;">Negative sentiment</h3>
- 
-  <h1 style = "color: #FF073A; text-align: center">{{args[7]}}</h1>
-  <p style="font-family: 'Varela Round', sans-serif">For every 100 tweets, <br>{{args[7]}} of them were,<br>
-   negative</p>
+ <br>
+  <h1 style = "color: #FF073A; margin: -13px 0px 0px 0px;">{{args[7]}}</h1>
+  <p style="font-family: 'Varela Round', sans-serif">{{args[7]}} out of every  <br> hundred tweets in <br>
+   Madhya Pradesh were <br>  
+    negative.</p>
 </div>
-<br>
+
+
+
+
 <br>
 
 <script type="text/javascript">
