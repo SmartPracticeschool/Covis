@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+<style>
+.n{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+    margin-top: -8px;
+    margin-right: -8px;
+    margin-left: -8px;
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    background-color: rgb(37, 37, 37);
+    color: white;
+    width: 114%;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 15%;
+  padding:0 3px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -3px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 6px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+.card h3{
+    font-size: larger;
+    font-style: inherit;
+    font-weight: 700;
+    text-shadow: aqua;
+    text-decoration: double;
+    letter-spacing: 2px;
+}
+
+.card2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-top: 10px;
+  width: 30%;
+  height: 270px;
+}
+
+.card3 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-top: 10px;
+  width: 30%;
+  height: 270px;
+}
+
+.card4 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-left: 1087px;
+  margin-top: -800px;
+  width: 30%;
+  height: 280px;
+}
+.card5 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-left: 1087px;
+  margin-top: 170px;
+  width: 30%;
+  height: 360px;
+  padding-top: 20px;
+}
+
+#map{
+  margin-left: 400px;
+  margin-top: -810px;
+  width: 51%;
+  height: 800px;
+}
+ .info { 
+            padding: 6px 8px;
+            text-align: center;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white; 
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+            border-radius: 5px; }
+.info h3 {
+            color: #777;
+            font-weight: bold;
+            font-size: medium;
+        }
+canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+
+</style>
+</head>
+<body>
+<div class="n">Sentiment Analysis Of COVID-19 Tweets</div> 
+<br>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <h3 style="color: rgb(112, 197, 231);">Tweets</h3>
+            <h2 style="color: rgb(7, 78, 110);">19455</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+            <h3 style="color: rgb(7, 199, 64);">Positive</h3>
+            <h2 style="color: rgb(8, 121, 77);">2452</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <h3 style="color: rgb(218, 17, 17);">Negative</h3>
+            <h2 style="color: rgb(153, 21, 21);">3456</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+            <h3 style="color: rgb(54, 54, 53);">Neutral</h3>
+            <h2 style="color: rgb(210, 236, 64);">1234</h2>
+        </div>
+    </div>
+</div>
+<div class="card2">
+   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti fugiat voluptates blanditiis in dignissimos impedit velit unde illum esse dolorem dolorum, corrupti expedita autem veniam maxime consequatur dolore quibusdam explicabo?
+</div>
+<div class="card3">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, dolorem voluptatum. Magni doloremque autem earum sunt dolores quisquam nesciunt. Delectus numquam doloribus id aut expedita nulla dolor vero, voluptate inventore.
+</div>
+<div id="map"></div>
+<div class="card4">
+{{lsm[0]|safe}}
+</div>
+<div class="card5">
+    <canvas id="canvas"></canvas>
+</div>
+
+<script>
+    'use strict';
+
+    window.chartColors = {
+        red: 'rgb(255, 99, 132)',
+        orange: 'rgb(255, 159, 64)',
+        yellow: 'rgb(255, 205, 86)',
+        green: 'rgb(75, 192, 192)',
+        blue: 'rgb(54, 162, 235)',
+        purple: 'rgb(153, 102, 255)',
+        grey: 'rgb(201, 203, 207)'
+    };
+
+    (function (global) {
+        var MONTHS = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+        ];
+
+        var COLORS = [
+            '#4dc9f6',
+            '#f67019',
+            '#f53794',
+            '#537bc4',
+            '#acc236',
+            '#166a8f',
+            '#00a950',
+            '#58595b',
+            '#8549ba'
+        ];
+
+        var Samples = global.Samples || (global.Samples = {});
+        var Color = global.Color;
+
+        Samples.utils = {
+            // Adapted from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
+            srand: function (seed) {
+                this._seed = seed;
+            },
+
+            rand: function (min, max) {
+                var seed = this._seed;
+                min = min === undefined ? 0 : min;
+                max = max === undefined ? 1 : max;
+                this._seed = (seed * 9301 + 49297) % 233280;
+                return min + (this._seed / 233280) * (max - min);
+            },
+
+            numbers: function (config) {
+                var cfg = config || {};
+                var min = cfg.min || 0;
+                var max = cfg.max || 1;
+                var from = cfg.from || [];
+                var count = cfg.count || 8;
+                var decimals = cfg.decimals || 8;
+                var continuity = cfg.continuity || 1;
+                var dfactor = Math.pow(10, decimals) || 0;
+                var data = [];
+                var i, value;
+
+                for (i = 0; i < count; ++i) {
+                    value = (from[i] || 0) + this.rand(min, max);
+                    if (this.rand() <= continuity) {
+                        data.push(Math.round(dfactor * value) / dfactor);
+                    } else {
+                        data.push(null);
+                    }
+                }
+
+                return data;
+            },
+
+            labels: function (config) {
+                var cfg = config || {};
+                var min = cfg.min || 0;
+                var max = cfg.max || 100;
+                var count = cfg.count || 8;
+                var step = (max - min) / count;
+                var decimals = cfg.decimals || 8;
+                var dfactor = Math.pow(10, decimals) || 0;
+                var prefix = cfg.prefix || '';
+                var values = [];
+                var i;
+
+                for (i = min; i < max; i += step) {
+                    values.push(prefix + Math.round(dfactor * i) / dfactor);
+                }
+
+                return values;
+            },
+
+            months: function (config) {
+                var cfg = config || {};
+                var count = cfg.count || 12;
+                var section = cfg.section;
+                var values = [];
+                var i, value;
+
+                for (i = 0; i < count; ++i) {
+                    value = MONTHS[Math.ceil(i) % 12];
+                    values.push(value.substring(0, section));
+                }
+
+                return values;
+            },
+
+            color: function (index) {
+                return COLORS[index % COLORS.length];
+            },
+
+            transparentize: function (color, opacity) {
+                var alpha = opacity === undefined ? 0.5 : 1 - opacity;
+                return Color(color).alpha(alpha).rgbString();
+            }
+        };
+
+        // DEPRECATED
+        window.randomScalingFactor = function () {
+            return Math.round(Samples.utils.rand(-100, 100));
+        };
+
+        // INITIALIZATION
+
+        Samples.utils.srand(Date.now());
+
+        // Google Analytics
+        /* eslint-disable */
+        if (document.location.hostname.match(/^(www\.)?chartjs\.org$/)) {
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-28909194-3', 'auto');
+            ga('send', 'pageview');
+        }
+        /* eslint-enable */
+
+    }(this));
+
+</script>
+
+<script>
+    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var color = Chart.helpers.color;
+        var barChartData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Dataset 1',
+                backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.red,
+                borderWidth: 1,
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor()
+                ]
+            }, {
+                label: 'Dataset 2',
+                backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.blue,
+                borderWidth: 1,
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor()
+                ]
+            }]
+
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Chart.js Bar Chart'
+                    }
+                }
+            });
+
+        };
+
+
+</script>
+
+<script type="text/javascript" src="../static/js/statesData.js"></script>
+
+<script type="text/javascript">
+
+    var map = L.map('map').setView([22.1658, 82.0882], 5);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        id: 'mapbox/light-v9',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(map);
+
+    map.touchZoom.disable();
+    map.doubleClickZoom.disable();
+    map.scrollWheelZoom.disable();
+    map.boxZoom.disable();
+    map.keyboard.disable();
+
+    // control that shows state info on hover
+    var info = L.control();
+
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info');
+        this.update();
+        return this._div;
+    };
+
+    info.update = function (props) {
+        this._div.innerHTML = '<h3>Sentiments of People</h3>' + (props ?
+            '<b>' + props.name + '</b><br />' + props.density + '%'
+            : 'Hover over a state');
+    };
+
+    info.addTo(map);
+
+
+    // get color depending on population density value
+    function getColor(d) {
+        return d > 85.35 ? '#800026' :
+            d > 80.00 ? '#006837' :
+                d > 78.50 ? '#1a9850' :
+                    d > 76.50 ? '#66bd63' :
+                        d > 74.50 ? '#a6d96a' :
+                            d > 72.50 ? '#d9ef8b' :
+                                d > 70.10 ? '#ffffbf' :
+                                    d > 69.00 ? '#fee08b' :
+                                        d > 67.50 ? '#fdae61' :
+                                            d > 66.50 ? '#f46d43' :
+                                                d > 63.50 ? '#d73027' :
+                                                    '#a50026';
+    }
+
+    function style(feature) {
+        return {
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7,
+            fillColor: getColor(feature.properties.density)
+        };
+    }
+
+    function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+
+        info.update(layer.feature.properties);
+    }
+
+    var geojson;
+
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+    }
+    function mapclick(e) {
+        var layer = e.target;
+        var props = layer.feature.properties;
+        layer.bindPopup('<input name="button" class="atext" type="submit" value="More About ' + props.name + "\">").addTo(map);
+        layer.openPopup();
+    }
+
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: mapclick
+        });
+    }
+
+    geojson = L.geoJson(statesData, {
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(map);
+
+</script>
+
+</body>
+</html>
