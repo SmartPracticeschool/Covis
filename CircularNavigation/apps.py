@@ -32,6 +32,11 @@ state_date_senti_dict = state_date_senti_plot(df2)
 # Data for tables
 table_dict = table_plot(df1)
 
+sunburst_ploted = plot.sunburst_chart(table_dict['Positive_sentiments'],
+                                    table_dict['Negative_sentiments'],
+                                    table_dict['Neutral_sentiments']
+                        )
+
 # Plots of different phases
 phase_1 = plot.phases_plot(x_list, y_list, 'phase 1')
 phase_2 = plot.phases_plot(x_list, y_list, 'phase 2')
@@ -171,6 +176,12 @@ def states():
         state = request.form['button']
         args = check_state(state)
         return render_template('state.html', args=args)
+
+lsm = [sunburst_ploted]
+
+@app.route('/dash', methods=['POST', 'GET'])
+def dash(): 
+    return render_template('dash.html', lsm=lsm)
 
 if __name__ == "__main__":
     app.run(debug=True)
