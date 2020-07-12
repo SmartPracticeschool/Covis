@@ -17,6 +17,9 @@ def table_plot(df):
     sentiment_1_dict = dict()
     sentiment_neg_1_dict = dict()
     sentiment_0_dict = dict()
+    positive_num_dict = dict()
+    negative_num_dict = dict()
+    neutral_num_dict = dict()
 
     for locations in locations_list:
         for ids in np.where(df.Location == locations):
@@ -32,8 +35,14 @@ def table_plot(df):
                 (total_neg_sentiment/total_setiments)*100, 2)
             sentiment_0_dict[locations] = round(
                 (total_neutral_sentiment/total_setiments)*100, 2)
+            positive_num_dict[locations] = total_pos_sentiment
+            negative_num_dict[locations] = total_neg_sentiment
+            neutral_num_dict[locations] = total_neutral_sentiment
 
     return dict(Positive_sentiments = sentiment_1_dict,
                 Negative_sentiments = sentiment_neg_1_dict,
-                Neutral_sentiments = sentiment_0_dict
+                Neutral_sentiments = sentiment_0_dict,
+                Positive_number = positive_num_dict,
+                Negative_number = negative_num_dict,
+                Neutral_number = neutral_num_dict
                 )

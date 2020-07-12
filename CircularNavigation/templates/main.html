@@ -223,7 +223,7 @@
             function mapclick(e) {
                 var layer = e.target;
                 var props = layer.feature.properties;
-                layer.bindPopup('<input name="button" class="atext" type="submit" value=' + props.name +  '>').addTo(map);
+                layer.bindPopup('<input name="button" class="atext" type="submit" value="More About ' + props.name +  "\">").addTo(map);
                 layer.openPopup();
             }
 
@@ -240,13 +240,7 @@
                 onEachFeature: onEachFeature
             }).addTo(map);
 
-            
-
-            legend.addTo(map);
-
         </script>
-        <br>
-        <br>
         <br>
         <br>
         <br>

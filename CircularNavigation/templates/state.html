@@ -55,7 +55,7 @@
   <script type="text/javascript" src="../static/js/uttar.js"></script>
   <script type="text/javascript" src="../static/js/uttarakhand.js"></script>
   <script type="text/javascript" src="../static/js/west.js"></script>
-
+  <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <style type="text/css">
 	.state{
@@ -300,6 +300,7 @@ font-family: 'Rajdhani', sans-serif;
 <br>
 
 <script type="text/javascript">
+  
 var names = document.getElementById('statn').innerHTML;
 var  loc = "hellp"
 var zoom = 6.6
@@ -405,7 +406,6 @@ var zoom = 6.6
 
 
   var map = L.map('map').setView(loc, zoom);
-
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
     id: 'mapbox/light-v9',
@@ -434,289 +434,304 @@ var geojson;
 var m1;
 var m2;
 var m3;
-var twitter = L.icon({
-    iconUrl: '../static/images/twitter.png',
-    iconSize: [38, 38]
-  });
-var retweet = L.icon({
-    iconUrl: '../static/images/retweet.png',
-    iconSize: [38, 38]
-  });
-var love = L.icon({
-    iconUrl: '../static/images/love.png',
-    iconSize: [38, 38]
-  });
 
 if (names == 'Haryana'){
 geojson = L.geoJson(haryana, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([29.1492, 75.7217], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.0405, 76.8493], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.7387, 76.3439], { icon: love }).addTo(map)
+  m1 = L.marker([29.1492, 75.7217]).addTo(map)
+  m2 = L.marker([30.0405, 76.8493]).addTo(map)
+  m3 = L.marker([28.7387, 76.3439]).addTo(map)
+  m1.bindPopup('<blockquote class="twitter-tweet"><p lang="und" dir="ltr">Which <a href="https://twitter.com/hashtag/Haryana?src=hash&amp;ref_src=twsrc%5Etfw">#Haryana</a> Leader has been the most Active among the people during the <a href="https://twitter.com/hashtag/Corona?src=hash&amp;ref_src=twsrc%5Etfw">#Corona</a> Crisis in <a href="https://twitter.com/hashtag/Haryana?src=hash&amp;ref_src=twsrc%5Etfw">#Haryana</a>. <br>(Write in Comments)<br><br>कोरोना संक्रमण के दौरान <a href="https://twitter.com/hashtag/%E0%A4%B9%E0%A4%B0%E0%A4%BF%E0%A4%AF%E0%A4%BE%E0%A4%A3%E0%A4%BE?src=hash&amp;ref_src=twsrc%5Etfw">#हरियाणा</a> का कौन सा नेता कोरोना के खतरे की परवाह न करके जनता के बीच सबसे ज्यादा सक्रिय रहा है ? <br>(नीचे कमैंट्स में नाम लिखें)</p>&mdash; Haryana Tweets ✏️ (@HaryanaTweets) <a href="https://twitter.com/HaryanaTweets/status/1265316162830647297?ref_src=twsrc%5Etfw">May 26, 2020</a></blockquote>')
 
+  
 } else if (names == 'Punjab') {
     geojson = L.geoJson(punjab, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([31.5972, 75.0366], { icon: twitter }).addTo(map)
-  m2 = L.marker([30.2211, 74.4104], { icon: retweet }).addTo(map)
-  m3 = L.marker([30.5811, 76.1572], { icon: love }).addTo(map)
+  m1 = L.marker([31.5972, 75.0366]).addTo(map)
+  m2 = L.marker([30.2211, 74.4104]).addTo(map)
+  m3 = L.marker([30.5811, 76.1572]).addTo(map)
   }
   else if (names == 'Assam') {
     geojson = L.geoJson(assam, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([26.1948, 92.7575], { icon: twitter }).addTo(map)
-  m2 = L.marker([25.5424, 92.8894], { icon: retweet }).addTo(map)
-  m3 = L.marker([26.3771, 93.7628], { icon: love }).addTo(map)
+  m1 = L.marker([26.1948, 92.7575]).addTo(map)
+  m2 = L.marker([25.5424, 92.8894]).addTo(map)
+  m3 = L.marker([26.3771, 93.7628]).addTo(map)
   }
   else if (names == 'Goa') {
     geojson = L.geoJson(goa, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([15.5251,  74.1412], { icon: twitter }).addTo(map)
-  m2 = L.marker([15.3927, 73.9929], { icon: retweet }).addTo(map)
-  m3 = L.marker([15.0906, 74.1357], { icon: love }).addTo(map)
+  m1 = L.marker([15.5251,  74.1412]).addTo(map)
+  m2 = L.marker([15.3927, 73.9929]).addTo(map)
+  m3 = L.marker([15.0906, 74.1357]).addTo(map)
   }
   else if (names == 'Andhra Pradesh') {
     geojson = L.geoJson(andhra, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([15.8345, 79.6728], { icon: twitter }).addTo(map)
-  m2 = L.marker([14.6898, 77.7392], { icon: retweet }).addTo(map)
-  m3 = L.marker([13.7527, 79.2553], { icon: love }).addTo(map)
+  m1 = L.marker([15.8345, 79.6728]).addTo(map)
+  m2 = L.marker([14.6898, 77.7392]).addTo(map)
+  m3 = L.marker([13.7527, 79.2553]).addTo(map)
   }
   else if (names == 'Arunachal Pradesh') {
     geojson = L.geoJson(arunachal, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([27.994401411046148, 93.065185546875], { icon: twitter }).addTo(map)
-  m2 = L.marker([28.825425374477224,  94.85595703125], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.101057958669447, 94.02099609375], { icon: love }).addTo(map)
+  m1 = L.marker([27.994401411046148, 93.065185546875]).addTo(map)
+  m2 = L.marker([28.825425374477224,  94.85595703125]).addTo(map)
+  m3 = L.marker([28.101057958669447, 94.02099609375]).addTo(map)
   }
   else if (names == 'Bihar') {
     geojson = L.geoJson(bihar, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([26.41155054662258,  85.40771484375], { icon: twitter }).addTo(map)
-  m2 = L.marker([25.918526162075153, 87.07763671875], { icon: retweet }).addTo(map)
-  m3 = L.marker([24.926294766395593, 85.1220703125], { icon: love }).addTo(map)
+  m1 = L.marker([26.41155054662258,  85.40771484375]).addTo(map)
+  m2 = L.marker([25.918526162075153, 87.07763671875]).addTo(map)
+  m3 = L.marker([24.926294766395593, 85.1220703125]).addTo(map)
   }
   else if (names == 'Chhattisgarh') {
     geojson = L.geoJson(chhattisgarh, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([20.159098270646936, 81.36474609375], { icon: twitter }).addTo(map)
-  m2 = L.marker([23.32208001137843, 82.68310546875], { icon: retweet }).addTo(map)
-  m3 = L.marker([21.514406720030294, 82.94677734375], { icon: love }).addTo(map)
+  m1 = L.marker([20.159098270646936, 81.36474609375]).addTo(map)
+  m2 = L.marker([23.32208001137843, 82.68310546875]).addTo(map)
+  m3 = L.marker([21.514406720030294, 82.94677734375]).addTo(map)
   }
   else if (names == 'Delhi') {
     geojson = L.geoJson(delhi, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([28.825425374477224, 77.091064453125], { icon: twitter }).addTo(map)
-  m2 = L.marker([28.606225744900115, 76.96197509765625], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.606225744900115, 77.19268798828125], { icon: love }).addTo(map)
+  m1 = L.marker([28.825425374477224, 77.091064453125]).addTo(map)
+  m2 = L.marker([28.606225744900115, 76.96197509765625]).addTo(map)
+  m3 = L.marker([28.606225744900115, 77.19268798828125]).addTo(map)
   }
   else if (names == 'Gujarat') {
     geojson = L.geoJson(gujarat, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([21.238182425982313, 70.697021484375], { icon: twitter }).addTo(map)
-  m2 = L.marker([23.049407390110577, 71.1474609375], { icon: retweet }).addTo(map)
-  m3 = L.marker([22.11617714721062, 71.773681640625], { icon: love }).addTo(map)
+  m1 = L.marker([21.238182425982313, 70.697021484375]).addTo(map)
+  m2 = L.marker([23.049407390110577, 71.1474609375]).addTo(map)
+  m3 = L.marker([22.11617714721062, 71.773681640625]).addTo(map)
   }
   else if (names == 'Himachal Pradesh') {
     geojson = L.geoJson(himachal, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([32.602361666817515, 76.44287109375], { icon: twitter }).addTo(map)
-  m2 = L.marker([32.24997445586331, 77.9150390625], { icon: retweet }).addTo(map)
-  m3 = L.marker([31.034108344903512, 77.40966796875], { icon: love }).addTo(map)
+  m1 = L.marker([32.602361666817515, 76.44287109375]).addTo(map)
+  m2 = L.marker([32.24997445586331, 77.9150390625]).addTo(map)
+  m3 = L.marker([31.034108344903512, 77.40966796875]).addTo(map)
   }
   else if (names == 'Jharkhand') {
     geojson = L.geoJson(jharkhand, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([24.00632619875113, 83.990478515625], { icon: twitter }).addTo(map)
-  m2 = L.marker([24.246964554300924, 85.69335937499999], { icon: retweet }).addTo(map)
-  m3 = L.marker([22.705255477207526, 85.02319335937499], { icon: love }).addTo(map)
+  m1 = L.marker([24.00632619875113, 83.990478515625]).addTo(map)
+  m2 = L.marker([24.246964554300924, 85.69335937499999]).addTo(map)
+  m3 = L.marker([22.705255477207526, 85.02319335937499]).addTo(map)
   }
   else if (names == 'Jammu and Kashmir') {
     geojson = L.geoJson(jk, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([34.05265942137599, 76.3330078125], { icon: twitter }).addTo(map)
-  m2 = L.marker([32.97180377635759, 75.41015624999999], { icon: retweet }).addTo(map)
-  m3 = L.marker([33.41310221370827, 77.05810546875], { icon: love }).addTo(map)
+  m1 = L.marker([34.05265942137599, 76.3330078125]).addTo(map)
+  m2 = L.marker([32.97180377635759, 75.41015624999999]).addTo(map)
+  m3 = L.marker([33.41310221370827, 77.05810546875]).addTo(map)
   }
   else if (names == 'Karnataka') {
     geojson = L.geoJson(karnataka, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([16.699340234594537, 76.4208984375], { icon: twitter }).addTo(map)
-  m2 = L.marker([14.583583455156525, 75.0146484375], { icon: retweet }).addTo(map)
-  m3 = L.marker([12.768946439455956, 76.61865234374999], { icon: love }).addTo(map)
+  m1 = L.marker([16.699340234594537, 76.4208984375]).addTo(map)
+  m2 = L.marker([14.583583455156525, 75.0146484375]).addTo(map)
+  m3 = L.marker([12.768946439455956, 76.61865234374999]).addTo(map)
   }
   else if (names == 'Kerala') {
     geojson = L.geoJson(kerala, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([10.88725377263463, 76.26708984375], { icon: twitter }).addTo(map)
-  m2 = L.marker([9.990490803070292, 76.83837890625], { icon: retweet }).addTo(map)
-  m3 = L.marker([9.253936156814463, 76.53076171875], { icon: love }).addTo(map)
+  m1 = L.marker([10.88725377263463, 76.26708984375]).addTo(map)
+  m2 = L.marker([9.990490803070292, 76.83837890625]).addTo(map)
+  m3 = L.marker([9.253936156814463, 76.53076171875]).addTo(map)
   }
   else if (names == 'Madhya Pradesh') {
     geojson = L.geoJson(madhya, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([23.52370005882413, 76.5087890625], { icon: twitter }).addTo(map)
-  m2 = L.marker([21.983801417384697, 78.55224609374999], { icon: retweet }).addTo(map)
-  m3 = L.marker([23.905926927314724, 80.9912109375], { icon: love }).addTo(map)
+  m1 = L.marker([23.52370005882413, 76.5087890625]).addTo(map)
+  m2 = L.marker([21.983801417384697, 78.55224609374999]).addTo(map)
+  m3 = L.marker([23.905926927314724, 80.9912109375]).addTo(map)
   }
   else if (names == 'Maharashtra') {
     geojson = L.geoJson(maharashtra, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([20.427012814257385, 75.08056640625], { icon: twitter }).addTo(map)
-  m2 = L.marker([20.34462694382967, 77.71728515624999], { icon: retweet }).addTo(map)
-  m3 = L.marker([17.895114303749143, 74.619140625], { icon: love }).addTo(map)
+  m1 = L.marker([20.427012814257385, 75.08056640625]).addTo(map)
+  m2 = L.marker([20.34462694382967, 77.71728515624999]).addTo(map)
+  m3 = L.marker([17.895114303749143, 74.619140625]).addTo(map)
   }
   else if (names == 'Manipur') {
     geojson = L.geoJson(manipur, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([24.996015742094006, 93.44970703125], { icon: twitter }).addTo(map)
-  m2 = L.marker([25.005972656239187, 94.15283203125], { icon: retweet }).addTo(map)
-  m3 = L.marker([24.43714786161562, 93.6474609375], { icon: love }).addTo(map)
+  m1 = L.marker([24.996015742094006, 93.44970703125]).addTo(map)
+  m2 = L.marker([25.005972656239187, 94.15283203125]).addTo(map)
+  m3 = L.marker([24.43714786161562, 93.6474609375]).addTo(map)
   }
   else if (names == 'Meghalaya') {
     geojson = L.geoJson(meghalaya, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([25.750424835909385, 90.362548828125], { icon: twitter }).addTo(map)
-  m2 = L.marker([25.443274612305746, 92.186279296875], { icon: retweet }).addTo(map)
-  m3 = L.marker([25.334096684794456, 91.12060546875], { icon: love }).addTo(map)
+  m1 = L.marker([25.750424835909385, 90.362548828125]).addTo(map)
+  m2 = L.marker([25.443274612305746, 92.186279296875]).addTo(map)
+  m3 = L.marker([25.334096684794456, 91.12060546875]).addTo(map)
   }
   else if (names == 'Mizoram') {
     geojson = L.geoJson(mizoram, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([23.926013033021192, 92.669677734375], { icon: twitter }).addTo(map)
-  m2 = L.marker([22.40087159030595, 92.845458984375], { icon: retweet }).addTo(map)
-  m3 = L.marker([23.271627053918277, 93.109130859375], { icon: love }).addTo(map)
+  m1 = L.marker([23.926013033021192, 92.669677734375]).addTo(map)
+  m2 = L.marker([22.40087159030595, 92.845458984375]).addTo(map)
+  m3 = L.marker([23.271627053918277, 93.109130859375]).addTo(map)
   }
   else if (names == 'Nagaland') {
     geojson = L.geoJson(nagaland, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([26.509904531413927, 94.52636718749999], { icon: twitter }).addTo(map)
-  m2 = L.marker([25.799891182088334, 94.41650390625], { icon: retweet }).addTo(map)
-  m3 = L.marker([26.990618722964737, 95.55908203125], { icon: love }).addTo(map)
+  m1 = L.marker([26.509904531413927, 94.52636718749999]).addTo(map)
+  m2 = L.marker([25.799891182088334, 94.41650390625]).addTo(map)
+  m3 = L.marker([26.990618722964737, 95.55908203125]).addTo(map)
   }
   else if (names == 'Odisha') {
     geojson = L.geoJson(odisha, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([20.3034175184893, 83.73779296875], { icon: twitter }).addTo(map)
-  m2 = L.marker([18.771115062337024, 82.46337890625], { icon: retweet }).addTo(map)
-  m3 = L.marker([19.425153718960143, 84.1552734375], { icon: love }).addTo(map)
+  m1 = L.marker([20.3034175184893, 83.73779296875]).addTo(map)
+  m2 = L.marker([18.771115062337024, 82.46337890625]).addTo(map)
+  m3 = L.marker([19.425153718960143, 84.1552734375]).addTo(map)
   }
   else if (names == 'Rajasthan') {
     geojson = L.geoJson(rajasthan, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([26.92206991673282, 70.77392578125], { icon: twitter }).addTo(map)
-  m2 = L.marker([25.819671943904044, 74.72900390625], { icon: retweet }).addTo(map)
-  m3 = L.marker([28.14950321154457, 74.1357421875], { icon: love }).addTo(map)
+  m1 = L.marker([26.92206991673282, 70.77392578125]).addTo(map)
+  m2 = L.marker([25.819671943904044, 74.72900390625]).addTo(map)
+  m3 = L.marker([28.14950321154457, 74.1357421875]).addTo(map)
   }
   else if (names == 'Sikkim') {
     geojson = L.geoJson(sikkim, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([27.727298422724655, 88.406982421875], { icon: twitter }).addTo(map)
-  m2 = L.marker([27.48390806852859, 88.2861328125], { icon: retweet }).addTo(map)
-  m3 = L.marker([27.415662034561, 88.6761474609375], { icon: love }).addTo(map)
+  m1 = L.marker([27.727298422724655, 88.406982421875]).addTo(map)
+  m2 = L.marker([27.48390806852859, 88.2861328125]).addTo(map)
+  m3 = L.marker([27.415662034561, 88.6761474609375]).addTo(map)
   }
   else if (names == 'Tamil Nadu') {
     geojson = L.geoJson(tamil, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([12.490213662533307, 78.75], { icon: twitter }).addTo(map)
-  m2 = L.marker([9.925565912405506, 78.0029296875], { icon: retweet }).addTo(map)
-  m3 = L.marker([11.329253026617318, 79.12353515625], { icon: love }).addTo(map)
+  m1 = L.marker([12.490213662533307, 78.75]).addTo(map)
+  m2 = L.marker([9.925565912405506, 78.0029296875]).addTo(map)
+  m3 = L.marker([11.329253026617318, 79.12353515625]).addTo(map)
   }
   else if (names == 'Telangana') {
     geojson = L.geoJson(telangana, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([18.8335153964335, 78.75], { icon: twitter }).addTo(map)
-  m2 = L.marker([16.951724234434437, 78.134765625], { icon: retweet }).addTo(map)
-  m3 = L.marker([17.434510551522894, 80.17822265625], { icon: love }).addTo(map)
+  m1 = L.marker([18.8335153964335, 78.75]).addTo(map)
+  m2 = L.marker([16.951724234434437, 78.134765625]).addTo(map)
+  m3 = L.marker([17.434510551522894, 80.17822265625]).addTo(map)
   }
   else if (names == 'Tripura') {
     geojson = L.geoJson(tripura, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([23.29181053244191, 91.62597656249999], { icon: twitter }).addTo(map)
-  m2 = L.marker([23.905926927314724, 91.571044921875], { icon: retweet }).addTo(map)
-  m3 = L.marker([24.016361823963027, 92.186279296875], { icon: love }).addTo(map)
+  m1 = L.marker([23.29181053244191, 91.62597656249999]).addTo(map)
+  m2 = L.marker([23.905926927314724, 91.571044921875]).addTo(map)
+  m3 = L.marker([24.016361823963027, 92.186279296875]).addTo(map)
   }
   else if (names == 'Uttar Pradesh') {
     geojson = L.geoJson(uttar, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([27.839076094777816, 78.92578124999999], { icon: twitter }).addTo(map)
-  m2 = L.marker([27.137368359795584, 81.6943359375], { icon: retweet }).addTo(map)
-  m3 = L.marker([25.819671943904044, 82.3974609375], { icon: love }).addTo(map)
+  m1 = L.marker([27.839076094777816, 78.92578124999999]).addTo(map)
+  m2 = L.marker([27.137368359795584, 81.6943359375]).addTo(map)
+  m3 = L.marker([25.819671943904044, 82.3974609375]).addTo(map)
   }
   else if (names == 'Uttarakhand') {
     geojson = L.geoJson(uttarakhand, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([30.315987718557867, 80.068359375], { icon: twitter }).addTo(map)
-  m2 = L.marker([29.69759650228319, 78.85986328125], { icon: retweet }).addTo(map)
-  m3 = L.marker([30.619004797647808, 78.59619140625], { icon: love }).addTo(map)
+  m1 = L.marker([30.315987718557867, 80.068359375]).addTo(map)
+  m2 = L.marker([29.69759650228319, 78.85986328125]).addTo(map)
+  m3 = L.marker([30.619004797647808, 78.59619140625]).addTo(map)
   }
   else if (names == 'West Bengal') {
     geojson = L.geoJson(west, {
     style: style,
   }).addTo(map);
 
-  m1 = L.marker([23.795397597978745, 88.04443359375], { icon: twitter }).addTo(map)
-  m2 = L.marker([23.200960808078566, 86.912841796875], { icon: retweet }).addTo(map)
-  m3 = L.marker([22.482106236077673, 87.615966796875], { icon: love }).addTo(map)
+  m1 = L.marker([23.795397597978745, 88.04443359375]).addTo(map)
+  m2 = L.marker([23.200960808078566, 86.912841796875]).addTo(map)
+  m3 = L.marker([22.482106236077673, 87.615966796875]).addTo(map)
   } 
+
+  m1.on('mouseover', function (event) {
+      m1.openPopup();
+    });
+
+    m1.on('mouseout', function (event) {
+      m1.closePopup();
+    });
+
+    m2.on('mouseover', function (event) {
+      m2.openPopup();
+    });
+
+    m2.on('mouseout', function (event) {
+      m2.closePopup();
+    });
+
+    m3.on('mouseover', function (event) {
+      m3.openPopup();
+    });
+
+    m3.on('mouseout', function (event) {
+      m3.closePopup();
+    });
+
 </script>
 
 {% endblock %}
