@@ -349,73 +349,73 @@ def box_plot(y_positive, y_negative, y_neutral, name):
 def state_date_plot(state_date_positive, state_date_negative, state_date_neutral, state_name):
     '''For plotting different graphs of states with different dates and sentiments'''
     fig = make_subplots(rows=3,
-                    cols=1,
-                    shared_xaxes=True,
-                    )
+                        cols=1,
+                        shared_xaxes=True,
+                        )
 
     fig.add_trace(go.Scatter(x=list(state_date_positive.keys()),
-                    y=list(state_date_positive.values()),
-                    name='positive😊',
-                    mode='lines+markers',
-                    marker_color='rgb(0,128,0)',
-                    fillcolor='yellow'
-                    ), row=1, col=1)
+                             y=list(state_date_positive.values()),
+                             name='positive😊',
+                             mode='lines+markers',
+                             marker_color='rgb(0,128,0)',
+                             fillcolor='yellow'
+                             ), row=1, col=1)
     fig.add_trace(go.Scatter(x=list(state_date_negative.keys()),
-                    y=list(state_date_negative.values()),
-                    name='Negative🙁',
-                    mode='lines+markers',
-                    marker_color='rgb(255,0,0)'
-                    ), row=2, col=1)
+                             y=list(state_date_negative.values()),
+                             name='Negative🙁',
+                             mode='lines+markers',
+                             marker_color='rgb(255,0,0)'
+                             ), row=2, col=1)
     fig.add_trace(go.Scatter(x=list(state_date_neutral.keys()),
-                    y=list(state_date_neutral.values()),
-                    name='Neutral😑',
-                    mode='lines+markers',
-                    marker_color='rgb(218,165,32)'
-                    ), row=3, col=1)
-    
+                             y=list(state_date_neutral.values()),
+                             name='Neutral😑',
+                             mode='lines+markers',
+                             marker_color='rgb(218,165,32)'
+                             ), row=3, col=1)
+
     fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
-    
+
     # Updating x_axis properties
     fig.update_xaxes(
-                showline=True,
-                linewidth=2,
-                linecolor='darkgreen',
-                row=1, col=1)
-    
+        showline=True,
+        linewidth=2,
+        linecolor='darkgreen',
+        row=1, col=1)
+
     fig.update_xaxes(
-                showline=True,
-                linewidth=2,
-                linecolor='darkred',
-                row=2, col=1)
-    
+        showline=True,
+        linewidth=2,
+        linecolor='darkred',
+        row=2, col=1)
+
     fig.update_xaxes(
-                showline=True,
-                linewidth=2,
-                linecolor='goldenrod',
-                row=3, col=1)
-    
+        showline=True,
+        linewidth=2,
+        linecolor='goldenrod',
+        row=3, col=1)
+
     # Updating y_axis properties
     fig.update_yaxes(title='Sentiments',
-                titlefont_size=16,
-                showline=True,
-                linewidth=2,
-                linecolor='darkgreen',
-                row=1, col=1)
-    
+                     titlefont_size=16,
+                     showline=True,
+                     linewidth=2,
+                     linecolor='darkgreen',
+                     row=1, col=1)
+
     fig.update_yaxes(title='Sentiments',
-                titlefont_size=16,
-                showline=True,
-                linewidth=2,
-                linecolor='darkred',
-                row=2, col=1)
-    
+                     titlefont_size=16,
+                     showline=True,
+                     linewidth=2,
+                     linecolor='darkred',
+                     row=2, col=1)
+
     fig.update_yaxes(title='Sentiments',
-                titlefont_size=16,
-                showline=True,
-                linewidth=2,
-                linecolor='goldenrod',
-                row=3, col=1)
-    
+                     titlefont_size=16,
+                     showline=True,
+                     linewidth=2,
+                     linecolor='goldenrod',
+                     row=3, col=1)
+
     # Updating shapes
     fig.update_layout(
         shapes=[
@@ -458,11 +458,11 @@ def state_date_plot(state_date_positive, state_date_negative, state_date_neutral
                 layer="below",
                 line_width=0,
             )
-        ]  
+        ]
     )
 
     fig.update_layout(
-        width=700,
+        width=600,
         height=800,
         bargap=0.2,
         bargroupgap=0.1,
@@ -490,25 +490,24 @@ def state_date_plot(state_date_positive, state_date_negative, state_date_neutral
                 xanchor="left",
                 y=1.1,
                 yanchor="top",
-                font = dict(color="black")
+                font=dict(color="black")
             ),
         ]
     )
-    
+
     config = {'displayModeBar': True,
-            'scrollZoom': True,
-            'responsive': False,
-            'modeBarButtonsToRemove': ['toggleSpikelines',
-                                        'hoverCompareCartesian',
-                                        'zoom2d',
-                                        'pan2d',
-                                        'select2d',
-                                        'lasso2d'],
-            'displaylogo': False
-            }
+              'responsive': False,
+              'modeBarButtonsToRemove': ['toggleSpikelines',
+                                         'hoverCompareCartesian',
+                                         'zoom2d',
+                                         'pan2d',
+                                         'select2d',
+                                         'lasso2d'],
+              'displaylogo': False
+              }
 
     return(offl.plot(fig, show_link=False, output_type="div",
-                        include_plotlyjs=False, config=config))    
+                        include_plotlyjs=False, config=config))
 
 
 def stacked_barplot(x_list, y_list):
@@ -1122,12 +1121,12 @@ def phases_plot(x_list, y_list, name):
                         )
 
     for names, cols, colors, x_labels, y_labels in zip(names_list, col_list, color_list,
-                                                       x_labels_list, y_labels_list):
+                                                        x_labels_list, y_labels_list):
         fig.add_trace(go.Scatter(x=x_labels,
-                                 y=y_labels,
-                                 mode="lines+markers",
-                                 name=names,
-                                 marker_color=colors), row=1, col=cols)
+                                y=y_labels,
+                                mode="lines+markers",
+                                name=names,
+                                marker_color=colors), row=1, col=cols)
 
     for cols in col_list:
         # Update xaxis properties
@@ -1136,13 +1135,13 @@ def phases_plot(x_list, y_list, name):
         # Update yaxis properties
         if cols == 1:
             fig.update_yaxes(title='Sentiments',
-                             titlefont_size=16,
-                             zeroline=False,
-                             row=1, col=cols)
+                            titlefont_size=16,
+                            zeroline=False,
+                            row=1, col=cols)
         else:
             fig.update_yaxes(titlefont_size=16,
-                             zeroline=False,
-                             row=1, col=cols)
+                            zeroline=False,
+                            row=1, col=cols)
 
     fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
 
@@ -1201,18 +1200,17 @@ def phases_plot(x_list, y_list, name):
     )
 
     config = {'displayModeBar': True,
-              'scrollZoom': True,
-              'responsive': False,
-              'modeBarButtonsToRemove': ['toggleSpikelines',
-                                         'hoverCompareCartesian',
-                                         'zoom2d',
-                                         'pan2d',
-                                         'select2d',
-                                         'lasso2d'],
-              'displaylogo': False
-              }
+                'responsive': False,
+                'modeBarButtonsToRemove': ['toggleSpikelines',
+                                        'hoverCompareCartesian',
+                                        'zoom2d',
+                                        'pan2d',
+                                        'select2d',
+                                        'lasso2d'],
+                'displaylogo': False
+            }
     return(offl.plot(fig, show_link=False, output_type="div",
-                     include_plotlyjs=False, config=config))
+                    include_plotlyjs=False, config=config))
 
 
 def tags_barplot(state_tags_dict, state_name):
@@ -1244,9 +1242,10 @@ def tags_barplot(state_tags_dict, state_name):
 
     # Updating layout
     fig.update_layout(template='plotly_white',
-                      width=600
+                      width=450,
+                      height=450
                       )
 
-    config = {'displayModeBar': False}
+    config = {'staticPlot': True, 'responsive': False}
     return(offl.plot(fig, show_link=False, output_type="div",
                      include_plotlyjs=False, config=config))

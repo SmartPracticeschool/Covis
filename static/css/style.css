@@ -1,0 +1,67 @@
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+.section {
+	min-height: 800px;
+	position: relative;
+	text-align: center;
+	font-family: sans-serif, arial;
+	margin: 0;
+}
+
+#section1 {
+	background: #ffffff;
+	color: #8d86c3;
+}
+
+#section2 {
+	background: white;
+	color: #81d2d5;
+}
+
+#section3 {
+	background: white;
+	color: #686e7c;
+}
+
+#section4 {
+	background: white;
+	color: #aeb9b9;
+}
+
+.nav {
+	position: fixed; 
+	width: 100%;
+	top: 20px;
+	z-index: 9;
+	padding-left: 10px;
+}
+
+.nav a {
+	padding: 7px 20px;
+	border-radius: 7px;
+	margin-right: 10px;
+	background: rgba(133, 129, 129, 0.5);
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-ms-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+	text-decoration: none;
+	color: black;
+	font-family: sans-serif, arial;
+	font-weight: 100;
+}
+
+.nav a.active {
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+
+.nav a:hover {
+	background: rgba(219, 215, 215, 0.7);
+}
+
+
