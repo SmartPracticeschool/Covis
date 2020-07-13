@@ -496,7 +496,6 @@ def state_date_plot(state_date_positive, state_date_negative, state_date_neutral
     )
 
     config = {'displayModeBar': True,
-              'scrollZoom': True,
               'responsive': False,
               'modeBarButtonsToRemove': ['toggleSpikelines',
                                          'hoverCompareCartesian',
