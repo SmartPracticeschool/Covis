@@ -462,7 +462,7 @@ def state_date_plot(state_date_positive, state_date_negative, state_date_neutral
     )
 
     fig.update_layout(
-        width=700,
+        width=600,
         height=800,
         bargap=0.2,
         bargroupgap=0.1,
@@ -1244,7 +1244,8 @@ def tags_barplot(state_tags_dict, state_name):
 
     # Updating layout
     fig.update_layout(template='plotly_white',
-                      width=600
+                      width=450,
+                      height=450
                       )
 
     config = {'staticPlot': True, 'responsive': False}
