@@ -10,12 +10,3 @@ scikit-learn>=0.22
 matplotlib>=3.2.1
 pandas>=1.0.4
 plotly==4.8.2 
-tensorflow==1.14
-textblob==0.16.0
-Keras==2.2.5
-Keras-Applications==1.0.8
-Keras-Preprocessing==1.1.0
-six==1.14.0
-tensorboard==1.14.0
-tensorflow-estimator==1.14.0
-termcolor==1.1.0
