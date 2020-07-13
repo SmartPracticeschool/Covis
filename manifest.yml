@@ -1,5 +1,0 @@
----
-applications:
-  - name: Covid19Dashboards
-    random-route: true
-    memory: 400M
