@@ -1200,7 +1200,6 @@ def phases_plot(x_list, y_list, name):
     )
 
     config = {'displayModeBar': True,
-                'scrollZoom': True,
                 'responsive': False,
                 'modeBarButtonsToRemove': ['toggleSpikelines',
                                         'hoverCompareCartesian',
