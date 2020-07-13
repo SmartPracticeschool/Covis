@@ -14,6 +14,9 @@ def data_plot(df1):
     sentiment_1_dict = dict()
     sentiment_neg_1_dict = dict()
     sentiment_0_dict = dict()
+    total_sentiment_1_dict = dict()
+    total_sentiment_neg_1_dict = dict()
+    total_sentiment_0_dict = dict()
 
     for dates in date_list:
         for ids in np.where(df1.Date == dates):
@@ -28,6 +31,11 @@ def data_plot(df1):
                 total_neg_sentiment/total_setiments, 3)
             sentiment_0_dict[dates] = round(
                 total_neutral_sentiment/total_setiments, 3)
+            
+            # updating the total number of each sentiments
+            total_sentiment_1_dict[dates] = total_pos_sentiment
+            total_sentiment_neg_1_dict[dates] = total_neg_sentiment
+            total_sentiment_0_dict[dates] = total_neutral_sentiment
 
     # extracting different x and y data points from their respective dictionaries to plot them on graph
     x1 = list(sentiment_1_dict.keys())
@@ -41,5 +49,11 @@ def data_plot(df1):
     total_negative = round((sum(list(df1.Sentiment_neg_1)) /len(list(df1.Sentiment_1)))*100, 2)
     total_neutral = round((sum(list(df1.Sentiment_0)) /len(list(df1.Sentiment_1)))*100, 2)
 
-    return dict(x_list = [x1, x2, x3],
-        y_list = [y1, y2, y3], total_positive=total_positive, total_negative=total_negative, total_neutral=total_neutral)
+    return dict(x_list = [x1, x2, x3], y_list = [y1, y2, y3],
+                total_positive = total_positive,
+                total_negative = total_negative,
+                total_neutral = total_neutral,
+                total_num_pos = list(total_sentiment_1_dict.values()),
+                total_num_neg = list(total_sentiment_neg_1_dict.values()),
+                total_num_neutral = list(total_sentiment_0_dict.values())
+            )

@@ -27,7 +27,43 @@ y_list = data_plot_dict['y_list']
 total_positive = data_plot_dict['total_positive']
 total_negative = data_plot_dict['total_negative']
 total_neutral = data_plot_dict['total_neutral']
+total_positive_num = data_plot_dict['total_num_pos']
+total_negative_num = data_plot_dict['total_num_neg']
+total_neutral_num = data_plot_dict['total_num_neutral']
 state_date_senti_dict = state_date_senti_plot(df2)
+
+# function for accessing total number of each sentiments of every phase
+def phase_data(pos_list, neg_list, neu_list, name):
+    if name == 'Phase 1':
+        pos_sum = sum(pos_list[5:24])
+        neg_sum = sum(neg_list[5:24])
+        neu_sum = sum(neu_list[5:24])
+    elif name == 'Phase 2':
+        pos_sum = sum(pos_list[24:43])
+        neg_sum = sum(neg_list[24:43])
+        neu_sum = sum(neu_list[24:43])
+    elif name == 'Phase 3':
+        pos_sum = sum(pos_list[43:56])
+        neg_sum = sum(neg_list[43:56])
+        neu_sum = sum(neu_list[43:56])
+    elif name == 'Phase 4':
+        pos_sum = sum(pos_list[56:70])
+        neg_sum = sum(neg_list[56:70])
+        neu_sum = sum(neu_list[56:70])
+    
+    return [pos_sum, neg_sum, neu_sum]
+
+
+# getting total number for each phase
+ph1_pos, ph1_neg, ph1_neu = phase_data(total_positive_num, total_negative_num,
+                                        total_neutral_num, 'Phase 1')
+ph2_pos, ph2_neg, ph2_neu = phase_data(total_positive_num, total_negative_num,
+                                        total_neutral_num, 'Phase 2')
+ph3_pos, ph3_neg, ph3_neu = phase_data(total_positive_num, total_negative_num,
+                                        total_neutral_num, 'Phase 3')
+ph4_pos, ph4_neg, ph4_neu = phase_data(total_positive_num, total_negative_num,
+                                        total_neutral_num, 'Phase 4')
+    
 
 # Data for tables
 table_dict = table_plot(df1)
@@ -92,7 +128,12 @@ gujarat_tags_plot = plot.tags_barplot(state_tags_dict, 'gujarat')
 chhattisgarh_tags_plot = plot.tags_barplot(state_tags_dict, 'chhattisgarh')
 
 ls = [table_dict, total_positive, total_neutral, total_negative]
-ls1 = [phase_1, phase_2, phase_3, phase_4]
+ls1 = [phase_1, phase_2, phase_3, phase_4,
+        ph1_pos, ph1_neg, ph1_neu,
+        ph2_pos, ph2_neg, ph2_neu,
+        ph3_pos, ph3_neg, ph3_neu,
+        ph4_pos, ph4_neg, ph4_neu
+        ]
 
 @app.route('/', methods=['POST', 'GET'])
 def home(): 
