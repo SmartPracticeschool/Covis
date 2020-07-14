@@ -13,7 +13,7 @@
 
     <style>
         .table {
-            padding-top: 100px;
+            padding-top: -40px;
             margin-right: 600px;
         }
 
@@ -30,7 +30,7 @@
 
         .pred {
             padding-left: 850px;
-            margin-top: -850px;
+            margin-top: -920px;
         }
 
         .button {
@@ -40,6 +40,7 @@
             padding-bottom: 10px;
             background-color: blueviolet;
             color: azure;
+            cursor: pointer;
         }
 
         .result {
@@ -48,14 +49,38 @@
             font-weight: bolder;
             font-size: larger;
         }
+
+        .atext {
+            font-size: larger;
+            cursor: pointer;
+            margin-left: 660px;
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: blueviolet;
+            color: azure;
+        }
     </style>
 </head>
 
 <body>
     {% endblock %}
     {% block all %}
-    <h1 style="text-align: center; font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bolder">Sentiment
+    <h1
+        style="text-align: center; font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bolder; padding-top:20px">
+        Sentiment
         Prediction of COVID-19 Tweets</h1>
+    <br>
+    <br>
+    <br>
+    <div style="padding-left: 30px;">
+        {{var[3]|safe}}
+    </div>
+    <br>
+    <br>
+    <form action="{{url_for('prediction2')}}" method="POST">
+        <button name="fbutton" class="atext" type="submit" value="Next"><b>Next</b></button>
+    </form>
+    <br>
     <table class="table">
         <tr>
             <th>Date</th>
@@ -114,12 +139,16 @@
         </tr>
 
     </table>
+    <br>
+    <br>
+    <br>
     <div class="pred">
         <form action="{{url_for('prediction')}}" method="POST">
             <br />
-            <h2>Enter Tweet For Sentiment Analysis</h2>
+            <h2 style="padding-left: 30px;">Enter Tweet For Sentiment Analysis</h2>
             <br />
-            <textarea name="message" rows="20" cols="60" required="required"></textarea>
+            <textarea style="padding-top:10px; padding-left:10px" name="message" rows="20" cols="60"
+                required="required"></textarea>
             <br />
             <br />
             <br />
