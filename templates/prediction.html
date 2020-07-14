@@ -1,11 +1,132 @@
+{% extends 'main.html' %}
+{% block head %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/component1.css" />
+    <script src="../static/js/modernizr-2.6.2.min.js"></script>
     <title>COVID-19 Sentiment Prediction</title>
+
+    <style>
+        .table {
+            padding-top: 100px;
+            margin-right: 600px;
+        }
+
+        th,
+        td {
+            border: 0.5px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+
+        .pred {
+            padding-left: 850px;
+            margin-top: -850px;
+        }
+
+        .button {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: blueviolet;
+            color: azure;
+        }
+
+        .result {
+            margin-left: 860px;
+            margin-top: 35px;
+            font-weight: bolder;
+            font-size: larger;
+        }
+    </style>
 </head>
+
 <body>
-    
-</body>
-</html>
+    {% endblock %}
+    {% block all %}
+    <h1 style="text-align: center; font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bolder">Sentiment
+        Prediction of COVID-19 Tweets</h1>
+    <table class="table">
+        <tr>
+            <th>Date</th>
+            <th>Live Tweet</th>
+            <th>Sentiment Score</th>
+        </tr>
+        <tr>
+            <td>{{var[0][0]}}</td>
+            <td>{{var[1][0]}}</td>
+            <td>{{var[2][0]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][1]}}</td>
+            <td>{{var[1][1]}}</td>
+            <td>{{var[2][1]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][2]}}</td>
+            <td>{{var[1][2]}}</td>
+            <td>{{var[2][2]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][3]}}</td>
+            <td>{{var[1][3]}}</td>
+            <td>{{var[2][3]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][4]}}</td>
+            <td>{{var[1][4]}}</td>
+            <td>{{var[2][4]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][5]}}</td>
+            <td>{{var[1][5]}}</td>
+            <td>{{var[2][5]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][6]}}</td>
+            <td>{{var[1][6]}}</td>
+            <td>{{var[2][6]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][7]}}</td>
+            <td>{{var[1][7]}}</td>
+            <td>{{var[2][7]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][8]}}</td>
+            <td>{{var[1][8]}}</td>
+            <td>{{var[2][8]}}</td>
+        </tr>
+        <tr>
+            <td>{{var[0][9]}}</td>
+            <td>{{var[1][9]}}</td>
+            <td>{{var[2][9]}}</td>
+        </tr>
+
+    </table>
+    <div class="pred">
+        <form action="{{url_for('prediction')}}" method="POST">
+            <br />
+            <h2>Enter Tweet For Sentiment Analysis</h2>
+            <br />
+            <textarea name="message" rows="20" cols="60" required="required"></textarea>
+            <br />
+            <br />
+            <br />
+            <button class="button" type="submit" value="predict"><b>Predict</b></button>
+        </form>
+    </div>
+    <div class="result">
+        {{prediction}}
+    </div>
+    {% endblock %}
