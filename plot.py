@@ -1248,4 +1248,193 @@ def tags_barplot(state_tags_dict, state_name):
 
     config = {'staticPlot': True, 'responsive': False}
     return(offl.plot(fig, show_link=False, output_type="div",
-                     include_plotlyjs=False, config=config))
+                        include_plotlyjs=False, config=config)
+            )
+
+def predict_plots(date, output_data, train_data, valid_data):    
+    ## Creating data for train part
+    train_data_pos = list(train_data['train_pos'])
+    train_data_neg = list(train_data['train_neg'])
+    train_data_neut = list(train_data['train_neut'])
+    
+    ## Creating data for valid part
+    valid_data_pos = list(valid_data['valid_pos'])
+    valid_data_pred_pos = list(valid_data['valid_pos_pred'])
+    valid_data_neg = list(valid_data['valid_neg'])
+    valid_data_pred_neg = list(valid_data['valid_neg_pred'])
+    valid_data_neut = list(valid_data['valid_neut'])
+    valid_data_pred_neut = list(valid_data['valid_neut_pred'])
+    
+    ## Creating data for next 7 days pred
+    lst_output_pos = list(output_data['lst_output_pos'])
+    lst_output_neg = list(output_data['lst_output_neg'])
+    lst_output_neut = list(output_data['lst_output_neut'])
+    lst_output_pos.append('')
+    lst_output_neg.append('')
+    lst_output_neut.append('')
+    
+    # The date list for x labels
+    the_dates = ['2020-06-01', '2020-06-02', '2020-06-03',
+                '2020-06-04', '2020-06-05', '2020-06-06',
+                '2020-06-07', '2020-06-08'
+                ]
+
+    ## Initialized subplot graphs
+    fig = make_subplots(rows=1,
+                        cols=3,
+                        shared_yaxes=True,
+                        subplot_titles=("Positive😊", "Negative🙁", "Neutral😑")
+                        )
+
+    # Trace for positive graph
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[40:56],
+            y=train_data_pos,
+            mode='lines',
+            name='Training',
+            line = dict(width=2.5, color='skyblue')
+        ), row=1, col=1)
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[56:],
+            y=valid_data_pos,
+            mode='lines',
+            name='Validation',
+            line = dict(width=2.5, color='red')
+        ), row=1, col=1)
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[56:],
+            y=valid_data_pred_pos,
+            mode='lines',
+            name='Predictions',
+            line = dict(width=2.5, color='green')
+        ), row=1, col=1)
+    fig.add_trace(
+        go.Scatter(
+            x=the_dates,
+            y=lst_output_pos,
+            mode='lines',
+            name='Next 7 Days',
+            line = dict(width=2.5, color='purple')
+        ), row=1, col=1)
+
+    # Trace for negative graphs
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[40:57],
+            y=train_data_neg,
+            mode='lines',
+            line = dict(width=2.5, color='skyblue'),
+            showlegend=False,
+            name='Training',
+        ), row=1, col=2)
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[56:],
+            y=valid_data_neg,
+            mode='lines',
+            line = dict(width=2.5, color='red'),
+            showlegend=False,
+            name='Validation',
+        ), row=1, col=2)
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[56:],
+            y=valid_data_pred_neg,
+            mode='lines',
+            line = dict(width=2.5, color='green'),
+            showlegend=False,
+            name='Predictions',
+        ), row=1, col=2)
+    fig.add_trace(
+        go.Scatter(
+            x=the_dates,
+            y=lst_output_neg,
+            mode='lines',
+            line = dict(width=2.5, color='purple'),
+            showlegend=False,
+            name='Next 7 days',
+        ), row=1, col=2)
+
+    # Trace for neutral graph
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[40:56],
+            y=train_data_neut,
+            mode='lines',
+            line = dict(width=2.5, color='skyblue'),
+            showlegend=False,
+            name='Training',
+        ), row=1, col=3)
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[56:],
+            y=valid_data_neut,
+            mode='lines',
+            line = dict(width=2.5, color='red'),
+            showlegend=False,
+            name='Validation',
+        ), row=1, col=3)
+    fig.add_trace(
+        go.Scatter(
+            x=list(date)[56:],
+            y=valid_data_pred_neut,
+            mode='lines',
+            line = dict(width=2.5, color='green'),
+            showlegend=False,
+            name='Predictions',
+        ), row=1, col=3)
+    fig.add_trace(
+        go.Scatter(
+            x=the_dates,
+            y=lst_output_neut,
+            mode='lines',
+            line = dict(width=2.5, color='purple'),
+            showlegend=False,
+            name='Next 7 days',
+        ), row=1, col=3)
+
+    # Update xaxis properties
+    fig.update_xaxes(ticks="outside",
+                    tickwidth=2,
+                    tickcolor='crimson',
+                    ticklen=10,
+                    showline=True,
+                    linewidth=2,
+                    linecolor='black')
+
+    # Update yaxis properties
+    fig.update_yaxes(title='Sentiments',
+                    titlefont_size=16,
+                    zeroline=False,
+                    ticks="outside",
+                    tickwidth=2,
+                    tickcolor='crimson',
+                    ticklen=10,
+                    showline=True,
+                    linewidth=2,
+                    linecolor='black',
+                    row=1, col=1)
+
+    # Updating layout
+    fig.update_layout(
+        height=400,
+        width=1200,
+    )
+
+    ## Added extra configuration to the plot
+    config = {'displayModeBar': True,
+                'responsive': False,
+                'modeBarButtonsToRemove': ['toggleSpikelines',
+                                        'hoverCompareCartesian',
+                                        'zoom2d',
+                                        'pan2d',
+                                        'select2d',
+                                        'lasso2d'],
+                'displaylogo': False
+            }
+    return(offl.plot(fig, show_link=False, output_type="div",
+                        include_plotlyjs=False, config=config)
+            )
