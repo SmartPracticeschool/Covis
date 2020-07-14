@@ -137,7 +137,7 @@ himachal_tags_plot = plot.tags_barplot(state_tags_dict, 'himachal pradesh')
 gujarat_tags_plot = plot.tags_barplot(state_tags_dict, 'gujarat')
 chhattisgarh_tags_plot = plot.tags_barplot(state_tags_dict, 'chhattisgarh')
 
-ls = [table_dict, total_positive, total_neutral, total_negative, pred_plot]
+ls = [table_dict, total_positive, total_neutral, total_negative]
 ls1 = [phase_1, phase_2, phase_3, phase_4,
         ph1_pos, ph1_neg, ph1_neu,
         ph2_pos, ph2_neg, ph2_neu,
@@ -274,9 +274,35 @@ def prediction():
             text = f"Sentiment of tweet is neutral, {prediction}"
         else:
             text = f"Sentiment of tweet is negative, {prediction}"
-    return render_template('prediction.html', prediction = text, var=[list11,list22,list33])
+    return render_template('prediction.html', prediction = text, var=[list11,list22,list33, pred_plot])
 
+def tweet_fetch():
+    new_search = "IndiaFightsCorona+Lockdown -filter:retweets"
+    tweetsi = tweepy.Cursor(api.search,
+                   q=new_search,
+                   lang="en").items(10)
+    for twee in tweetsi:
+        tweet_text = (twee.text)
+        list22.append(tweet_text)
+        day = str((twee.created_at.day))
+        month = str((twee.created_at.month))
+        year = str((twee.created_at.year))
+        time = str(twee.created_at)
+        time = str(time[11:])
+        dt = (day + '-' + month + '-' + year + '\n' + time)
+        list11.append(dt)
+        senti = TextBlob(twee.text)
+        senti = (senti.sentiment.polarity)
+        list33.append(senti)
+    return list11,list22,list33
 
+@app.route('/prediction2', methods=['POST', 'GET'])
+def prediction2():
+    text = "Enter the tweet!!!"
+    if request.method == 'POST':
+        ford = request.form['fbutton']
+        list11,list22,list33 = tweet_fetch()
+    return render_template('prediction.html', prediction = text, var=[list11,list22,list33, pred_plot])
 
 lsm = [sunburst_ploted]
 
