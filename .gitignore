@@ -3,3 +3,4 @@ __pycache__
 *.csv
 *.json
 *.txt
+ __pycache__/plot.cpython-37.pyc
