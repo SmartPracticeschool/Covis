@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 from plot import Plot
 import os
+import tweepy
+from textblob import TextBlob
 import plotly.graph_objects as go
 from data_plot_labels import data_plot
 from table_plot_labels import table_plot
@@ -217,6 +219,56 @@ def states():
         state = request.form['button']
         args = check_state(state)
         return render_template('state.html', args=args)
+
+consumer_key = 'BSMhJOk6MGnzDEaHedT769TOp'
+consumer_secret = '6dKf8Mog6RQdDPVUxrV8wisnFPfxdPrep4Th3mjUZLtXdZZ3ju'
+access_token = '1268458672491040769-p6g1EIKLzWBRwK3jssEjDJY1UvYckr'
+access_token_secret = 'SOCMW6iV7UvDjVLEGYyd89sadCjwPKGyjT3IMnSJ6Tu3r'
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
+
+list11 = []
+list22 = []
+list33 = []
+
+new_search = "IndiaFightsCorona+Lockdown -filter:retweets"
+
+tweetsi = tweepy.Cursor(api.search,
+                   q=new_search,
+                   lang="en",
+                   since='2020-07-5').items(10)
+for twee in tweetsi:
+    tweet_text = (twee.text)
+    list22.append(tweet_text)
+    day = str((twee.created_at.day))
+    month = str((twee.created_at.month))
+    year = str((twee.created_at.year))
+    time = str(twee.created_at)
+    time = str(time[11:])
+    dt = (day + '-' + month + '-' + year + '\n' + time)
+    list11.append(dt)
+    senti = TextBlob(twee.text)
+    senti = (senti.sentiment.polarity)
+    list33.append(senti)
+
+
+@app.route('/prediction', methods=['POST', 'GET'])
+def prediction(): 
+    text = "Enter the tweet!!!"
+    if request.method == 'POST':
+        message = request.form['message']
+        prediction = TextBlob(message)
+        prediction = prediction.sentiment.polarity
+        if prediction > 0:
+            text = f"Sentiment of tweet is positive, {prediction}"
+        elif prediction == 0 :
+            text = f"Sentiment of tweet is neutral, {prediction}"
+        else:
+            text = f"Sentiment of tweet is negative, {prediction}"
+    return render_template('prediction.html', prediction = text, var=[list11,list22,list33])
+
+
 
 lsm = [sunburst_ploted]
 
