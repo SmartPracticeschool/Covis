@@ -14,13 +14,18 @@ app = Flask(__name__)
 
 port = int(os.getenv('PORT', 8000))
 
-# Loading the dataset
+## Loading the datasets
 df = pd.read_csv(r'Model_training/Date_Sentiments.csv')
 df1 = pd.read_csv(r'Model_training/Location_Sentiments.csv')
 df2 = pd.read_csv(r'Model_training/Location_Date_Sentiments.csv')
 df3 = pd.read_csv(r'Data_collection/data/COVID-19_Sentiments.csv')
 
-# Creating list of data points for main plots
+# For prediction page
+output_data = pd.read_csv(r'Model_training/output_data.csv')
+train_data = pd.read_csv(r'Model_training/train_data.csv')
+valid_data = pd.read_csv(r'Model_training/valid_data.csv')
+
+## Creating list of data points for main plots
 data_plot_dict = data_plot(df)
 x_list = data_plot_dict['x_list']
 y_list = data_plot_dict['y_list']
@@ -32,7 +37,7 @@ total_negative_num = data_plot_dict['total_num_neg']
 total_neutral_num = data_plot_dict['total_num_neutral']
 state_date_senti_dict = state_date_senti_plot(df2)
 
-# function for accessing total number of each sentiments of every phase
+## function for accessing total number of each sentiments of every phase
 def phase_data(pos_list, neg_list, neu_list, name):
     if name == 'Phase 1':
         pos_sum = sum(pos_list[5:24])
@@ -54,7 +59,7 @@ def phase_data(pos_list, neg_list, neu_list, name):
     return [pos_sum, neg_sum, neu_sum]
 
 
-# getting total number for each phase
+## getting total number for each phase
 ph1_pos, ph1_neg, ph1_neu = phase_data(total_positive_num, total_negative_num,
                                         total_neutral_num, 'Phase 1')
 ph2_pos, ph2_neg, ph2_neu = phase_data(total_positive_num, total_negative_num,
@@ -65,7 +70,7 @@ ph4_pos, ph4_neg, ph4_neu = phase_data(total_positive_num, total_negative_num,
                                         total_neutral_num, 'Phase 4')
     
 
-# Data for tables
+## Data for tables
 table_dict = table_plot(df1)
 
 sunburst_ploted = plot.sunburst_chart(table_dict['Positive_sentiments'],
@@ -95,6 +100,9 @@ for states in list(arg1.keys()):
 
 # plot for statewise hashtags
 state_tags_dict = States_tags(df3)
+
+## plots for prediction page
+pred_plot = plot.predict_plots(x_list[0], output_data, train_data, valid_data)
 
 haryana_tags_plot = plot.tags_barplot(state_tags_dict, 'haryana')
 assam_tags_plot = plot.tags_barplot(state_tags_dict, 'assam')
@@ -127,7 +135,7 @@ himachal_tags_plot = plot.tags_barplot(state_tags_dict, 'himachal pradesh')
 gujarat_tags_plot = plot.tags_barplot(state_tags_dict, 'gujarat')
 chhattisgarh_tags_plot = plot.tags_barplot(state_tags_dict, 'chhattisgarh')
 
-ls = [table_dict, total_positive, total_neutral, total_negative]
+ls = [table_dict, total_positive, total_neutral, total_negative, pred_plot]
 ls1 = [phase_1, phase_2, phase_3, phase_4,
         ph1_pos, ph1_neg, ph1_neu,
         ph2_pos, ph2_neg, ph2_neu,
