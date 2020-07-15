@@ -1,5 +1,5 @@
 ---
 applications:
-  - name: COVID19__DashBoard__Sentiment__Analysis
+  - name: COVID19__Sentiment__Analyzer
     random-route: true
     memory: 500M
