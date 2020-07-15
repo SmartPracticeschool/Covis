@@ -53,7 +53,7 @@
         .atext {
             font-size: larger;
             cursor: pointer;
-            margin-left: 660px;
+            margin-left: 600px;
             padding-left: 15px;
             padding-right: 15px;
             background-color: blueviolet;
@@ -143,8 +143,10 @@
 <body>
     {% endblock %}
     {% block all %}
-    <h1
-        style="text-align: center; font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bolder; padding-top:20px">
+    <h1 style="text-align: center; font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bolder; padding-top:20px; background-image: linear-gradient(to left, rgb(184, 48, 184), rgb(59, 9, 95),blue); -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;">
         Sentiment
         Prediction of COVID-19 Tweets</h1>
     <br>
@@ -199,7 +201,7 @@
     <br>
     <br>
     <form action="{{url_for('prediction2')}}" method="POST">
-        <button name="fbutton" class="atext" type="submit" value="Next"><b>Next</b></button>
+        <button name="fbutton" class="atext" type="submit" value="Next"><b>More Tweets</b></button>
     </form>
     <br>
     <br>
@@ -267,7 +269,10 @@
     <div class="pred">
         <form action="{{url_for('prediction')}}" method="POST">
             <br />
-            <h2 style="padding-left: 30px;">Enter Tweet For Sentiment Analysis</h2>
+            <h2 style="padding-left: 30px; background-image: linear-gradient(to left, rgb(184, 48, 184), rgb(59, 9, 95),blue); -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;">Enter Tweet For Sentiment Analysis</h2>
             <br />
             <textarea style="padding-top:10px; padding-left:10px" name="message" rows="20" cols="60"
                 required="required"></textarea>
@@ -281,6 +286,8 @@
         {{prediction}}
     </div>
     <br>
+    <img style=" margin-left:760px; height:50%; width:40%; border: 2px solid #ddd;
+  border-radius: 2px; " src="../static/images/word2.jpg" alt="">
     <br>
     <br>
     {% endblock %}
