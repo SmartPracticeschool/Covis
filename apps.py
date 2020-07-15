@@ -228,10 +228,10 @@ def states():
         args = check_state(state)
         return render_template('state.html', args=args)
 
-consumer_key = 'BSMhJOk6MGnzDEaHedT769TOp'
-consumer_secret = '6dKf8Mog6RQdDPVUxrV8wisnFPfxdPrep4Th3mjUZLtXdZZ3ju'
-access_token = '1268458672491040769-p6g1EIKLzWBRwK3jssEjDJY1UvYckr'
-access_token_secret = 'SOCMW6iV7UvDjVLEGYyd89sadCjwPKGyjT3IMnSJ6Tu3r'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)

@@ -2,4 +2,4 @@
 applications:
   - name: COVID19__Sentiment__Analyzer
     random-route: true
-    memory: 500M
+    memory: 600M
