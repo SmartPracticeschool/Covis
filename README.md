@@ -1,5 +1,6 @@
 # SBSPS-Challenge-1505-Sentiment-Analysis-of-COVID-19-Tweets-Dashboard-For-Visualization
-
+video link--> https://drive.google.com/file/d/1Aa9Jf49ancQFAtykCL0LkzhlCq5YDpmg/view?usp=sharing
+website link--> http://covid19sentimentanalyzer-silly-buffalo-si.eu-gb.mybluemix.net/ 
 # Overview: -
 We choose to build a web app for analysis of people’s sentiments during lockdown in India.Our web app would provide proper sentiments analysis of peoples during lockdown with having relevant graphs, tables, and plots all of this is further compiled into a attractive user interactive web app. We also provide plots for all kinds of states in India for better analysis of peoples in different region. Not just stuck with only one kind of plot rather we provide different plots for some data.
 
